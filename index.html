@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MaVionix</title>
+  <meta name="description" content="MaVionix - AI-driven solutions to help your business scale, automate, and innovate.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (Latest Version) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-kWU8SKOaJzWbM5sBiOD5TVE+poYmc7x/tVv7aCS7eCjGm1sZl+cOnu1nBTVGKyAOH+dsbN4ZK7JtE/3uYfwzUg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="font/fonts.css">
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="css/normalize.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/utility.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container flex">
+      <!-- Logo + Brand title -->
+      <div class="brand-logo flex">
+        <img src="images/logo.png" alt="MaVionix Logo" class="logo-img">
+        <a href="index.html" class="site-brand">
+          Ma<span>Vionix</span>
+        </a>
+      </div>
+
+      <button type="button" id="navbar-show-btn" class="flex">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div id="navbar-collapse">
+        <button type="button" id="navbar-close-btn" class="flex">
+          <i class="fas fa-times"></i>
+        </button>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link contact-highlight">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+
+
+<!-- =============================================================
+Mavionix Responsive Hero Header + Service Booking Form (v2)
+-------------------------------------------------------------
+* Desktop / Laptop ≥992px: CONTENT (headline + form) LEFT, LOGO/HERO MEDIA RIGHT.
+* Mobile / Tablet <992px: LOGO/HERO MEDIA TOP, CONTENT (headline + form) BELOW.
+* Removed solid black backgrounds per user request; replaced with light brand-tinted gradient bg + elevated card form.
+* Preserves: field set, dynamic sub-services, pricing logic, date min/max (today .. +3 months), budget validation.
+* Accessible: labels, required indicators (visually + aria), focus styles, inline error messaging (no intrusive alerts unless JS-disabled fallback).
+* Lightweight: no framework dependency; pure HTML/CSS/JS.
+* Action remains GET -> /contact.html (as requested in prior chats to avoid templates/ folder; you serve via send_file()).
+* NOTE: Replace image src below with your actual hi‑res transparent logo (SVG preferred for crisp scale).
+============================================================= -->
+
+<header class="mav-hero" id="mav-hero">
+  
+  <div class="mav-hero-inner">
+    <!-- HERO MEDIA / LOGO -->
+    <div class="mav-hero-media">
+      <img src="images/robo.png" alt="Mavionix Logo" class="mav-hero-logo" loading="lazy" />
+    </div>
+
+    <!-- HERO CONTENT -->
+    <div class="mav-hero-content">
+      <div class="header-title">
+        <h1>Build with Intelligence, Designed to Lead.</h1>
+        <p>We deliver AI‑driven solutions to help your business scale, automate, and innovate.</p>
+      </div>
+
+      <!-- SERVICE BOOKING FORM -->
+      <div class="mav-form-wrapper" role="region" aria-labelledby="mav-form-heading">
+        <h2 class="mav-form-heading" id="mav-form-heading">🚀 Let’s Build Your Digital Solution</h2>
+        <p class="mav-form-sub">Choose your service and get started with <strong>special offers</strong> this month!</p>
+
+        <form id="serviceForm" class="mav-grid-form" action="/contact.html" method="GET" novalidate>
+          <!-- Main Service -->
+          <div class="form-group">
+            <label for="mainService">Main Service <span aria-hidden="true" class="req">*</span></label>
+            <select class="form-control" id="mainService" name="main_service" required aria-required="true">
+              <option value="" disabled selected>Select Main Service</option>
+              <option value="Website Development">Website Development</option>
+              <option value="Chatbot Development">Chatbot Development</option>
+              <option value="Graphics &amp; Design">Graphics &amp; Design</option>
+              <option value="AI &amp; Automation">AI &amp; Automation</option>
+              <option value="Writing &amp; Translation">Writing &amp; Translation</option>
+              <option value="Other">Other</option>
+            </select>
+            <span class="field-msg" id="mainServiceMsg" role="alert"></span>
+          </div>
+
+          <!-- Sub Service -->
+          <div class="form-group">
+            <label for="subService">Sub Service <span aria-hidden="true" class="req">*</span></label>
+            <select class="form-control" id="subService" name="sub_service" required aria-required="true">
+              <option value="" disabled selected>Select Sub Service</option>
+            </select>
+            <span class="field-msg" id="subServiceMsg" role="alert"></span>
+          </div>
+
+          <!-- Preferred Date -->
+          <div class="form-group">
+            <label for="preferredDate">Preferred Date <span aria-hidden="true" class="req">*</span></label>
+            <input type="date" id="preferredDate" name="preferred_date" class="form-control" required aria-required="true" /> 
+            <span class="field-msg" id="dateMsg" role="alert"></span>
+          </div>
+
+          <!-- Budget -->
+          <div class="form-group">
+            <label for="budgetInput">Your Budget (₹) <span aria-hidden="true" class="req">*</span></label>
+            <input type="number" id="budgetInput" name="budget" class="form-control" placeholder="Enter Budget" required aria-required="true" inputmode="numeric" />
+            <span class="field-msg" id="budgetMsg" role="alert"></span>
+          </div>
+
+          <!-- Offer / Promo -->
+          <div class="form-group full-width" id="offerBox" aria-live="polite" aria-atomic="true"></div>
+
+          <!-- Submit -->
+          <div class="form-group full-width submit-wrap">
+            <button type="submit" class="btn-submit">📩 Book Now</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- =============================================================
+  STYLES
+============================================================= -->
+<style>
+ :root {
+  --mav-purple-neon:#C800FF;
+  --mav-purple-soft:#A64DFF;
+  --mav-gray-metal:#CCCCCC;
+  --mav-black-charcoal:#1A1A1A;
+  --mav-text-dark:#1A1A1A;
+  --mav-text-mid:#444;
+  --mav-text-light:#FAFAFA;
+  --mav-card-bg:#FFFFFF;
+  --mav-card-border:rgba(255,255,255,0.08);
+  --mav-radius:12px;
+  --mav-transition:0.3s cubic-bezier(.4,.2,.2,1);
+  --mav-shadow:0 6px 28px -4px rgba(0,0,0,.35);
+  --mav-shadow-focus:0 0 0 3px rgba(200,0,255,.40);
+  --mav-grid-cell:52px;
+  --mav-grid-line:rgba(200,0,255,0.18);
+  --mav-grid-line-strong:rgba(200,0,255,0.35);
+  --mav-bg-deep:#0B0411;
+  --mav-bg-gradient:radial-gradient(circle at 30% 40%,rgba(168,64,255,.35),transparent 60%),
+                     radial-gradient(circle at 75% 70%,rgba(200,0,255,.35),transparent 65%),
+                     linear-gradient(140deg,#1A001F,#140021,#0B0411);
+}
+
+/* -------------------------------------------------- HERO */
+/* DARK THEME HERO */
+.mav-hero {
+  position: relative;
+  width: 100%;
+  padding: clamp(3rem,6vw,6rem) 1rem clamp(8rem,10vw,10rem);
+  font-family: "Inter","Poppins","Segoe UI",Roboto,sans-serif;
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--mav-gray-metal);
+  background: linear-gradient(135deg, #1A1A1A, #0D0D0D, #2E2E2E, #1A1A1A);
+  background-size: 400% 400%;
+  animation: darkGradientMove 8s ease infinite;
+}
+
+@keyframes darkGradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* Tech Grid Overlay - Dark with Purple Glow */
+.mav-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 50% 120%, rgba(200,0,255,.15), transparent 70%),
+    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 100% 100%, var(--mav-grid-cell) var(--mav-grid-cell), var(--mav-grid-cell) var(--mav-grid-cell);
+  mix-blend-mode: screen;
+  animation: darkGridMove 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes darkGridMove {
+  0% {background-position: 0 0, 0 0, 0 0;}
+  100% {background-position: 0 0, 80px 40px, 40px 80px;}
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+  .mav-hero-inner {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "content media";
+    text-align: left;
+  }
+  .mav-hero-content { text-align: left; }
+}
+
+/* Floating particles layer */
+.mav-hero .particles{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+}
+
+@keyframes mavAura{
+  0%{transform:translate3d(-2%,0,0) scale(1);}
+  50%{transform:translate3d(2%,1%,0) scale(1.03);}
+  100%{transform:translate3d(-1%, -1%,0) scale(1.01);}
+}
+@keyframes mavGridShift{
+  0%{background-position:0 0,0 0,50% 120%;}
+  100%{background-position:120px 80px,60px 120px,50% 120%;}
+}
+
+.mav-hero-inner{
+  position:relative;
+  z-index:3;
+  max-width:1250px;
+  margin:0 auto;
+  display:grid;
+  gap:clamp(2rem,5vw,4.5rem);
+  grid-template-columns:1fr;
+  align-items:center;
+}
+
+.mav-hero-content{max-width:640px;margin:0 auto;text-align:left;}
+
+.header-title h1{
+  font-size:clamp(2rem,4.2vw,3.4rem);
+  line-height:1.1;
+  margin:0 0 .6em;
+  background:linear-gradient(90deg,#fff,#d9b6ff 35%,#C800FF 70%);
+  -webkit-background-clip:text;
+  color:transparent;
+  text-shadow:0 0 18px rgba(200,0,255,.45);
+  font-weight:700;
+}
+.header-title p{
+  font-size:clamp(.95rem,1.1vw,1.15rem);
+  max-width:55ch;
+  color:var(--mav-gray-metal);
+  margin:0 0 1.8rem;
+}
+
+.mav-hero-media{
+  text-align:center;
+}
+.mav-hero-logo{
+  max-width:min(420px,80%);
+  width:100%;
+  height:auto;
+  display:inline-block;
+  filter:drop-shadow(0 0 22px rgba(200,0,255,.55));
+  transition:transform .8s ease;
+}
+.mav-hero-logo:hover{transform:scale(1.04) rotate(-1.5deg);}
+
+/* Form Card */
+.mav-form-wrapper{
+  background:rgba(255,255,255,0.11);
+  backdrop-filter:blur(18px) saturate(160%);
+  -webkit-backdrop-filter:blur(18px) saturate(160%);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:18px;
+  padding:1.4rem 1.4rem 2.2rem;
+  box-shadow:0 8px 32px -8px rgba(0,0,0,0.55),0 0 0 1px rgba(200,0,255,.25) inset;
+  position:relative;
+  overflow:hidden;
+}
+.mav-form-wrapper::before{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(140deg,rgba(200,0,255,0.18),transparent 40%,rgba(166,77,255,0.15));
+  opacity:.85;
+  pointer-events:none;
+}
+.mav-form-heading{
+  margin:0 0 .3rem;
+  font-size:1.35rem;
+  font-weight:600;
+  text-align:center;
+  color:#fff;
+}
+.mav-form-sub{
+  margin:0 0 1.1rem;
+  font-size:.9rem;
+  color:var(--mav-gray-metal);
+  text-align:center;
+}
+
+.mav-grid-form{
+  display:grid;
+  gap:18px 20px;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+}
+.mav-grid-form .form-group{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+}
+.mav-grid-form .form-group.full-width{
+  grid-column:1/-1;
+}
+.mav-grid-form label{
+  font-size:.78rem;
+  letter-spacing:.5px;
+  font-weight:600;
+  color:var(--mav-gray-metal);
+  text-transform:uppercase;
+  margin-bottom:4px;
+}
+.req{color:var(--mav-purple-neon);}
+.form-control{
+  padding:.75rem .85rem;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  font-size:.9rem;
+  line-height:1.2;
+  transition:var(--mav-transition);
+  font-family:inherit;
+}
+.form-control:focus{
+  outline:none;
+  border-color:var(--mav-purple-neon);
+  box-shadow:0 0 0 3px rgba(200,0,255,.35);
+}
+.form-control::placeholder{color:rgba(255,255,255,.55);}
+.field-msg{
+  min-height:1.05em;
+  margin-top:3px;
+  font-size:.7rem;
+  letter-spacing:.3px;
+  color:#FF4D4F;
+}
+
+.offer-box{
+  min-height:1.3em;
+  text-align:center;
+  font-size:.88rem;
+  font-weight:500;
+  color:#fff;
+}
+.offer-box .offer-price{
+  font-weight:700;
+  color:var(--mav-purple-neon);
+  text-shadow:0 0 10px rgba(200,0,255,.7);
+}
+/* Style for the dropdown itself */
+header select {
+  background-color: #1A1A1A; /* Background of the select */
+  color: #FFFFFF;            /* Text color */
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Style for the dropdown options */
+header select option {
+  background-color: #2E2E2E; /* Background for each option */
+  color: #C800FF;            /* Text color */
+  padding: 10px;
+}
+
+.submit-wrap{text-align:center;margin-top:.5rem;}
+.btn-submit{
+  background:linear-gradient(90deg,var(--mav-purple-neon),var(--mav-purple-soft));
+  color:#fff;
+  border:none;
+  padding:.95rem 2.4rem;
+  border-radius:14px;
+  font-size:.95rem;
+  letter-spacing:.5px;
+  font-weight:600;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  transition:var(--mav-transition);
+  box-shadow:0 6px 18px -4px rgba(200,0,255,.55);
+}
+.btn-submit:hover,
+.btn-submit:focus{
+  transform:translateY(-3px);
+  box-shadow:0 10px 28px -6px rgba(200,0,255,.65);
+}
+.btn-submit:active{transform:translateY(0);}
+
+/* Larger screens layout */
+@media (min-width:900px){
+  .mav-hero-inner{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    align-items:start;
+  }
+  .mav-hero-content{order:1;}
+  .mav-hero-media{order:2;}
+  .mav-form-wrapper{margin-top:1rem;}
+}
+
+/* Ultra-wide adjust */
+@media (min-width:1400px){
+  .mav-hero-logo{max-width:520px;}
+}
+
+/* Small devices single column form */
+@media (max-width:520px){
+  .mav-grid-form{
+    grid-template-columns:1fr;
+  }
+  .mav-form-wrapper{
+    padding:1.1rem 1.1rem 1.8rem;
+  }
+  .header-title h1{
+    font-size:clamp(1.9rem,8.5vw,2.6rem);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion:reduce){
+  .mav-hero::before,
+  .mav-hero--grid::after{
+    animation:none;
+  }
+  .mav-hero-logo{
+    transition:none;
+  }
+  .btn-submit{
+    transition:none;
+  }
+}
+  /* SERVICES (FAQ‑Card Style Overlap) --------------------------------------- */
+  
+  /* --- SERVICES (match FAQ card look) --- */
+.services-wrapper {
+  position: relative;
+  padding: 0 1rem;
+  margin-top: 0;
+  background: transparent;
+  color: var(--mav-text-dark);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Pull card upward under hero */
+.services-wrapper--overlap {
+  margin-top: clamp(-6rem, -10vw, -8rem);
+}
+
+/* White card like FAQ wrapper */
+.services-card {
+  position: relative;
+  max-width: 1000px; /* match FAQ width */
+  margin: 0 auto 80px;
+  background: var(--mav-card-bg);     /* white */
+  color: #222;
+  padding: clamp(32px,5vw,64px) clamp(16px,5vw,48px) 80px;
+  border-radius: 16px; /* or var(--mvx-radius-lg) if defined globally */
+  box-shadow: var(--mav-shadow);      /* soft shadow */
+  overflow: hidden;
+}
+
+/* Remove old grid overlay */
+.services-card::before {
+  content: none !important;
+}
+
+/* Add purple accent bar under card (like FAQ ::after) */
+.services-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -24px;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 6px;
+  border-radius: 3px;
+  background: #C800FF; /* Neon Purple */
+  opacity: 0.6;
+}
+
+/* Heading + sub copy */
+.services-wrapper .section-title {
+  text-align: center;
+  font-size: clamp(2rem, 2.5vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--mav-text-dark);
+}
+
+.services-wrapper .section-subtitle {
+  text-align: center;
+  opacity: .7;
+  max-width: 650px;
+  margin: 0 auto 40px;
+  font-size: 1.05rem;
+  color: var(--mav-text-mid);
+}
+
+/* Flip card grid inside white card */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%,220px),1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.flip-card {
+  perspective: 1000px;
+  cursor: pointer;
+  outline: none;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  transform-style: preserve-3d;
+  transition: transform .8s var(--mav-transition);
+}
+
+.flip-card:hover .flip-inner,
+.flip-card:focus .flip-inner,
+.flip-card.flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  backface-visibility: hidden;
+}
+
+/* Light front to sit on white card */
+.flip-front {
+  background: rgba(0,0,0,.04);
+  border: 1px solid rgba(0,0,0,.08);
+  color: var(--mav-text-dark);
+}
+
+/* Purple back */
+.flip-back {
+  background: var(--mav-purple-neon);
+  transform: rotateY(180deg);
+  color: #fff;
+}
+
+.flip-front h3,
+.flip-back h3 {
+  margin-bottom: .5rem;
+  font-size: 1.2rem;
+}
+
+.flip-front p,
+.flip-back p {
+  font-size: .95rem;
+  max-width: 20ch;
+}
+.flip-front .price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--mav-purple-neon);
+}
+/* Force new button style */
+.btn-book {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--mvx-neon-purple), var(--mvx-soft-purple));
+  color: #fff !important;
+  border: 2px solid var(--mvx-neon-purple);
+  border-radius: 14px; /* rounded rectangle */
+  padding: 12px 28px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(200, 0, 255, 0.3);
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-book:hover {
+  background: linear-gradient(135deg, var(--mvx-soft-purple), var(--mvx-neon-purple));
+  box-shadow: 0 6px 20px rgba(200, 0, 255, 0.5);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.btn-book:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(200, 0, 255, 0.4);
+}
+
+.btn-book:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 8px rgba(200, 0, 255, 0.3);
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner { transition: none; }
+  .flip-card:hover .flip-inner,
+  .flip-card:focus .flip-inner,
+  .flip-card.flipped .flip-inner { transform: none; }
+  .flip-back { display: none; }
+}
+
+
+</style>
+
+<!-- =============================================================
+  SCRIPT
+  (No duplicate blocks; namespaced; safe to include multiple times site‑wide.)
+============================================================= -->
+<script>
+(function mavHeroInit(){
+  const SERVICE_DATA = {
+    "Website Development": {
+        sub: [
+            "WordPress Business Site",
+            "E-commerce Store",
+            "Landing Page",
+            "Custom Web Application",
+            "Portfolio Website",
+            "Booking & Appointment System"
+        ],
+        prices: {
+            "WordPress Business Site": 14999,
+            "E-commerce Store": 24999,
+            "Landing Page": 7999,
+            "Custom Web Application": 49999,
+            "Portfolio Website": 9999,
+            "Booking & Appointment System": 14999
+        }
+    },
+    "Chatbot Development": {
+        sub: [
+            "WhatsApp Bot",
+            "AI Customer Support Bot",
+            "Multiplatform Bot",
+            "E-commerce Product Recommendation Bot"
+        ],
+        prices: {
+            "WhatsApp Bot": 9999,
+            "AI Customer Support Bot": 19999,
+            "Multiplatform Bot": 24999,
+            "E-commerce Product Recommendation Bot": 17999
+        }
+    },
+    "Graphics & Design": {
+        sub: [
+            "Logo Design",
+            "Social Media Creatives",
+            "UI/UX Design",
+            "Business Card & Stationery",
+            "Brand Style Guide"
+        ],
+        prices: {
+            "Logo Design": 2999,
+            "Social Media Creatives": 999,
+            "UI/UX Design": 9999,
+            "Business Card & Stationery": 1499,
+            "Brand Style Guide": 3999
+        }
+    },
+    "AI & Automation": {
+        sub: [
+            "Custom AI Tools",
+            "Process Automation",
+            "Data Dashboards",
+            "Lead Generation Automation",
+            "Email Marketing Automation"
+        ],
+        prices: {
+            "Custom AI Tools": 29999,
+            "Process Automation": 14999,
+            "Data Dashboards": 12999,
+            "Lead Generation Automation": 11999,
+            "Email Marketing Automation": 7999
+        }
+    },
+    "Writing & Translation": {
+        sub: [
+            "SEO Blog Writing",
+            "Product Descriptions",
+            "Ad Copywriting",
+            "Translation (EN-HI)",
+            "Website Content Writing"
+        ],
+        prices: {
+            "SEO Blog Writing": 999,
+            "Product Descriptions": 499,
+            "Ad Copywriting": 1499,
+            "Translation (EN-HI)": 999,
+            "Website Content Writing": 1999
+        }
+    },
+    "Other": {
+        sub: [
+            "SEO Services",
+            "Cloud Setup & Hosting",
+            "Business Consulting",
+            "Performance Optimization"
+        ],
+        prices: {
+            "SEO Services": 6999,
+            "Cloud Setup & Hosting": 7999,
+            "Business Consulting": 2499,
+            "Performance Optimization": 5999
+        }
+    }
+};
+
+  // Flatten for quick lookup
+  const PRICE_LOOKUP = Object.values(SERVICE_DATA).reduce((acc,cat)=>Object.assign(acc,cat.prices),{});
+
+  const mainService   = document.getElementById("mainService");
+  const subService    = document.getElementById("subService");
+  const budgetInput   = document.getElementById("budgetInput");
+  const offerBox      = document.getElementById("offerBox");
+  const dateInput     = document.getElementById("preferredDate");
+  const form          = document.getElementById("serviceForm");
+
+  const msgMain       = document.getElementById("mainServiceMsg");
+  const msgSub        = document.getElementById("subServiceMsg");
+  const msgDate       = document.getElementById("dateMsg");
+  const msgBudget     = document.getElementById("budgetMsg");
+
+  const fmtINR = (v)=> new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(v);
+
+  /* Populate sub-services when main service changes */
+  mainService.addEventListener('change', () => {
+    const selected = mainService.value;
+    const group = SERVICE_DATA[selected];
+    subService.innerHTML = '<option value="" disabled selected>Select Sub Service</option>';
+    if (group) {
+      group.sub.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s;
+        opt.textContent = s;
+        subService.appendChild(opt);
+      });
+    }
+    offerBox.innerHTML = '';
+    budgetInput.value = '';
+    clearMsgs();
+  });
+
+  /* Show discount & autofill budget when sub-service chosen */
+  subService.addEventListener('change', () => {
+    const selected = subService.value;
+    if (selected && PRICE_LOOKUP[selected] != null) {
+      const actual = PRICE_LOOKUP[selected];
+      const discount = Math.floor(actual * 0.75); // 25% off
+      offerBox.innerHTML = `🎉 <strong>Special Offer:</strong> <s>${fmtINR(actual)}</s> <span class="offer-price">${fmtINR(discount)}</span> only!`;
+      budgetInput.value = discount;
+      // Update input min/max for validation UI hints
+      budgetInput.min = Math.floor(actual * 0.5);
+      budgetInput.max = actual;
+      msgBudget.textContent = `Allowed: ${fmtINR(Math.floor(actual*0.5))} – ${fmtINR(actual)}.`;
+    } else {
+      offerBox.innerHTML = '';
+      budgetInput.removeAttribute('min');
+      budgetInput.removeAttribute('max');
+      msgBudget.textContent = '';
+    }
+  });
+
+  /* Date limits: today .. +3 months (local time) */
+  (function setDateLimits(){
+    const today = new Date();
+    const threeMonthsLater = new Date(today);
+    threeMonthsLater.setMonth(today.getMonth() + 3);
+    const pad2 = n => String(n).padStart(2,'0');
+    const fmt  = d => `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;
+    dateInput.min = fmt(today);
+    dateInput.max = fmt(threeMonthsLater);
+    msgDate.textContent = `Select between ${dateInput.min} and ${dateInput.max}.`;
+  })();
+
+  /* Inline validation helper */
+  function clearMsgs(){
+    msgMain.textContent = '';
+    msgSub.textContent = '';
+    msgDate.textContent = msgDate.textContent || '';
+    msgBudget.textContent = '';
+  }
+
+  function showError(el,msgEl,msg){
+    msgEl.textContent = msg;
+    el.setAttribute('aria-invalid','true');
+  }
+  function clearError(el,msgEl){
+    msgEl.textContent = '';
+    el.removeAttribute('aria-invalid');
+  }
+
+  /* Custom submit validation */
+  form.addEventListener('submit', function(e){
+    let ok = true;
+    clearMsgs();
+
+    if(!mainService.value){
+      showError(mainService,msgMain,'Please select a main service.');
+      ok = false;
+    } else {
+      clearError(mainService,msgMain);
+    }
+
+    if(!subService.value){
+      showError(subService,msgSub,'Please select a sub service.');
+      ok = false;
+    } else {
+      clearError(subService,msgSub);
+    }
+
+    // Date check
+    if(!dateInput.value){
+      showError(dateInput,msgDate,'Please pick a preferred date.');
+      ok = false;
+    } else if (dateInput.value < dateInput.min || dateInput.value > dateInput.max){
+      showError(dateInput,msgDate,`Choose a date between ${dateInput.min} and ${dateInput.max}.`);
+      ok = false;
+    } else {
+      clearError(dateInput,msgDate);
+    }
+
+    // Budget check
+    const selected = subService.value;
+    const budget = parseInt(budgetInput.value,10);
+    if(isNaN(budget)){
+      showError(budgetInput,msgBudget,'Enter a numeric budget.');
+      ok = false;
+    } else if (selected && PRICE_LOOKUP[selected]){
+      const actual = PRICE_LOOKUP[selected];
+      const min = Math.floor(actual * 0.5);
+      const max = actual;
+      if (budget < min || budget > max){
+        showError(budgetInput,msgBudget,`Please enter between ${fmtINR(min)} and ${fmtINR(max)} for ${selected}.`);
+        ok = false;
+      } else {
+        clearError(budgetInput,msgBudget);
+      }
+    } else {
+      clearError(budgetInput,msgBudget);
+    }
+
+    if(!ok){
+      e.preventDefault();
+      // Fallback audible alert for screen readers (and old UX parity)
+      alert('Please correct the highlighted fields before submitting.');
+    }
+  });
+})();
+function animatePrice(start, end, element) {
+  let current = start;
+  const increment = (end - start) / 50; // 50 steps
+  const interval = setInterval(() => {
+    current += increment;
+    element.innerHTML = `🎉 <strong>Special Offer:</strong> <s>₹${priceMap[subService.value]}</s> <span style="color:var(--mav-purple-neon);">₹${Math.floor(current)}</span> only!`;
+    if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+      clearInterval(interval);
+    }
+  }, 15);
+}
+
+subService.addEventListener("change", () => {
+  const selected = subService.value;
+  if (selected in priceMap) {
+    const actual = priceMap[selected];
+    const discount = Math.floor(actual * 0.75);
+    animatePrice(actual, discount, offerBox);
+    budgetInput.value = discount;
+  }
+});
+
+</script>
+
+<!-- end header -->
+
+        
+<!-- services section -->
+<!-- HTML + CSS + JS Combined -->
+<section class="services-wrapper services-wrapper--overlap" id="services" aria-labelledby="services-heading">
+  <div class="services-card">
+    <h2 class="section-title" id="services-heading">Our Services</h2>
+    <p class="section-subtitle">Explore our expert solutions designed to power your growth.</p>
+
+    <div class="cards-container">
+
+      <!-- Website Development -->
+      <article class="flip-card" tabindex="0" aria-label="Website Development details" data-service="Website Development">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <h3>Website Development</h3>
+            <p>Custom, responsive, and performance-driven websites.</p>
+          </div>
+          <div class="flip-back">
+            <h3>Website Development</h3>
+            <p>End-to-end development from design to deployment.</p>
+            <div class="card-actions">
+              <a href="assets/pdfs/web-development.pdf" download class="btn-download">Download PDF</a>
+              <style>/* Force new button style */
+.btn-book {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--mvx-neon-purple), var(--mvx-soft-purple));
+  color: #fff !important;
+  border: 2px solid var(--mvx-neon-purple);
+  border-radius: 14px; /* rounded rectangle */
+  padding: 12px 28px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(200, 0, 255, 0.3);
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-book:hover {
+  background: linear-gradient(135deg, var(--mvx-soft-purple), var(--mvx-neon-purple));
+  box-shadow: 0 6px 20px rgba(200, 0, 255, 0.5);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.btn-book:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(200, 0, 255, 0.4);
+}
+
+.btn-book:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 8px rgba(200, 0, 255, 0.3);
+}
+</style>
+              <button class="btn-book" data-service="Website Development">Book Now</button>
+              <style>
+                /* Force new button style */
+.btn-book {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--mvx-neon-purple), var(--mvx-soft-purple));
+  color: #fff !important;
+  border: 2px solid var(--mvx-neon-purple);
+  border-radius: 14px; /* rounded rectangle */
+  padding: 12px 28px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(200, 0, 255, 0.3);
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-book:hover {
+  background: linear-gradient(135deg, var(--mvx-soft-purple), var(--mvx-neon-purple));
+  box-shadow: 0 6px 20px rgba(200, 0, 255, 0.5);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.btn-book:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(200, 0, 255, 0.4);
+}
+
+.btn-book:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 8px rgba(200, 0, 255, 0.3);
+}
+
+              </style>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- AI Chatbots -->
+      <article class="flip-card" tabindex="0" aria-label="AI Chatbots details" data-service="AI Chatbots">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <h3>AI Chatbots</h3>
+            <p>Smart bots for websites, apps, and messaging platforms.</p>
+          </div>
+          <div class="flip-back">
+            <h3>AI Chatbot Development</h3>
+            <p>Conversational AI tailored for customer support and engagement.</p>
+            <div class="card-actions">
+              <a href="assets/pdfs/ai-chatbots.pdf" download class="btn-download">Download PDF</a>
+              <button class="btn-book" data-service="AI Chatbots">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Graphics & Design -->
+      <article class="flip-card" tabindex="0" aria-label="Graphics & Design details" data-service="Graphics & Design">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <h3>Graphics & Design</h3>
+            <p>Creative visuals that make your brand unforgettable.</p>
+          </div>
+          <div class="flip-back">
+            <h3>Graphics & Design</h3>
+            <p>Logos, branding, social media graphics, and more.</p>
+            <div class="card-actions">
+              <a href="assets/pdfs/graphics-design.pdf" download class="btn-download">Download PDF</a>
+              <button class="btn-book" data-service="Graphics & Design">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- AI Services -->
+      <article class="flip-card" tabindex="0" aria-label="AI Services details" data-service="AI Services">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <h3>AI Services</h3>
+            <p>Intelligent solutions powered by advanced AI technology.</p>
+          </div>
+          <div class="flip-back">
+            <h3>AI Solutions</h3>
+            <p>Custom AI models, automation, and analytics tailored to your goals.</p>
+            <div class="card-actions">
+              <a href="assets/pdfs/ai-services.pdf" download class="btn-download">Download PDF</a>
+              <button class="btn-book" data-service="AI Services">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Writing & Translation -->
+      <article class="flip-card" tabindex="0" aria-label="Writing & Translation details" data-service="Writing & Translation">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <h3>Writing & Translation</h3>
+            <p>Professional content creation in multiple languages.</p>
+          </div>
+          <div class="flip-back">
+            <h3>Writing & Translation</h3>
+            <p>Articles, copywriting, and accurate translation services.</p>
+            <div class="card-actions">
+              <a href="assets/pdfs/writing-translation.pdf" download class="btn-download">Download PDF</a>
+              <button class="btn-book" data-service="Writing & Translation">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Combo Services -->
+      <article class="flip-card" tabindex="0" aria-label="Combo Services details" data-service="Combo Services">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <h3>Combo Services</h3>
+            <p>Value-packed bundles combining multiple service categories.</p>
+          </div>
+          <div class="flip-back">
+            <h3>Combo Service Packages</h3>
+            <p>Affordable and powerful combos to cover all your business needs.</p>
+            <div class="card-actions">
+              <a href="assets/pdfs/combo-services.pdf" download class="btn-download">Download PDF</a>
+              <button class="btn-book" data-service="Combo Services">Book Now</button>
+
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+<script>document.querySelectorAll('.btn-book').forEach(button => {
+  button.addEventListener('click', () => {
+    const service = button.getAttribute('data-service');
+    window.location.href = `/contact.html?service=${encodeURIComponent(service)}`;
+  });
+});</script>
+
+
+  <script src="script.js"></script>
+
+<script>// Flip on click for mobile or touch devices
+document.querySelectorAll('.flip-card').forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('flipped');
+  });
+});
+</script>
+
+  
+<!-- Why Choose Us Section -->
+
+
+<section id="why-choose-us" class="why-choose-section">
+  <div class="container">
+    <h2 class="section-heading">Why Choose <span>MaVionix</span>?</h2>
+    <p class="section-subtext">Empowering your business with intelligent, creative, and futuristic solutions.</p>
+
+    <div class="why-cards">
+      <div class="why-card">
+        <div class="icon"><i class="fas fa-robot"></i></div>
+        <h3>AI-Driven Approach</h3>
+        <p>We blend creativity with artificial intelligence to deliver smart, scalable, and futuristic solutions.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon"><i class="fas fa-users-cog"></i></div>
+        <h3>Skilled Professionals</h3>
+        <p>Our team consists of domain experts who innovate, design, and develop with perfection.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Results That Matter</h3>
+        <p>From strategy to execution, we ensure real impact and measurable growth for our clients.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon"><i class="fas fa-headset"></i></div>
+        <h3>24/7 Support</h3>
+        <p>We’re always here. Your ideas, issues, and insights matter to us — any day, any time.</p>
+      </div>
+    </div>
+  </div>
+  <!-- CTA Button -->
+<div class="cta-wrapper">
+  <p class="cta-text">Still wondering? Let’s turn your ideas into reality — <strong>FREE 1-on-1 consulting!</strong></p>
+  <a href="contact.html" class="cta-button">Get Started Now</a>
+</div>
+
+</section>
+<!-- Industries We Serve Section -->
+<!-- Industries We Serve - Responsive Scrolling -->
+<section class="industries-marquee">
+  <div class="container">
+    <h2 class="section-heading">Industries We <span>Serve</span></h2>
+    <p class="section-subtext">Delivering tailored solutions across diverse sectors with AI, automation & web expertise.</p>
+
+    <div class="scroll-wrapper">
+      <div class="scroll-track">
+        <!-- Repeat cards for infinite effect -->
+        <div class="industry-card"><i class="fas fa-shopping-cart"></i> E-commerce</div>
+        <div class="industry-card"><i class="fas fa-user-md"></i> Healthcare</div>
+        <div class="industry-card"><i class="fas fa-book-reader"></i> EdTech</div>
+        <div class="industry-card"><i class="fas fa-home"></i> Real Estate</div>
+        <div class="industry-card"><i class="fas fa-briefcase"></i> B2B Services</div>
+        <div class="industry-card"><i class="fas fa-plane-departure"></i> Travel</div>
+        <div class="industry-card"><i class="fas fa-university"></i> Finance</div>
+        <div class="industry-card"><i class="fas fa-bolt"></i> Energy</div>
+        <!-- Duplicate for continuous scroll -->
+        <div class="industry-card"><i class="fas fa-shopping-cart"></i> E-commerce</div>
+        <div class="industry-card"><i class="fas fa-user-md"></i> Healthcare</div>
+        <div class="industry-card"><i class="fas fa-book-reader"></i> EdTech</div>
+        <div class="industry-card"><i class="fas fa-home"></i> Real Estate</div>
+        <div class="industry-card"><i class="fas fa-briefcase"></i> B2B Services</div>
+        <div class="industry-card"><i class="fas fa-plane-departure"></i> Travel</div>
+        <div class="industry-card"><i class="fas fa-university"></i> Finance</div>
+        <div class="industry-card"><i class="fas fa-bolt"></i> Energy</div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>document.addEventListener("DOMContentLoaded", () => {
+  const scrollTrack = document.querySelector(".scroll-track");
+  const scrollWrapper = document.querySelector(".scroll-wrapper");
+
+  let animationRunning = true;
+
+  scrollWrapper.addEventListener("mouseenter", () => {
+    scrollTrack.style.animationPlayState = "paused";
+    animationRunning = false;
+  });
+
+  scrollWrapper.addEventListener("mouseleave", () => {
+    scrollTrack.style.animationPlayState = "running";
+    animationRunning = true;
+  });
+
+  // Optional IntersectionObserver
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && animationRunning) {
+        scrollTrack.style.animationPlayState = "running";
+      } else {
+        scrollTrack.style.animationPlayState = "paused";
+      }
+    });
+  }, { threshold: 0.2 });
+
+  observer.observe(scrollWrapper);
+});
+</script>
+
+
+<script>// Scroll animation for Why Choose Us cards
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  document.querySelectorAll(".why-card").forEach((card) => {
+    observer.observe(card);
+  });
+});
+</script>
+<script>const cards = document.querySelectorAll(".why-card");
+
+cards.forEach((card, index) => {
+  card.style.transitionDelay = `${index * 0.2}s`;
+});
+</script>
+<script>document.querySelectorAll('.why-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `rotateX(${y * 10}deg) rotateY(${x * 10}deg) scale(1.03)`;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+  });
+});
+</script>
+<script>// Reveal animation for industry cards
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".industry-card");
+
+  const revealOnScroll = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(revealOnScroll, {
+    threshold: 0.2
+  });
+
+  cards.forEach(card => observer.observe(card));
+});
+cards.forEach((card, i) => {
+  card.style.transition = `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s`;
+});
+
+</script>
+        <!-- end of services section -->
+<!-- testimonials section -->
+<section id="testimonials">
+  <div class="container">
+    <div class="title-wrap">
+      <span class="sm-title">What our clients say about MaVionix</span>
+      <h2 class="lg-title">Client Testimonials</h2>
+      <p class="section-subtitle">Real stories from real clients — across industries and around the globe.</p>
+    </div>
+
+    <div class="testimonial-scroll">
+      
+      <!-- Testimonial 1 -->
+      <div class="test-item">
+        <p>“Mavionix’s chatbot transformed our hiring process. Saved time, improved candidate experience, and boosted engagement.”</p>
+        <div class="rating">Rating: 4.8 / 5.0<br><span>★★★★☆</span></div>
+        <div class="client-info">
+          <img src="images/test-1.jpg" alt="testimonial">
+          <div>
+            <h3>Rohit Sneha</h3>
+            <p>HR Head, HiringTech<br><small>Reviewed: Aug 2025</small></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="test-item">
+        <p>“We saw a 40% increase in conversion after Mavionix redesigned our website and branding. Very impressed with their work.”</p>
+        <div class="rating">Rating: 5.0 / 5.0<br><span>★★★★★</span></div>
+        <div class="client-info">
+          <img src="images/test-2.jpg" alt="testimonial">
+          <div>
+            <h3>Aman Kapoor</h3>
+            <p>CEO, D2C Apparel Brand<br><small>Reviewed: Aug 2025</small></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="test-item">
+        <p>“They developed a smart chatbot for our real estate platform. It works 24/7 and generates qualified leads automatically.”</p>
+        <div class="rating">Rating: 4.7 / 5.0<br><span>★★★★☆</span></div>
+        <div class="client-info">
+          <img src="images/test-3.jpg" alt="testimonial">
+          <div>
+            <h3>Priya Arora</h3>
+            <p>Sales Head, UrbanBuild Realty<br><small>Reviewed: Aug 2025</small></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="test-item">
+        <p>“From branding to backend automation, MaVionix handled our entire digital transformation. Professional and proactive team.”</p>
+        <div class="rating">Rating: 5.0 / 5.0<br><span>★★★★★</span></div>
+        <div class="client-info">
+          <img src="images/test-4.jpg" alt="testimonial">
+          <div>
+            <h3>Sneha Malhotra</h3>
+            <p>Founder, EduLeap<br><small>Reviewed: Aug 2025</small></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- end of testimonials section -->
+<script>// Auto scroll testimonials every 5 seconds
+const scrollContainer = document.querySelector(".testimonial-scroll");
+let scrollAmount = 0;
+setInterval(() => {
+  scrollAmount += 360; // approx card width + gap
+  if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+    scrollAmount = 0;
+  }
+  scrollContainer.scrollTo({ left: scrollAmount, behavior: "smooth" });
+}, 5000);
+</script>
+        <!-- end of testimonials section -->
+        <!-- video section -->
+        <section id = "video">
+            <div class = "video-wrapper flex">
+                <video loop>
+                    <source src = "videos/mavi.mp4" type = "video/mp4">
+                </video>
+                <button type = "button" id = "play-btn">
+                    <i class = "fas fa-play"></i>
+                </button>
+            </div>
+        </section>
+<!-- =============================================================
+  MaVionix Responsive Futuristic Footer (Enhanced v3)
+  --------------------------------------------------
+  Goals Achieved in this Version:
+  • Fully responsive & mobile-first — clear, readable on phones.
+  • Brand color system via CSS custom properties (easy future re‑skin).
+  • Animated tech grid background (performance‑tuned; reduced motion aware).
+  • High contrast, accessible font sizing & tap targets.
+  • Social links w/ icon + label (readable, keyboard accessible).
+  • Collapsible footer sections on mobile using <details>/<summary> (no JS req.).
+  • Semantic landmarks & structured navs for accessibility / SEO.
+  • Auto year injection via lightweight JS.
+  • Ready slots for CTA strip, newsletter, & theme toggle (commented / optional).
+
+  HOW TO USE:
+  1. Drop this block near the end of <body>.
+  2. Ensure Font Awesome (or your icon set) is loaded before this footer.
+  3. Replace placeholder href="#" & phone number with your real links.
+  4. Optional: Uncomment CTA / newsletter blocks if needed.
+  5. Move <style> & <script> to external files for production.
+
+  Brand Colors (remember):
+    Neon Purple:   #C800FF
+    Soft Purple:   #A64DFF
+    Metallic Gray: #CCCCCC
+    Charcoal:      #1A1A1A
+============================================================= -->
+<footer class="mav-footer" role="contentinfo" aria-labelledby="mav-footer-title">
+  <h2 id="mav-footer-title" class="sr-only">MaVionix website footer</h2>
+
+  <!-- Animated Tech Grid Background -->
+  <div class="mav-footer__grid-bg" aria-hidden="true"></div>
+
+  <!-- CTA STRIP -->
+  <div class="mav-footer__cta">
+    <h3>Ready to Build Something Powerful?</h3>
+    <a class="mav-footer__cta-btn" href="contact.html">Get in Touch</a>
+  </div>
+
+  <div class="mav-footer__inner">
+
+    <!-- BRAND -->
+    <section class="mav-footer__brand" aria-label="Brand">
+      <a href="index.html" class="mav-footer__brand-link" aria-label="MaVionix home">
+        <img src="images/logo.png" alt="MaVionix Logo" class="mav-footer__logo" loading="lazy" decoding="async">
+      </a>
+      <p class="mav-footer__tagline">AI‑driven web, automation, and digital transformation solutions.</p>
+    </section>
+
+    <!-- QUICK LINKS -->
+    <details class="mav-footer__group" open>
+      <summary class="mav-footer__group-title">Quick Links</summary>
+      <nav class="mav-footer__nav" aria-label="Quick Links">
+        <ul class="mav-footer__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+         
+          <li><a href="services.html">Services</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </details>
+
+    <!-- SERVICES -->
+<details class="mav-footer__group" open>
+  <summary class="mav-footer__group-title">Our Services</summary>
+  <nav class="mav-footer__nav" aria-label="Our Services">
+    <ul class="mav-footer__list">
+      <li><a href="services.html#website-development">Website Development</a></li>
+      <li><a href="services.html#chatbot-development">AI Chatbots</a></li>
+      <li><a href="services.html#graphics-design">Branding &amp; Design</a></li>
+      <li><a href="services.html#ai-automation">AI Automation</a></li>
+      <li><a href="services.html#writing-translation">Content Solutions</a></li>
+      <li><a href="services.html#other-services">Other Services</a></li>
+    </ul>
+  </nav>
+</details>
+
+
+    <!-- CONTACT -->
+    <details class="mav-footer__group" open>
+      <summary class="mav-footer__group-title">Contact Us</summary>
+      <address class="mav-footer__contact" aria-label="Contact information">
+        <p>Email: <a href="mailto:contactmavionix@gmail.com">contactmavionix@gmail.com</a></p>
+        <p>Phone: <a href="tel:+910000000000">+91 78180 37404</a></p>
+        <p>Headquarters: Modinagar, Ghaziabad, India</p>
+      </address>
+       <div class="mav-footer__inner">
+    <div class="mav-footer__social" role="navigation" aria-label="Social media">
+      <a href="https://www.facebook.com/profile.php?id=61579205461137" class="mav-footer__social-link" aria-label="Mavionix on Facebook" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 11.93 2 6.35 2 1.86 6.48 1.86 12.07c0 4.99 3.64 9.13 8.4 9.93v-7.02H7.9v-2.9h2.36V9.41c0-2.34 1.4-3.63 3.55-3.63 1.03 0 2.1.18 2.1.18v2.31h-1.18c-1.16 0-1.52.72-1.52 1.46v1.75h2.59l-.41 2.9h-2.18V22c4.76-.8 8.4-4.94 8.4-9.93Z"/></svg>
+        <span>Facebook</span>
+      </a>
+      <a href="https://www.instagram.com/mavionix.ai/" class="mav-footer__social-link" aria-label="Mavionix on Instagram" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.4A5.6 5.6 0 1 0 17.6 13 5.6 5.6 0 0 0 12 7.4Zm0 9.2A3.6 3.6 0 1 1 15.6 13 3.6 3.6 0 0 1 12 16.6Zm6.1-9.9a1.3 1.3 0 1 0-1.3-1.3 1.3 1.3 0 0 0 1.3 1.3Z"/></svg>
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.linkedin.com/company/mavionix-ai/" class="mav-footer__social-link" aria-label="Mavionix on LinkedIn" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 4.99 2.5 2.5 0 0 0 0-4.99ZM3.5 9h3v12h-3zM10 9h2.9v1.64h.04C13.52 9.66 15 9 16.9 9c3.2 0 3.8 2.1 3.8 4.84V21H18v-6.3c0-1.5-.03-3.44-2.1-3.44-2.1 0-2.4 1.64-2.4 3.33V21h-3z"/></svg>
+        <span>LinkedIn</span>
+      </a>
+      <a href="https://x.com/mavionix" class="mav-footer__social-link" aria-label="Mavionix on X / Twitter" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.2 3H20l-6.6 7.6L21 21h-5.2l-4.1-5-4.7 5H4.1l7.1-7.9L3 3h5.3l3.7 4.5L17.2 3Z"/></svg>
+        <span>X / Twitter</span>
+      </a>
+    </div>
+    
+  </div>
+    </details>
+
+  </div><!-- /.mav-footer__inner -->
+
+  <div class="mav-footer__bottom">
+  <p>© <time id="mav-footer-year" aria-label="Current year">2025</time> MaVionix. All Rights Reserved.</p>
+  <nav class="mav-footer__legal" aria-label="Legal">
+    <a href="images/Terms.docx" download>Terms &amp; Conditions</a>
+    <span aria-hidden="true">•</span>
+    <a href="images/Policy.docx" download>Privacy Policy</a>
+    <span aria-hidden="true">•</span>
+    <a href="images/Disclaimer.docx" download>Disclaimer</a>
+  </nav>
+</div>
+  <script>
+    // Update year dynamically
+    document.getElementById('mav-footer-year').textContent = new Date().getFullYear();
+
+    // Handle desktop open state for details
+    document.querySelectorAll('.mav-footer__group').forEach(group => {
+      group.addEventListener('click', () => {
+        if (window.innerWidth >= 768) {
+          group.open = !group.open;
+        }
+      });
+    });
+  </script>
+
+</footer>
+
+<!-- =============================================================
+  STYLES
+============================================================= -->
+<style>
+:root {
+  /* Brand Palette */
+  --mav-neon: #C800FF;
+  --mav-soft: #A64DFF;
+  --mav-gray: #CCCCCC;
+  --mav-charcoal: #0F0F10;
+  --mav-charcoal-2: #111217;
+  --mav-white: #FFFFFF;
+  --mav-text-light: #EAEAEA;
+  --mav-text-mid: #C9C9C9;
+  --mav-text-dim: #9A9AA0;
+
+  /* Layout tokens */
+  --mav-footer-max-width: 1200px;
+  --mav-footer-pad-x: clamp(1rem, 2vw, 2rem);
+  --mav-footer-pad-y: clamp(2.5rem, 6vw, 5rem);
+  --mav-footer-grid-gap: clamp(1.25rem, 3.5vw, 3rem);
+  --mav-footer-radius: 14px;
+  --mav-focus-ring: 0 0 0 3px rgba(200,0,255,0.55);
+}
+
+/* Visually hidden utility */
+.sr-only {position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Dark theme baseline */
+.mav-footer { 
+  background: linear-gradient(145deg, var(--mav-charcoal), var(--mav-charcoal-2));
+  color: var(--mav-text-mid);
+  padding: var(--mav-footer-pad-y) var(--mav-footer-pad-x) calc(var(--mav-footer-pad-y)/2);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Poppins", sans-serif;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate; /* create stacking context for bg */
+  font-size: 16px; /* ensures base legibility on mobile */
+}
+
+/* Top accent line */
+.mav-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--mav-neon), var(--mav-soft));
+  z-index: 2; /* above bg grid */
+}
+
+/* Animated Tech Grid Background */
+.mav-footer__grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(90deg, rgba(200,0,255,.12) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(200,0,255,.12) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: mavFooterGridMove 16s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes mavFooterGridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .mav-footer__grid-bg { animation: none; background-size: 32px 32px; opacity: 0.35; }
+  .mav-footer__cta-btn, .mav-footer__list a, .mav-footer__social-link { transition: none; }
+}
+
+/* INNER GRID WRAPPER */
+.mav-footer__inner {
+  display: grid;
+  max-width: var(--mav-footer-max-width);
+  margin-inline: auto;
+  gap: var(--mav-footer-grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  position: relative;
+  z-index: 1; /* above grid bg */
+}
+
+/* BRAND */
+.mav-footer__brand { text-align: left; max-width: 460px; }
+.mav-footer__logo { width: clamp(140px, 22vw, 190px); height: auto; margin-bottom: .85rem; }
+.mav-footer__tagline { font-size: 0.98rem; line-height: 1.6; color: var(--mav-text-dim); max-width: 42ch; }
+
+/* GROUPS (details/summary) */
+.mav-footer__group { background: transparent; border: none; padding: 0; margin: 0; }
+.mav-footer__group[open] > .mav-footer__group-title::after { transform: rotate(45deg); }
+
+.mav-footer__group-title {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  padding: .35rem 1.5rem .6rem 0; /* extra right space for the + icon */
+  margin-bottom: .4rem;
+  font-size: 1.15rem;
+  color: var(--mav-neon);
+  font-weight: 700;
+  outline: none;
+}
+
+/* remove default summary marker */
+.mav-footer__group-title::-webkit-details-marker { display: none; }
+
+/* Toggle indicator (mobile/tablet) */
+.mav-footer__group-title::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: .15rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--mav-soft);
+  transition: transform .25s ease;
+}
+
+@media (min-width: 992px) {
+  .mav-footer__group-title::after { display: none; }
+}
+
+/* LIST RESET */
+.mav-footer__list { list-style: none; margin: 0; padding: 0; }
+.mav-footer__list li { margin-bottom: .55rem; }
+.mav-footer__list a {
+  text-decoration: none;
+  color: var(--mav-text-light);
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: color .25s, transform .25s;
+}
+.mav-footer__list a:hover, .mav-footer__list a:focus-visible {
+  color: var(--mav-soft);
+  transform: translateX(4px);
+  outline: none;
+  box-shadow: var(--mav-focus-ring);
+  border-radius: 6px;
+  padding-inline: 2px;
+}
+
+/* CONTACT */
+.mav-footer__contact { font-style: normal; font-size: 1rem; line-height: 1.6; color: var(--mav-text-light); margin-bottom: .8rem; }
+.mav-footer__contact a { color: var(--mav-text-light); text-decoration: none; transition: color .25s; }
+.mav-footer__contact a:hover, .mav-footer__contact a:focus-visible { color: var(--mav-neon); outline: none; box-shadow: var(--mav-focus-ring); border-radius: 6px; padding-inline: 2px; }
+
+/* SOCIAL */
+.mav-footer__social { display: grid; gap: .6rem; margin-top: .75rem; max-width: 280px; }
+.mav-footer__social-link { display: inline-flex; align-items: center; gap: .65em; padding: .45em .6em; font-size: 1rem; line-height: 1.2; color: var(--mav-text-light); text-decoration: none; transition: color .25s, transform .25s, text-shadow .25s; border-radius: 10px; }
+.mav-footer__social-link .icon { width: 1.15em; height: 1.15em; fill: currentColor; flex: 0 0 auto; }
+.mav-footer__social-link:hover, .mav-footer__social-link:focus-visible { color: var(--mav-neon); transform: translateX(4px); text-shadow: 0 0 10px rgba(200,0,255,.8); outline: none; box-shadow: var(--mav-focus-ring); }
+
+/* NEWSLETTER (optional block styles preserved if you add it) */
+.mav-footer__newsletter { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; max-width: 320px; }
+.mav-footer__newsletter input[type="email"] { flex: 1 1 auto; min-width: 160px; padding: .65rem .8rem; border-radius: var(--mav-footer-radius); border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.05); color: var(--mav-white); font-size: .98rem; }
+.mav-footer__newsletter input[type="email"]::placeholder { color: var(--mav-text-dim); }
+.mav-footer__newsletter input[type="email"]:focus { outline: none; box-shadow: var(--mav-focus-ring); border-color: var(--mav-neon); }
+.mav-footer__btn { flex: 0 0 auto; padding: .65rem 1rem; font-size: .98rem; border-radius: var(--mav-footer-radius); border: none; cursor: pointer; background: linear-gradient(90deg, var(--mav-neon), var(--mav-soft)); color: var(--mav-white); transition: transform .25s, filter .25s; }
+.mav-footer__btn:hover, .mav-footer__btn:focus-visible { transform: translateY(-2px) scale(1.02); filter: brightness(1.1); outline: none; box-shadow: var(--mav-focus-ring); }
+
+/* CTA STRIP */
+.mav-footer__cta { width: 100%; max-width: var(--mav-footer-max-width); margin: 0 auto 2.25rem; padding: 1.75rem 1rem; text-align: center; background: rgba(200,0,255,.08); border: 1px solid rgba(200,0,255,.25); border-radius: var(--mav-footer-radius); position: relative; backdrop-filter: blur(4px); z-index: 1; }
+.mav-footer__cta h3 { margin: 0 0 .85rem; font-size: clamp(1.15rem, 2.3vw, 1.65rem); color: var(--mav-white); font-weight: 800; letter-spacing: .2px; }
+.mav-footer__cta-btn { display: inline-block; padding: .75rem 1.35rem; font-size: 1rem; font-weight: 700; text-decoration: none; color: var(--mav-white); background: linear-gradient(90deg, var(--mav-neon), var(--mav-soft)); border-radius: var(--mav-footer-radius); transition: transform .25s, filter .25s; }
+.mav-footer__cta-btn:hover, .mav-footer__cta-btn:focus-visible { transform: translateY(-2px) scale(1.03); filter: brightness(1.1); outline: none; box-shadow: var(--mav-focus-ring); }
+
+/* BOTTOM BAR */
+.mav-footer__bottom { margin-top: 2.6rem; padding-top: 1.1rem; border-top: 1px solid rgba(255,255,255,.12); text-align: center; position: relative; z-index: 1; }
+.mav-footer__bottom p { margin: 0 0 .5rem; font-size: .95rem; color: var(--mav-text-mid); }
+.mav-footer__legal { display: inline-flex; flex-wrap: wrap; gap: .75rem; align-items: center; justify-content: center; font-size: .95rem; color: var(--mav-text-dim); }
+.mav-footer__legal a { color: var(--mav-text-dim); text-decoration: none; transition: color .25s; }
+.mav-footer__legal a:hover, .mav-footer__legal a:focus-visible { color: var(--mav-neon); outline: none; box-shadow: var(--mav-focus-ring); border-radius: 6px; padding-inline: 2px; }
+
+/* SMALL SCREEN OPTIMIZATIONS */
+@media (max-width: 767.98px) {
+  .mav-footer__inner { grid-template-columns: 1fr; text-align: left; }
+  .mav-footer__brand { max-width: none; }
+  .mav-footer__tagline { max-width: 44ch; }
+  .mav-footer__social { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); max-width: none; }
+}
+
+/* EXTRA SMALL SCREEN (<=480px) */
+@media (max-width: 480.98px) {
+  :root { --mav-footer-pad-y: 2.3rem; }
+  .mav-footer__logo { width: 150px; }
+}
+
+/* LIGHT THEME SUPPORT (if you add data-theme="light" to <html>) */
+html[data-theme="light"] .mav-footer { background: linear-gradient(145deg, #F7F7F7, #ECECEC); color: #333; }
+html[data-theme="light"] .mav-footer__tagline,
+html[data-theme="light"] .mav-footer__list a,
+html[data-theme="light"] .mav-footer__contact,
+html[data-theme="light"] .mav-footer__social-link,
+html[data-theme="light"] .mav-footer__bottom p,
+html[data-theme="light"] .mav-footer__legal a { color: #333; }
+html[data-theme="light"] .mav-footer__legal a:hover { color: var(--mav-neon); }
+
+/* High Contrast (Windows/HC themes) */
+@media (forced-colors: active) {
+  .mav-footer, .mav-footer * { forced-color-adjust: auto; }
+  .mav-footer__cta { background: transparent; border: 1px solid CanvasText; }
+  .mav-footer__cta-btn { background: ButtonFace; color: ButtonText; }
+}
+
+/* Simple fade-in utility (used by script) */
+.mav-fade { opacity: 0; transform: translateY(8px); transition: opacity .6s ease, transform .6s ease; }
+.mav-fade.is-in { opacity: 1; transform: none; }
+</style>
+
+<!-- =============================================================
+  SCRIPT (Dynamic Year + Desktop details-open + Fade-ins)
+============================================================= -->
+<script>
+(function () {
+  const onReady = (fn) => (document.readyState !== 'loading') ? fn() : document.addEventListener('DOMContentLoaded', fn);
+
+  onReady(function () {
+    // 1) Dynamic Year
+    const yEl = document.getElementById('mav-footer-year');
+    if (yEl) yEl.textContent = new Date().getFullYear();
+
+    // 2) Ensure details expanded on desktop (>= 992px)
+    const mq = window.matchMedia('(min-width: 992px)');
+    const detailsEls = document.querySelectorAll('.mav-footer__group');
+    const syncDetails = () => {
+      detailsEls.forEach(d => mq.matches ? d.setAttribute('open', '') : d.removeAttribute('open'));
+    };
+    syncDetails();
+    mq.addEventListener ? mq.addEventListener('change', syncDetails) : mq.addListener(syncDetails);
+
+    // 3) Fade-in sections when visible
+    const observed = document.querySelectorAll('.mav-footer__brand, .mav-footer__group, .mav-footer__bottom, .mav-footer__cta');
+    observed.forEach(el => el.classList.add('mav-fade'));
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-in'); });
+      }, { threshold: 0.12 });
+      observed.forEach(el => io.observe(el));
+    } else {
+      // Fallback: reveal immediately
+      observed.forEach(el => el.classList.add('is-in'));
+    }
+  });
+})();
+</script>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+        <!-- js -->
+        <script src = "js/script.js"></script>
+        <script>
+            // play/pause video
+            let video = document.querySelector('.video-wrapper video');
+            document.getElementById('play-btn').addEventListener('click', () => {
+                if(video.paused){
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        </script>
+    </body>
+</html>

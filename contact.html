@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MaVionix</title>
+  <meta name="description" content="MaVionix - AI-driven solutions to help your business scale, automate, and innovate.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (Latest Version) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-kWU8SKOaJzWbM5sBiOD5TVE+poYmc7x/tVv7aCS7eCjGm1sZl+cOnu1nBTVGKyAOH+dsbN4ZK7JtE/3uYfwzUg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="font/fonts.css">
+
+  <!-- Normalize CSS -->
+  <link rel="stylesheet" href="css/normalize.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/utility.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container flex">
+      <!-- Logo + Brand title -->
+      <div class="brand-logo flex">
+        <img src="images/logo.png" alt="MaVionix Logo" class="logo-img">
+        <a href="index.html" class="site-brand">
+          Ma<span>Vionix</span>
+        </a>
+      </div>
+
+      <button type="button" id="navbar-show-btn" class="flex">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div id="navbar-collapse">
+        <button type="button" id="navbar-close-btn" class="flex">
+          <i class="fas fa-times"></i>
+        </button>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link contact-highlight">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =============================================================
+ MaVionix Contact Page (Card Form + Inline Info Below)
+ -------------------------------------------------------------
+ * Hero/navbar assumed loaded globally (remove duplicate <html> shell if including in template engine)
+ * Contact form sits in elevated white/purple-glow CARD centered on dark bg
+ * Contact info appears BELOW the card, full-width inline blocks (no card) w/ subtle separators
+ * Responsive, accessible, themed
+ * Replace placeholder data + image paths as needed
+============================================================= -->
+
+<section id="contact-hero" class="contact-hero" aria-labelledby="contact-hero-heading">
+  <video class="bg-video" autoplay muted loop playsinline aria-hidden="true">
+    <source src="assets/video/tech-grid-loop.mp4" type="video/mp4" />
+  </video>
+  <div class="contact-hero-overlay"></div>
+  <div class="contact-hero-content">
+    <h1 id="contact-hero-heading">Contact Us</h1>
+    <p>Let's build something amazing together. Reach out and transform your ideas into reality.</p>
+   
+  </div>
+</section>
+
+      <!-- header -->
+
+        <!-- contact section -->
+        <section id = "contact" class = "py-4">
+           <div class = "container">
+               <div class = "title-wrap">
+                   <span class = "sm-title"></span>
+                   <h2 class = "lg-title">Boost Your Business With Us.</h2>
+               </div>
+           </div>
+
+                <!-- Add this inside your existing <body> section -->
+
+<!-- Load FontAwesome + Google reCAPTCHA -->
+<head>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+      
+  <div class="container">
+    <div class="contact-row">
+  <!-- LEFT: Contact Form -->
+  <div class="contact-left" style="flex: 1 1 400px;">
+    <form class="contact-form" id="contactForm" style="display: flex; flex-direction: column; gap: 12px;">
+      <h2>📞 Get In Touch</h2>
+    
+
+    <div style="text-align: left; color: #ccc; margin-bottom: 20px; font-size: 13px; line-height: 1.5;">
+  🛠️ <strong>Looking for a powerful website, smart chatbot, or AI solution?</strong><br>
+  We tailor every project to your business goals. <br>
+  <span style="color: #00e676; font-weight: 500;">Limited-time offer: Get up to 15% OFF on your first project!</span>
+</div>
+
+    <form action="mailto:mavionix360@gmail.com" method="POST" id="contactForm">
+
+      <!-- Contact Form -->
+<form id="contactForm">
+
+  <!-- Name & Email -->
+  <div class="form-group">
+    <input type="text" id="contact-name" class="form-control" placeholder="Your name" required>
+    <input type="email" id="contact-email" class="form-control" placeholder="Your email" required>
+  </div>
+
+  <!-- Main Service -->
+    <div class="form-group">
+      <label for="mainService">Main Service</label>
+      <select class="form-control" id="mainService" name="main_service" required>
+        <option value="" disabled selected>Select Main Service</option>
+        <option value="Website Development">Website Development</option>
+        <option value="Chatbot Development">Chatbot Development</option>
+        <option value="Graphics & Design">Graphics & Design</option>
+        <option value="AI & Automation">AI & Automation</option>
+        <option value="Writing & Translation">Writing & Translation</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <!-- Sub Service -->
+    <div class="form-group">
+      <label for="subService">Sub Service</label>
+      <select class="form-control" id="subService" name="sub_service" required>
+        <option value="" disabled selected>Select Sub Service</option>
+      </select>
+    </div>
+
+    <!-- Preferred Date -->
+    <div class="form-group">
+      <label for="preferredDate">Preferred Date</label>
+      <input type="date" id="preferredDate" name="preferred_date" class="form-control" required>
+    </div>
+
+    <!-- Budget -->
+    <div class="form-group">
+      <label for="budgetInput">Your Budget (₹)</label>
+      <input type="number" id="budgetInput" name="budget" class="form-control" placeholder="Enter Budget" required>
+    </div>
+
+    <!-- Offers or Errors -->
+    <div id="offerBox" style="color: green;"></div>
+    <div id="budgetError" style="color: red;"></div>
+
+    <!-- Message -->
+    <div class="form-group">
+  <label for="message">Message</label>
+  <textarea id="message" name="message" class="form-control" placeholder="Your message..." rows="4" maxlength="1000" required></textarea>
+  <small id="charCount">0 / 1000</small><br>
+  <small id="messageError" style="color: red;"></small>
+</div>
+
+    <!-- Google reCAPTCHA -->
+    <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE" style="margin: 15px 0;"></div>
+
+    <!-- Submit -->
+    <button type="submit" class="btn-submit">Send Message 🚀</button>
+  </form>
+</div>
+
+<!-- SCRIPT -->
+<script>
+  const serviceOptions = {
+    "Website Development": [
+        "WordPress Business Site",
+        "E-commerce Store",
+        "Landing Page",
+        "Custom Web Application",
+        "Portfolio Website",
+        "Booking & Appointment System"
+    ],
+    "Chatbot Development": [
+        "WhatsApp Bot",
+        "AI Customer Support Bot",
+        "Multiplatform Bot",
+        "E-commerce Product Recommendation Bot"
+    ],
+    "Graphics & Design": [
+        "Logo Design",
+        "Social Media Creatives",
+        "UI/UX Design",
+        "Business Card & Stationery",
+        "Brand Style Guide"
+    ],
+    "AI & Automation": [
+        "Custom AI Tools",
+        "Process Automation",
+        "Data Dashboards",
+        "Lead Generation Automation",
+        "Email Marketing Automation"
+    ],
+    "Writing & Translation": [
+        "SEO Blog Writing",
+        "Product Descriptions",
+        "Ad Copywriting",
+        "Translation (EN-HI)",
+        "Website Content Writing"
+    ],
+    "Other": [
+        "SEO Services",
+        "Cloud Setup & Hosting",
+        "Business Consulting",
+        "Performance Optimization"
+    ]
+};
+
+const priceMap = {
+    // Website Development
+    "WordPress Business Site": 14999,
+    "E-commerce Store": 24999,
+    "Landing Page": 7999,
+    "Custom Web Application": 49999,
+    "Portfolio Website": 9999,
+    "Booking & Appointment System": 14999,
+
+    // Chatbot Development
+    "WhatsApp Bot": 9999,
+    "AI Customer Support Bot": 19999,
+    "Multiplatform Bot": 24999,
+    "E-commerce Product Recommendation Bot": 17999,
+
+    // Graphics & Design
+    "Logo Design": 2999,
+    "Social Media Creatives": 999,
+    "UI/UX Design": 9999,
+    "Business Card & Stationery": 1499,
+    "Brand Style Guide": 3999,
+
+    // AI & Automation
+    "Custom AI Tools": 29999,
+    "Process Automation": 14999,
+    "Data Dashboards": 12999,
+    "Lead Generation Automation": 11999,
+    "Email Marketing Automation": 7999,
+
+    // Writing & Translation
+    "SEO Blog Writing": 999,
+    "Product Descriptions": 499,
+    "Ad Copywriting": 1499,
+    "Translation (EN-HI)": 999,
+    "Website Content Writing": 1999,
+
+    // Other
+    "SEO Services": 6999,
+    "Cloud Setup & Hosting": 7999,
+    "Business Consulting": 2499,
+    "Performance Optimization": 5999
+};
+
+  const mainSelect = document.getElementById("mainService");
+  const subSelect = document.getElementById("subService");
+  const budgetInput = document.getElementById("budgetInput");
+  const offerBox = document.getElementById("offerBox");
+  const budgetError = document.getElementById("budgetError");
+
+  mainSelect.addEventListener("change", () => {
+    const selectedMain = mainSelect.value;
+    subSelect.innerHTML = '<option value="" disabled selected>Select Sub Service</option>';
+    if (serviceOptions[selectedMain]) {
+      serviceOptions[selectedMain].forEach(sub => {
+        const option = document.createElement("option");
+        option.value = sub;
+        option.textContent = sub;
+        subSelect.appendChild(option);
+      });
+    }
+  });
+
+ budgetInput.addEventListener("input", () => {
+  const subService = subSelect.value;
+  const val = parseInt(budgetInput.value);
+  offerBox.textContent = "";
+  budgetError.textContent = "";
+
+  if (isNaN(val) || val <= 0) {
+    budgetError.textContent = "❌ Please enter a valid budget.";
+    budgetInput.setCustomValidity("Invalid budget");
+    return;
+  }
+
+
+
+  if (subService && priceMap[subService]) {
+    const realPrice = priceMap[subService];
+    const minAllowed = realPrice * 0.5;
+
+    if (val < minAllowed || val >= realPrice) {
+      budgetError.textContent = `❌ Budget must be at least ₹${minAllowed.toLocaleString()} and less than ₹${realPrice.toLocaleString()}.`;
+      budgetInput.setCustomValidity("Invalid budget");
+    } else {
+      budgetInput.setCustomValidity("");
+    }
+  }
+});
+
+
+
+  const message = document.getElementById("message");
+  const charCount = document.getElementById("charCount");
+  const messageError = document.getElementById("messageError");
+
+  // List of abusive or unwanted words (must be lowercase)
+  const bannedWords = ["fuck", "shit", "idiot", "nonsense", "stupid", "sex"]; // extend as needed
+
+  message.addEventListener("input", () => {
+    let originalText = message.value;
+    let cleanedText = originalText;
+
+    // Remove banned words (case-insensitive, whole words only)
+    bannedWords.forEach(word => {
+      const regex = new RegExp(`\\b${word}\\b`, 'gi');
+      cleanedText = cleanedText.replace(regex, '');
+    });
+
+    // If words were removed, update the textarea and show message
+    if (cleanedText !== originalText) {
+      message.value = cleanedText.trim().replace(/\s\s+/g, ' '); // clean extra spaces
+      messageError.textContent = "⚠️ Some inappropriate words were removed.";
+      message.style.borderColor = "orange";
+    } else {
+      messageError.textContent = "";
+      message.style.borderColor = "";
+    }
+
+    // Update character count
+    charCount.textContent = `${message.value.length} / 1000`;
+  });
+
+  const dateInput = document.getElementById("preferredDate");
+  const today = new Date();
+  const maxDate = new Date();
+  maxDate.setMonth(maxDate.getMonth() + 3);
+
+  function formatDate(date) {
+    return date.toISOString().split("T")[0];
+  }
+
+  dateInput.min = formatDate(today);
+  dateInput.max = formatDate(maxDate);
+
+  // Autofill from URL Params
+  function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const mainService = getQueryParam("main_service");
+    const subService = getQueryParam("sub_service");
+    const preferredDate = getQueryParam("preferred_date");
+    const budget = getQueryParam("budget");
+
+    if (mainService) {
+      mainSelect.value = mainService;
+      mainSelect.dispatchEvent(new Event("change"));
+      setTimeout(() => {
+        if (subService) subSelect.value = subService;
+      }, 100);
+    }
+    if (preferredDate) dateInput.value = preferredDate;
+    if (budget) budgetInput.value = budget;
+  });
+
+  // Optional: Alert on submit
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
+    if (!this.checkValidity()) return;
+    alert("✅ Your message has been submitted! We’ll contact you shortly.");
+  });
+</script>
+
+<!-- Include Google reCAPTCHA script -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+
+<!-- RIGHT: Contact Info for B2B -->
+<div class="contact-right my-2" style="flex: 1 1 300px; padding: 22px; background: #1a1a1a; border-radius: 10px; box-shadow: 0 0 15px rgba(149, 0, 255, 0.15);">
+
+  <h3 style="margin-bottom: 20px; color: #ffffff; font-size: 20px; border-bottom: 1px solid #333; padding-bottom: 10px;">
+    📍 Contact Details
+  </h3>
+
+  <!-- Phone -->
+  <div class="contact-item" style="display: flex; align-items: center; margin-bottom: 16px;">
+    <span class="contact-icon" style="background: #9500ff; color: white; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin-right: 14px;">
+      <i class="fa fa-phone-alt"></i>
+    </span>
+    <div>
+      <span style="font-size: 13px; color: #aaa;">Phone</span>
+      <p style="margin: 2px 0 0; font-weight: 500; color: #eee;">+91-7818037404</p>
+    </div>
+  </div>
+
+  <!-- WhatsApp -->
+  <div class="contact-item" style="display: flex; align-items: center; margin-bottom: 16px;">
+    <span class="contact-icon" style="background: #25d366; color: black; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin-right: 14px;">
+      <i class="fab fa-whatsapp"></i>
+    </span>
+    <div>
+      <span style="font-size: 13px; color: #aaa;">WhatsApp</span>
+      <p style="margin: 2px 0 0;"><a href="https://wa.me/917818037404" style="color: #eee; font-weight: 500;">Message Us Instantly</a></p>
+    </div>
+  </div>
+
+  <!-- Address -->
+  <div class="contact-item" style="display: flex; align-items: center; margin-bottom: 16px;">
+    <span class="contact-icon" style="background: #00c2ff; color: white; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin-right: 14px;">
+      <i class="fa fa-map-marked-alt"></i>
+    </span>
+    <div>
+      <span style="font-size: 13px; color: #aaa;">Head Office</span>
+      <p style="margin: 2px 0 0; font-weight: 500; color: #eee;">MaVionix HQ, Modinagar, Ghaziabad</p>
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div class="contact-item" style="display: flex; align-items: center; margin-bottom: 16px;">
+    <span class="contact-icon" style="background: #00e676; color: black; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin-right: 14px;">
+      <i class="fa fa-envelope"></i>
+    </span>
+    <div>
+      <span style="font-size: 13px; color: #aaa;">Email</span>
+      <p style="margin: 2px 0 0; font-weight: 500; color: #eee;">contactmavionix@gmail.com</p>
+    </div>
+  </div>
+
+  <!-- LinkedIn -->
+  <div class="contact-item" style="display: flex; align-items: center; margin-bottom: 16px;">
+    <span class="contact-icon" style="background: #0077b5; color: white; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin-right: 14px;">
+      <i class="fab fa-linkedin-in"></i>
+    </span>
+    <div>
+      <span style="font-size: 13px; color: #aaa;">Connect</span>
+      <p style="margin: 2px 0 0;"><a href="https://www.linkedin.com/company/mavionix" target="_blank" style="color: #eee; font-weight: 500;">Follow us on LinkedIn</a></p>
+    </div>
+  </div>
+
+  <!-- Support Hours -->
+  <div class="contact-item" style="margin-top: 20px; border-top: 1px solid #333; padding-top: 15px;">
+    <p style="font-size: 13px; color: #aaa; margin-bottom: 5px;">⏰ Support Hours </p>
+    <p style="margin: 0; color: #eee;"> Mon–Sat: 10am – 7pm IST</p>
+  </div>
+
+  <!-- Business ID -->
+  <div class="contact-item" style="margin-top: 15px;">
+    <p style="font-size: 13px; color: #aaa; margin-bottom: 5px;">🧾 GSTIN / CIN </p>
+    <p style="margin: 0; color: #eee;"> GSTIN: 09ABCDF1234Z9</p>
+  </div>
+
+  <!-- Value Statement -->
+  <div class="contact-item" style="margin-top: 25px; background: linear-gradient(135deg, #1e1e1e, #2c2c2c); padding: 24px 20px; border-radius: 14px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); display: flex; flex-direction: column; gap: 14px;">
+
+  <div style="color: #00e676; font-weight: 700; font-size: 16px;">
+    💼 Why Choose MaVionix?
+  </div>
+
+  <div style="color: #aaa; font-size: 13px;">
+    We help your business grow with smart, reliable, and custom digital services.
+  </div>
+
+  <div style="color: #e0e0e0; font-size: 14px;">
+    <div>🎯 Tailored digital solutions to match your goals</div>
+    <div>⚡ Fast turnaround time & round-the-clock support</div>
+    <div>🔒 100% confidentiality with NDA-ready projects</div>
+    <div>💰 Transparent pricing — no hidden charges</div>
+    <div>🧠 Free consultation to understand your needs</div>
+  </div>
+
+  <div style="margin-top: 10px;">
+    <span style="color: #00e676; font-size: 13px; font-weight: 500; background: rgba(0, 230, 118, 0.1); padding: 8px 14px; border-radius: 20px; display: inline-block;">
+      Let’s build something great together 🚀
+    </span>
+  </div>
+
+</div>
+
+
+</div>
+
+            </div>
+        </section>
+        <!-- end of contact section -->
+   <script>
+  // LinkedIn tracking
+  document.querySelector('.contact-item a[href*="linkedin.com"]').addEventListener('click', () => {
+    console.log("User clicked LinkedIn link.");
+  });
+
+  // WhatsApp open in new tab
+  document.querySelector('.contact-item a[href*="wa.me"]').setAttribute('target', '_blank');
+</script>
+  
+
+
+<!-- ================= CONTACT PAGE STYLES ================= -->
+<style>
+:root {
+  --mvx-neon-purple: #C800FF;
+  --mvx-soft-purple: #A64DFF;
+  --mvx-metallic-gray: #CCCCCC;
+  --mvx-charcoal: #1A1A1A;
+  --mvx-body-bg: #ffffff;
+  --mvx-white: #ffffff;
+  --mvx-green: #00e676;
+  --mvx-danger: #ff4d4f;
+  --mvx-radius-lg: 16px;
+  --mvx-radius-md: 12px;
+  --mvx-radius-sm: 8px;
+  --mvx-duration-fast: 150ms;
+  --mvx-duration-med: 300ms;
+  --mvx-ease-out: cubic-bezier(.16,1,.3,1);
+  --mvx-shadow-glow: 0 0 18px rgba(200,0,255,.7);
+}
+
+/* ===== CONTACT HERO ===== */
+.contact-hero{
+  position:relative;
+  background:var(--mvx-charcoal);
+  color:var(--mvx-white);
+  text-align:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:60vh; /* shorter than full screen; adjust */
+  padding:0 20px;
+  overflow:hidden;
+  isolation:isolate;
+}
+.contact-hero::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 120%,rgba(200,0,255,.35),transparent 70%),
+             linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px),
+             linear-gradient(0deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:100% 100%,40px 40px,40px 40px;
+  mix-blend-mode:screen;
+  animation:gridMove 20s linear infinite;
+  z-index:0;
+}
+@keyframes gridMove {0%{background-position:0 0,0 0,0 0}100%{background-position:0 0,80px 40px,40px 80px}}
+.contact-hero .bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:.25;filter:brightness(.8) contrast(1.2) saturate(1.1)}
+.contact-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.4);z-index:0}
+.contact-hero-content{position:relative;z-index:1;max-width:900px;margin-inline:auto;opacity:0;transform:translateY(30px);animation:fadeUp 1.2s ease-out forwards .4s}
+.contact-hero-content h1{font-size:clamp(2.25rem,4vw,3.5rem);font-weight:800;margin-bottom:16px;line-height:1.1}
+.contact-hero-content p{font-size:clamp(1rem,1.8vw,1.25rem);opacity:.85;margin-inline:auto;max-width:650px}
+.contact-hero-cta{margin-top:32px;padding:16px 32px;font-size:1rem;font-weight:600;text-decoration:none;display:inline-block;color:#fff;background:var(--mvx-neon-purple);border:none;border-radius:var(--mvx-radius-lg);box-shadow:var(--mvx-shadow-glow);cursor:pointer;transition:transform var(--mvx-duration-fast) var(--mvx-ease-out),box-shadow var(--mvx-duration-fast) var(--mvx-ease-out)}
+.contact-hero-cta:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 0 24px rgba(200,0,255,.9)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* ===== CONTACT CARD SECTION ===== */
+.mav-contact-card-section{
+  background:var(--mvx-body-bg);
+  padding:clamp(2rem,5vw,4rem) 1rem 5rem;
+  position:relative;
+}
+.mav-contact-card-wrapper{
+  background:var(--mvx-white);
+  color:#222;
+  max-width:800px;
+  margin:-80px auto 0; /* overlap hero */
+  padding:clamp(2rem,5vw,3rem) clamp(1rem,5vw,2.5rem) 3rem;
+  border-radius:var(--mvx-radius-lg);
+  box-shadow:0 10px 40px rgba(0,0,0,.35);
+  position:relative;
+  animation:cardFloat 1.4s var(--mvx-ease-out) both .4s;
+}
+@keyframes cardFloat{0%{opacity:0;transform:translateY(40px) scale(.96)}100%{opacity:1;transform:translateY(0) scale(1)}}
+.mav-contact-card-wrapper::after{content:"";position:absolute;left:50%;bottom:-24px;translate:-50% 0;width:120px;height:6px;border-radius:3px;background:var(--mvx-neon-purple);opacity:.5}
+.mav-contact-card-title{text-align:center;font-size:clamp(1.75rem,2.5vw,2.5rem);font-weight:700;margin-bottom:8px;color:var(--mvx-neon-purple)}
+.mav-contact-card-sub{text-align:center;opacity:.75;max-width:650px;margin:0 auto 2rem;font-size:1.05rem;color:#555}
+
+.mav-contact-card-form{width:100%;display:block}
+.mav-form-grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:600px){.mav-form-grid{grid-template-columns:1fr 1fr}}
+.mav-form-group{display:flex;flex-direction:column;width:100%}
+.mav-form-full{grid-column:1/-1}
+.mav-form-group label{font-size:.9rem;margin-bottom:4px;color:#333}
+.mav-form-group label span{color:var(--mvx-soft-purple)}
+.mav-form-group input,.mav-form-group select,.mav-form-group textarea{padding:12px;border:1px solid rgba(0,0,0,.15);background:#fff;color:#222;border-radius:var(--mvx-radius-md);font-size:1rem;line-height:1.2;transition:border-color var(--mvx-duration-fast) var(--mvx-ease-out),box-shadow var(--mvx-duration-fast) var(--mvx-ease-out),transform var(--mvx-duration-fast) var(--mvx-ease-out)}
+.mav-form-group input:focus,.mav-form-group select:focus,.mav-form-group textarea:focus{border-color:var(--mvx-neon-purple);outline:none;box-shadow:0 0 0 3px rgba(200,0,255,.25);transform:scale(1.01)}
+
+.mav-form-phone .phone-wrapper{display:flex;gap:8px;align-items:center}
+.mav-form-phone select{max-width:110px;padding:12px}
+
+.mav-service-image{text-align:center;margin-top:4px}
+.mav-service-image img{max-width:100%;border-radius:var(--mvx-radius-md);margin-top:-4px;margin-bottom:10px}
+
+.mav-offer-box{text-align:center;font-weight:600;color:var(--mvx-green);min-height:1.25em;margin-top:4px}
+.mav-budget-error{text-align:center;font-weight:600;color:var(--mvx-danger);min-height:1.25em;margin-top:4px}
+.mav-error{font-size:.8rem;color:var(--mvx-danger);min-height:1em}
+.mav-msg-meta{display:flex;justify-content:space-between;font-size:.75rem;margin-top:4px;color:#777}
+.mav-msg-err{color:#ffb74d}
+
+.mav-recaptcha-wrap{text-align:center;margin-top:1rem}
+.submit-wrap{text-align:center;margin-top:1rem}
+.btn-submit{background:var(--mvx-neon-purple);color:#fff;border:none;padding:14px 28px;font-size:1rem;border-radius:var(--mvx-radius-md);cursor:pointer;transition:var(--mvx-duration-fast) var(--mvx-ease-out)}
+.btn-submit:hover,.btn-submit:focus{background:var(--mvx-soft-purple);transform:translateY(-2px) scale(1.01)}
+
+.mav-form-wa{text-align:center;margin-top:1rem}
+.mav-wa-btn{display:inline-block;padding:8px 20px;border-radius:24px;background:#25d366;color:#000;font-weight:600;font-size:.9rem;text-decoration:none;transition:filter var(--mvx-duration-fast) var(--mvx-ease-out)}
+.mav-wa-btn:hover{filter:brightness(1.05)}
+
+.mav-trust-badges{text-align:center;margin-top:1.25rem}
+.mav-trust-badges img{height:30px;margin:0 6px;vertical-align:middle}
+
+/* ===== CONTACT INFO SECTION (NO CARD) ===== */
+.mav-contact-info-section{background:var(--mvx-charcoal);color:var(--mvx-white);padding:clamp(3rem,5vw,5rem) 1rem 6rem;text-align:left}
+.mav-contact-info-section .container{max-width:1000px;margin:0 auto}
+.mav-contact-info-heading{text-align:center;font-size:clamp(1.75rem,2.5vw,2.5rem);font-weight:700;margin-bottom:2rem;color:var(--mvx-white)}
+.mav-contact-info-list{list-style:none;max-width:700px;margin:0 auto 2.5rem;padding:0;display:grid;gap:20px}
+.mav-contact-info-list li{display:flex;align-items:center;gap:16px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.1)}
+.mav-contact-info-list li:last-child{border-bottom:none;padding-bottom:0}
+.mav-contact-info-list .icon-circle{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:#fff;font-size:1.1rem;flex-shrink:0}
+.icon-circle.phone{background:#9500ff}
+.icon-circle.whatsapp{background:#25d366;color:#000}
+.icon-circle.address{background:#00c2ff}
+.icon-circle.email{background:#00e676;color:#000}
+.icon-circle.linkedin{background:#0077b5}
+.info-block .label{font-size:.8rem;color:var(--mvx-metallic-gray)}
+.info-block .val{margin:2px 0 0;font-weight:500;color:#fff;font-size:1rem}
+.info-block .val a{color:#fff;text-decoration:underline}
+.info-block .val a:hover{text-decoration:none;color:var(--mvx-soft-purple)}
+
+.mav-contact-info-extra{text-align:center;margin:2rem auto 1.5rem;font-size:.95rem;color:var(--mvx-metallic-gray);line-height:1.5}
+.mav-contact-info-extra strong{color:#fff}
+.mav-contact-info-extra .gst{margin-top:8px}
+
+.mav-contact-value{text-align:center;max-width:600px;margin:0 auto;background:rgba(255,255,255,.05);padding:24px 20px;border-radius:14px;box-shadow:0 0 0 1px rgba(255,255,255,.1)}
+.mav-contact-value h3{margin:0 0 14px;color:var(--mvx-green);font-size:1.25rem}
+.mav-contact-value ul{list-style:none;padding:0;margin:0 0 12px 0;line-height:1.5}
+.mav-contact-value li{margin-bottom:4px}
+.mav-contact-value .tagline{color:var(--mvx-green);font-size:1rem;font-weight:500;margin:0}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion:reduce){
+  .contact-hero-content{animation:none;opacity:1;transform:none}
+  .mav-contact-card-wrapper{animation:none}
+  .contact-hero::before{animation:none}
+}
+</style>
+
+<!-- ================= CONTACT PAGE SCRIPT ================= -->
+<script defer>
+(function(){
+  // ----- CONFIG -----
+  const CONFIG = {
+    bannedWords: ["fuck","shit","idiot","nonsense","stupid","sex"],
+    discountThreshold: 10000,
+    tipThreshold: 5000,
+    minMessageLength: 10,
+    dateLimitMonths: 3
+  };
+
+  const serviceOptions = {
+    "Website Development": ["WordPress Business Site","E-commerce Store","Landing Page","Custom Web Application","Portfolio Website","Booking & Appointment System"],
+    "Chatbot Development": ["WhatsApp Bot","AI Customer Support Bot","Multiplatform Bot","E-commerce Product Recommendation Bot"],
+    "Graphics & Design": ["Logo Design","Social Media Creatives","UI/UX Design","Business Card & Stationery","Brand Style Guide"],
+    "AI & Automation": ["Custom AI Tools","Process Automation","Data Dashboards","Lead Generation Automation","Email Marketing Automation"],
+    "Writing & Translation": ["SEO Blog Writing","Product Descriptions","Ad Copywriting","Translation (EN-HI)","Website Content Writing"],
+    "Other": ["SEO Services","Cloud Setup & Hosting","Business Consulting","Performance Optimization"]
+  };
+
+  const priceMap = {
+    "WordPress Business Site":14999,"E-commerce Store":24999,"Landing Page":7999,"Custom Web Application":49999,"Portfolio Website":9999,"Booking & Appointment System":14999,
+    "WhatsApp Bot":9999,"AI Customer Support Bot":19999,"Multiplatform Bot":24999,"E-commerce Product Recommendation Bot":17999,
+    "Logo Design":2999,"Social Media Creatives":999,"UI/UX Design":9999,"Business Card & Stationery":1499,"Brand Style Guide":3999,
+    "Custom AI Tools":29999,"Process Automation":14999,"Data Dashboards":12999,"Lead Generation Automation":11999,"Email Marketing Automation":7999,
+    "SEO Blog Writing":999,"Product Descriptions":499,"Ad Copywriting":1499,"Translation (EN-HI)":999,"Website Content Writing":1999,
+    "SEO Services":6999,"Cloud Setup & Hosting":7999,"Business Consulting":2499,"Performance Optimization":5999
+  };
+
+  // ----- ELEMENTS -----
+  const form = document.getElementById('mavContactForm');
+  const mainSel = document.getElementById('mainService');
+  const subSel = document.getElementById('subService');
+  const budgetEl = document.getElementById('budgetInput');
+  const offerBox = document.getElementById('offerBox');
+  const budgetErr = document.getElementById('budgetError');
+  const msgEl = document.getElementById('message');
+  const charCount = document.getElementById('charCount');
+  const msgErr = document.getElementById('messageError');
+  const phoneEl = document.getElementById('phone');
+  const countryCode = document.getElementById('countryCode');
+  const dateEl = document.getElementById('preferredDate');
+  const submitBtn = form.querySelector('.btn-submit');
+  const errCaptcha = document.getElementById('captchaError');
+  const hpField = document.getElementById('website'); // honeypot
+
+  // ----- HELPERS -----
+  const scrollToError = () => {
+    const firstInvalid = form.querySelector(':invalid');
+    if(firstInvalid) firstInvalid.scrollIntoView({behavior:'smooth', block:'center'});
+  };
+
+  const populateSub = (main, preSel) => {
+    subSel.innerHTML = '<option value="" disabled selected>Select Sub Service</option>';
+    (serviceOptions[main] || []).forEach(s => {
+      const o = document.createElement('option');
+      o.value = s; o.textContent = s;
+      subSel.appendChild(o);
+    });
+    if(preSel && serviceOptions[main]?.includes(preSel)) subSel.value = preSel;
+  };
+
+  const checkBudget = () => {
+    offerBox.textContent = ''; budgetErr.textContent = ''; budgetEl.setCustomValidity('');
+    const sub = subSel.value, val = parseInt(budgetEl.value, 10);
+    if(!Number.isFinite(val) || val < 0) { budgetEl.setCustomValidity('Invalid number'); return; }
+    if(val >= CONFIG.discountThreshold) offerBox.textContent = '🎁 Eligible for 15% discount!';
+    else if(val >= CONFIG.tipThreshold) offerBox.textContent = '💡 Tip: Increase to ₹10,000+ for discount!';
+    if(priceMap[sub]){
+      const base = priceMap[sub], min = Math.floor(base * 0.5), max = Math.floor(base * 1.5);
+      document.getElementById('priceSuggestion').textContent = `💰 Base Price: ₹${base.toLocaleString()}`;
+      if(val < min || val > max){
+        budgetErr.textContent = `❌ Budget must be between ₹${min.toLocaleString()} and ₹${max.toLocaleString()}.`;
+        budgetEl.setCustomValidity('Budget out of range');
+      }
+    }
+  };
+
+  const filterMessage = () => {
+    let txt = msgEl.value;
+    CONFIG.bannedWords.forEach(w => { txt = txt.replace(new RegExp(`\\b${w}\\b`, 'gi'), ''); });
+    if(txt !== msgEl.value){
+      msgEl.value = txt.trim().replace(/\s\s+/g,' ');
+      msgErr.textContent = '⚠️ Inappropriate words removed.';
+    } else { msgErr.textContent = ''; }
+    if(!msgEl.value.trim() || msgEl.value.length < CONFIG.minMessageLength){
+      msgErr.textContent = `Message must be at least ${CONFIG.minMessageLength} characters.`;
+      msgEl.setCustomValidity('Message too short');
+    } else { msgEl.setCustomValidity(''); }
+    charCount.textContent = `${msgEl.value.length} / ${msgEl.maxLength}`;
+  };
+
+  const validatePhone = () => {
+    const val = phoneEl.value.replace(/\D/g,'');
+    let valid = false;
+    if(countryCode.value==='+91' && val.length===10) valid=true;
+    if(countryCode.value==='+1' && val.length===10) valid=true;
+    if(countryCode.value==='+44' && val.length>=10 && val.length<=11) valid=true;
+    if(countryCode.value==='+61' && val.length===9) valid=true;
+    phoneEl.setCustomValidity(valid ? '' : 'Invalid phone number');
+  };
+
+  const validateEmail = () => {
+    const email = document.getElementById('contact-email');
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    email.setCustomValidity(regex.test(email.value) ? '' : 'Invalid email');
+  };
+
+  const setDateLimits = () => {
+    if(dateEl){
+      const today = new Date();
+      const max = new Date(); max.setMonth(max.getMonth() + CONFIG.dateLimitMonths);
+      const p = n => String(n).padStart(2,'0');
+      const f = d => `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`;
+      dateEl.min = f(today); dateEl.max = f(max);
+    }
+  };
+
+  const prefillFromURL = () => {
+    const params = new URLSearchParams(window.location.search);
+    const prefill = (id, key) => { const el = document.getElementById(id); const v = params.get(key); if(el && v) el.value = v; };
+    prefill('mainService', 'main_service');
+    prefill('subService', 'sub_service');
+    prefill('budgetInput', 'budget');
+    prefill('message', 'message');
+    prefill('phone', 'phone');
+    prefill('countryCode', 'country_code');
+    if(mainSel.value) populateSub(mainSel.value, params.get('sub_service'));
+    charCount.textContent = `${msgEl.value.length} / ${msgEl.maxLength}`;
+  };
+
+  const updateSubmitState = () => {
+    filterMessage(); validatePhone(); validateEmail(); checkBudget();
+    const captchaOk = typeof grecaptcha === 'undefined' || grecaptcha.getResponse() !== '';
+    if(!captchaOk && errCaptcha) errCaptcha.textContent = 'Please verify you are human.';
+    const valid = form.checkValidity() && captchaOk && !(hpField && hpField.value.trim() !== '');
+    submitBtn.disabled = !valid;
+    return valid;
+  };
+
+  // ----- EVENTS -----
+  mainSel.addEventListener('change', ()=>{ populateSub(mainSel.value); checkBudget(); });
+  subSel.addEventListener('change', checkBudget);
+  budgetEl.addEventListener('input', checkBudget);
+  msgEl.addEventListener('input', filterMessage);
+  phoneEl.addEventListener('input', validatePhone);
+  countryCode.addEventListener('change', validatePhone);
+  document.getElementById('contact-email').addEventListener('input', validateEmail);
+  form.querySelectorAll('input,select,textarea').forEach(el=>{
+    el.addEventListener('input', updateSubmitState);
+    el.addEventListener('change', updateSubmitState);
+  });
+  window.recaptchaCallback = updateSubmitState;
+
+  form.addEventListener('submit', e=>{
+    e.preventDefault();
+    if(!updateSubmitState()){ scrollToError(); form.reportValidity(); return; }
+    document.getElementById('formSuccess').innerHTML = '✅ Your message has been submitted! We’ll contact you shortly.';
+    form.reset();
+    if(typeof grecaptcha!=='undefined') grecaptcha.reset();
+    submitBtn.disabled = true;
+    charCount.textContent = `0 / ${msgEl.maxLength}`;
+    offerBox.textContent = ''; budgetErr.textContent = ''; document.getElementById('priceSuggestion').textContent = '';
+  });
+
+  // ----- INIT -----
+  setDateLimits();
+  prefillFromURL();
+  submitBtn.disabled = true;
+})();
+</script>
+
+<!-- Success/Error containers -->
+<div id="formSuccess" style="color:green;margin-top:10px;"></div>
+<div id="priceSuggestion" style="color:blue;margin-top:5px;"></div>
+
+
+<!--
+  MaVionix Footer — Responsive & Accessible (v2)
+  Notes:
+  • No external icon font required (inline SVGs).
+  • Mobile-first, collapsible sections with <details>.
+  • High-contrast, reduced-motion, and keyboard focus supported.
+  • One tiny script handles dynamic year + desktop-open behavior.
+-->
+<footer class="mav-footer" role="contentinfo" aria-labelledby="mav-footer-title">
+  <h2 id="mav-footer-title" class="sr-only">MaVionix website footer</h2>
+
+  <!-- Animated Tech Grid Background -->
+  <div class="mav-footer__grid-bg" aria-hidden="true"></div>
+
+  <!-- CTA STRIP -->
+  <div class="mav-footer__cta">
+    <h3>Ready to Build Something Powerful?</h3>
+    <a class="mav-footer__cta-btn" href="contact.html">Get in Touch</a>
+  </div>
+
+  <div class="mav-footer__inner">
+
+    <!-- BRAND -->
+    <section class="mav-footer__brand" aria-label="Brand">
+      <a href="index.html" class="mav-footer__brand-link" aria-label="MaVionix home">
+        <img src="images/logo.png" alt="MaVionix Logo" class="mav-footer__logo" loading="lazy" decoding="async">
+      </a>
+      <p class="mav-footer__tagline">AI‑driven web, automation, and digital transformation solutions.</p>
+    </section>
+
+    <!-- QUICK LINKS -->
+    <details class="mav-footer__group" open>
+      <summary class="mav-footer__group-title">Quick Links</summary>
+      <nav class="mav-footer__nav" aria-label="Quick Links">
+        <ul class="mav-footer__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+         
+          <li><a href="services.html">Services</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </details>
+
+    <!-- SERVICES -->
+<details class="mav-footer__group" open>
+  <summary class="mav-footer__group-title">Our Services</summary>
+  <nav class="mav-footer__nav" aria-label="Our Services">
+    <ul class="mav-footer__list">
+      <li><a href="services.html#website-development">Website Development</a></li>
+      <li><a href="services.html#chatbot-development">AI Chatbots</a></li>
+      <li><a href="services.html#graphics-design">Branding &amp; Design</a></li>
+      <li><a href="services.html#ai-automation">AI Automation</a></li>
+      <li><a href="services.html#writing-translation">Content Solutions</a></li>
+      <li><a href="services.html#other-services">Other Services</a></li>
+    </ul>
+  </nav>
+</details>
+
+
+    <!-- CONTACT -->
+    <details class="mav-footer__group" open>
+      <summary class="mav-footer__group-title">Contact Us</summary>
+      <address class="mav-footer__contact" aria-label="Contact information">
+        <p>Email: <a href="mailto:contactmavionix@gmail.com">contactmavionix@gmail.com</a></p>
+        <p>Phone: <a href="tel:+910000000000">+91 78180 37404</a></p>
+        <p>Headquarters: Modinagar, Ghaziabad, India</p>
+      </address>
+       <div class="mav-footer__inner">
+    <div class="mav-footer__social" role="navigation" aria-label="Social media">
+      <a href="https://www.facebook.com/profile.php?id=61579205461137" class="mav-footer__social-link" aria-label="Mavionix on Facebook" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 11.93 2 6.35 2 1.86 6.48 1.86 12.07c0 4.99 3.64 9.13 8.4 9.93v-7.02H7.9v-2.9h2.36V9.41c0-2.34 1.4-3.63 3.55-3.63 1.03 0 2.1.18 2.1.18v2.31h-1.18c-1.16 0-1.52.72-1.52 1.46v1.75h2.59l-.41 2.9h-2.18V22c4.76-.8 8.4-4.94 8.4-9.93Z"/></svg>
+        <span>Facebook</span>
+      </a>
+      <a href="https://www.instagram.com/mavionix.ai/" class="mav-footer__social-link" aria-label="Mavionix on Instagram" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.4A5.6 5.6 0 1 0 17.6 13 5.6 5.6 0 0 0 12 7.4Zm0 9.2A3.6 3.6 0 1 1 15.6 13 3.6 3.6 0 0 1 12 16.6Zm6.1-9.9a1.3 1.3 0 1 0-1.3-1.3 1.3 1.3 0 0 0 1.3 1.3Z"/></svg>
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.linkedin.com/company/mavionix-ai/" class="mav-footer__social-link" aria-label="Mavionix on LinkedIn" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 4.99 2.5 2.5 0 0 0 0-4.99ZM3.5 9h3v12h-3zM10 9h2.9v1.64h.04C13.52 9.66 15 9 16.9 9c3.2 0 3.8 2.1 3.8 4.84V21H18v-6.3c0-1.5-.03-3.44-2.1-3.44-2.1 0-2.4 1.64-2.4 3.33V21h-3z"/></svg>
+        <span>LinkedIn</span>
+      </a>
+      <a href="https://x.com/mavionix" class="mav-footer__social-link" aria-label="Mavionix on X / Twitter" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.2 3H20l-6.6 7.6L21 21h-5.2l-4.1-5-4.7 5H4.1l7.1-7.9L3 3h5.3l3.7 4.5L17.2 3Z"/></svg>
+        <span>X / Twitter</span>
+      </a>
+    </div>
+    
+  </div>
+    </details>
+
+  </div><!-- /.mav-footer__inner -->
+
+  <div class="mav-footer__bottom">
+  <p>© <time id="mav-footer-year" aria-label="Current year">2025</time> MaVionix. All Rights Reserved.</p>
+  <nav class="mav-footer__legal" aria-label="Legal">
+    <a href="images/Terms.docx" download>Terms &amp; Conditions</a>
+    <span aria-hidden="true">•</span>
+    <a href="images/Policy.docx" download>Privacy Policy</a>
+    <span aria-hidden="true">•</span>
+    <a href="images/Disclaimer.docx" download>Disclaimer</a>
+  </nav>
+</div>
+  <script>
+    // Update year dynamically
+    document.getElementById('mav-footer-year').textContent = new Date().getFullYear();
+
+    // Handle desktop open state for details
+    document.querySelectorAll('.mav-footer__group').forEach(group => {
+      group.addEventListener('click', () => {
+        if (window.innerWidth >= 768) {
+          group.open = !group.open;
+        }
+      });
+    });
+  </script>
+
+</footer>
+
+<!-- =============================================================
+  STYLES
+============================================================= -->
+<style>
+:root {
+  /* Brand Palette */
+  --mav-neon: #C800FF;
+  --mav-soft: #A64DFF;
+  --mav-gray: #CCCCCC;
+  --mav-charcoal: #0F0F10;
+  --mav-charcoal-2: #111217;
+  --mav-white: #FFFFFF;
+  --mav-text-light: #EAEAEA;
+  --mav-text-mid: #C9C9C9;
+  --mav-text-dim: #9A9AA0;
+
+  /* Layout tokens */
+  --mav-footer-max-width: 1200px;
+  --mav-footer-pad-x: clamp(1rem, 2vw, 2rem);
+  --mav-footer-pad-y: clamp(2.5rem, 6vw, 5rem);
+  --mav-footer-grid-gap: clamp(1.25rem, 3.5vw, 3rem);
+  --mav-footer-radius: 14px;
+  --mav-focus-ring: 0 0 0 3px rgba(200,0,255,0.55);
+}
+
+/* Visually hidden utility */
+.sr-only {position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Dark theme baseline */
+.mav-footer { 
+  background: linear-gradient(145deg, var(--mav-charcoal), var(--mav-charcoal-2));
+  color: var(--mav-text-mid);
+  padding: var(--mav-footer-pad-y) var(--mav-footer-pad-x) calc(var(--mav-footer-pad-y)/2);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Poppins", sans-serif;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate; /* create stacking context for bg */
+  font-size: 16px; /* ensures base legibility on mobile */
+}
+
+/* Top accent line */
+.mav-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--mav-neon), var(--mav-soft));
+  z-index: 2; /* above bg grid */
+}
+
+/* Animated Tech Grid Background */
+.mav-footer__grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(90deg, rgba(200,0,255,.12) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(200,0,255,.12) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: mavFooterGridMove 16s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes mavFooterGridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .mav-footer__grid-bg { animation: none; background-size: 32px 32px; opacity: 0.35; }
+  .mav-footer__cta-btn, .mav-footer__list a, .mav-footer__social-link { transition: none; }
+}
+
+/* INNER GRID WRAPPER */
+.mav-footer__inner {
+  display: grid;
+  max-width: var(--mav-footer-max-width);
+  margin-inline: auto;
+  gap: var(--mav-footer-grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  position: relative;
+  z-index: 1; /* above grid bg */
+}
+
+/* BRAND */
+.mav-footer__brand { text-align: left; max-width: 460px; }
+.mav-footer__logo { width: clamp(140px, 22vw, 190px); height: auto; margin-bottom: .85rem; }
+.mav-footer__tagline { font-size: 0.98rem; line-height: 1.6; color: var(--mav-text-dim); max-width: 42ch; }
+
+/* GROUPS (details/summary) */
+.mav-footer__group { background: transparent; border: none; padding: 0; margin: 0; }
+.mav-footer__group[open] > .mav-footer__group-title::after { transform: rotate(45deg); }
+
+.mav-footer__group-title {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  padding: .35rem 1.5rem .6rem 0; /* extra right space for the + icon */
+  margin-bottom: .4rem;
+  font-size: 1.15rem;
+  color: var(--mav-neon);
+  font-weight: 700;
+  outline: none;
+}
+
+/* remove default summary marker */
+.mav-footer__group-title::-webkit-details-marker { display: none; }
+
+/* Toggle indicator (mobile/tablet) */
+.mav-footer__group-title::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: .15rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--mav-soft);
+  transition: transform .25s ease;
+}
+
+@media (min-width: 992px) {
+  .mav-footer__group-title::after { display: none; }
+}
+
+/* LIST RESET */
+.mav-footer__list { list-style: none; margin: 0; padding: 0; }
+.mav-footer__list li { margin-bottom: .55rem; }
+.mav-footer__list a {
+  text-decoration: none;
+  color: var(--mav-text-light);
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: color .25s, transform .25s;
+}
+.mav-footer__list a:hover, .mav-footer__list a:focus-visible {
+  color: var(--mav-soft);
+  transform: translateX(4px);
+  outline: none;
+  box-shadow: var(--mav-focus-ring);
+  border-radius: 6px;
+  padding-inline: 2px;
+}
+
+/* CONTACT */
+.mav-footer__contact { font-style: normal; font-size: 1rem; line-height: 1.6; color: var(--mav-text-light); margin-bottom: .8rem; }
+.mav-footer__contact a { color: var(--mav-text-light); text-decoration: none; transition: color .25s; }
+.mav-footer__contact a:hover, .mav-footer__contact a:focus-visible { color: var(--mav-neon); outline: none; box-shadow: var(--mav-focus-ring); border-radius: 6px; padding-inline: 2px; }
+
+/* SOCIAL */
+.mav-footer__social { display: grid; gap: .6rem; margin-top: .75rem; max-width: 280px; }
+.mav-footer__social-link { display: inline-flex; align-items: center; gap: .65em; padding: .45em .6em; font-size: 1rem; line-height: 1.2; color: var(--mav-text-light); text-decoration: none; transition: color .25s, transform .25s, text-shadow .25s; border-radius: 10px; }
+.mav-footer__social-link .icon { width: 1.15em; height: 1.15em; fill: currentColor; flex: 0 0 auto; }
+.mav-footer__social-link:hover, .mav-footer__social-link:focus-visible { color: var(--mav-neon); transform: translateX(4px); text-shadow: 0 0 10px rgba(200,0,255,.8); outline: none; box-shadow: var(--mav-focus-ring); }
+
+/* NEWSLETTER (optional block styles preserved if you add it) */
+.mav-footer__newsletter { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; max-width: 320px; }
+.mav-footer__newsletter input[type="email"] { flex: 1 1 auto; min-width: 160px; padding: .65rem .8rem; border-radius: var(--mav-footer-radius); border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.05); color: var(--mav-white); font-size: .98rem; }
+.mav-footer__newsletter input[type="email"]::placeholder { color: var(--mav-text-dim); }
+.mav-footer__newsletter input[type="email"]:focus { outline: none; box-shadow: var(--mav-focus-ring); border-color: var(--mav-neon); }
+.mav-footer__btn { flex: 0 0 auto; padding: .65rem 1rem; font-size: .98rem; border-radius: var(--mav-footer-radius); border: none; cursor: pointer; background: linear-gradient(90deg, var(--mav-neon), var(--mav-soft)); color: var(--mav-white); transition: transform .25s, filter .25s; }
+.mav-footer__btn:hover, .mav-footer__btn:focus-visible { transform: translateY(-2px) scale(1.02); filter: brightness(1.1); outline: none; box-shadow: var(--mav-focus-ring); }
+
+/* CTA STRIP */
+.mav-footer__cta { width: 100%; max-width: var(--mav-footer-max-width); margin: 0 auto 2.25rem; padding: 1.75rem 1rem; text-align: center; background: rgba(200,0,255,.08); border: 1px solid rgba(200,0,255,.25); border-radius: var(--mav-footer-radius); position: relative; backdrop-filter: blur(4px); z-index: 1; }
+.mav-footer__cta h3 { margin: 0 0 .85rem; font-size: clamp(1.15rem, 2.3vw, 1.65rem); color: var(--mav-white); font-weight: 800; letter-spacing: .2px; }
+.mav-footer__cta-btn { display: inline-block; padding: .75rem 1.35rem; font-size: 1rem; font-weight: 700; text-decoration: none; color: var(--mav-white); background: linear-gradient(90deg, var(--mav-neon), var(--mav-soft)); border-radius: var(--mav-footer-radius); transition: transform .25s, filter .25s; }
+.mav-footer__cta-btn:hover, .mav-footer__cta-btn:focus-visible { transform: translateY(-2px) scale(1.03); filter: brightness(1.1); outline: none; box-shadow: var(--mav-focus-ring); }
+
+/* BOTTOM BAR */
+.mav-footer__bottom { margin-top: 2.6rem; padding-top: 1.1rem; border-top: 1px solid rgba(255,255,255,.12); text-align: center; position: relative; z-index: 1; }
+.mav-footer__bottom p { margin: 0 0 .5rem; font-size: .95rem; color: var(--mav-text-mid); }
+.mav-footer__legal { display: inline-flex; flex-wrap: wrap; gap: .75rem; align-items: center; justify-content: center; font-size: .95rem; color: var(--mav-text-dim); }
+.mav-footer__legal a { color: var(--mav-text-dim); text-decoration: none; transition: color .25s; }
+.mav-footer__legal a:hover, .mav-footer__legal a:focus-visible { color: var(--mav-neon); outline: none; box-shadow: var(--mav-focus-ring); border-radius: 6px; padding-inline: 2px; }
+
+/* SMALL SCREEN OPTIMIZATIONS */
+@media (max-width: 767.98px) {
+  .mav-footer__inner { grid-template-columns: 1fr; text-align: left; }
+  .mav-footer__brand { max-width: none; }
+  .mav-footer__tagline { max-width: 44ch; }
+  .mav-footer__social { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); max-width: none; }
+}
+
+/* EXTRA SMALL SCREEN (<=480px) */
+@media (max-width: 480.98px) {
+  :root { --mav-footer-pad-y: 2.3rem; }
+  .mav-footer__logo { width: 150px; }
+}
+
+/* LIGHT THEME SUPPORT (if you add data-theme="light" to <html>) */
+html[data-theme="light"] .mav-footer { background: linear-gradient(145deg, #F7F7F7, #ECECEC); color: #333; }
+html[data-theme="light"] .mav-footer__tagline,
+html[data-theme="light"] .mav-footer__list a,
+html[data-theme="light"] .mav-footer__contact,
+html[data-theme="light"] .mav-footer__social-link,
+html[data-theme="light"] .mav-footer__bottom p,
+html[data-theme="light"] .mav-footer__legal a { color: #333; }
+html[data-theme="light"] .mav-footer__legal a:hover { color: var(--mav-neon); }
+
+/* High Contrast (Windows/HC themes) */
+@media (forced-colors: active) {
+  .mav-footer, .mav-footer * { forced-color-adjust: auto; }
+  .mav-footer__cta { background: transparent; border: 1px solid CanvasText; }
+  .mav-footer__cta-btn { background: ButtonFace; color: ButtonText; }
+}
+
+/* Simple fade-in utility (used by script) */
+.mav-fade { opacity: 0; transform: translateY(8px); transition: opacity .6s ease, transform .6s ease; }
+.mav-fade.is-in { opacity: 1; transform: none; }
+</style>
+
+<!-- =============================================================
+  SCRIPT (Dynamic Year + Desktop details-open + Fade-ins)
+============================================================= -->
+<script>
+(function () {
+  const onReady = (fn) => (document.readyState !== 'loading') ? fn() : document.addEventListener('DOMContentLoaded', fn);
+
+  onReady(function () {
+    // 1) Dynamic Year
+    const yEl = document.getElementById('mav-footer-year');
+    if (yEl) yEl.textContent = new Date().getFullYear();
+
+    // 2) Ensure details expanded on desktop (>= 992px)
+    const mq = window.matchMedia('(min-width: 992px)');
+    const detailsEls = document.querySelectorAll('.mav-footer__group');
+    const syncDetails = () => {
+      detailsEls.forEach(d => mq.matches ? d.setAttribute('open', '') : d.removeAttribute('open'));
+    };
+    syncDetails();
+    mq.addEventListener ? mq.addEventListener('change', syncDetails) : mq.addListener(syncDetails);
+
+    // 3) Fade-in sections when visible
+    const observed = document.querySelectorAll('.mav-footer__brand, .mav-footer__group, .mav-footer__bottom, .mav-footer__cta');
+    observed.forEach(el => el.classList.add('mav-fade'));
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-in'); });
+      }, { threshold: 0.12 });
+      observed.forEach(el => io.observe(el));
+    } else {
+      // Fallback: reveal immediately
+      observed.forEach(el => el.classList.add('is-in'));
+    }
+  });
+})();
+</script>
+
+    </body>
+</html>

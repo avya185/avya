@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<title>MaVionix – Services (Enhanced)</title>
+<meta content="Explore MaVionix's full-stack AI‑driven digital services in deep detail: web development, chatbots, automation, branding, content, and more." name="description"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- Favicon -->
+<link href="images/logo.png" rel="icon" type="image/png"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Font Awesome -->
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-kWU8SKOaJzWbM5sBiOD5TVE+poYmc7x/tVv7aCS7eCjGm1sZl+cOnu1nBTVGKyAOH+dsbN4ZK7JtE/3uYfwzUg==" referrerpolicy="no-referrer" rel="stylesheet">
+<!-- Custom Fonts -->
+<link href="font/fonts.css" rel="stylesheet"/>
+<!-- Normalize CSS -->
+<link href="css/normalize.css" rel="stylesheet"/>
+<!-- Site CSS -->
+<link href="css/utility.css" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="css/responsive.css" rel="stylesheet"/>
+<!-- Page‑Specific Styles -->
+<style>
+  :root {
+    --mvx-neon-purple: #C800FF;
+    --mvx-soft-purple: #A64DFF;
+    --mvx-metallic-gray: #CCCCCC;
+    --mvx-charcoal: #1A1A1A;
+    --mvx-charcoal-2: #111111;
+    --mvx-body-bg: #ffffff;
+    --mvx-white: #ffffff;
+    --mvx-green: #00e676;
+    --mvx-danger: #ff4d4f;
+    --mvx-radius-xl: 24px;
+    --mvx-radius-lg: 16px;
+    --mvx-radius-md: 12px;
+    --mvx-radius-sm: 8px;
+    --mvx-duration-fast: 150ms;
+    --mvx-duration-med: 300ms;
+    --mvx-duration-slow: 600ms;
+    --mvx-ease-out: cubic-bezier(.16,1,.3,1);
+    --mvx-ease-snap: cubic-bezier(.25,1,.5,1);
+    --mvx-shadow-glow: 0 0 18px rgba(200,0,255,.7);
+    --mvx-shadow-card: 0 10px 40px rgba(0,0,0,.25);
+    --mvx-shadow-card-hover: 0 16px 48px rgba(0,0,0,.35);
+    --mvx-grid-line: rgba(255,255,255,.05);
+  }
+
+  /* ===== HERO ===== */
+  .services-hero{position:relative;background:var(--mvx-charcoal);color:var(--mvx-white);text-align:center;display:flex;justify-content:center;align-items:center;min-height:60vh;padding:0 20px;overflow:hidden;isolation:isolate}
+  .services-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 120%,rgba(200,0,255,.35),transparent 70%),linear-gradient(90deg,var(--mvx-grid-line) 1px,transparent 1px),linear-gradient(0deg,var(--mvx-grid-line) 1px,transparent 1px);background-size:100% 100%,40px 40px,40px 40px;mix-blend-mode:screen;animation:gridMove 20s linear infinite;z-index:0}
+  @keyframes gridMove{0%{background-position:0 0,0 0,0 0}100%{background-position:0 0,80px 40px,40px 80px}}
+  .services-hero .bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:.25;filter:brightness(.8) contrast(1.2) saturate(1.1)}
+  .services-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.4);z-index:0}
+  .services-hero-content{position:relative;z-index:1;max-width:900px;margin-inline:auto;opacity:0;transform:translateY(30px);animation:fadeUp 1.2s ease-out forwards .4s;padding-inline:1rem}
+  .services-hero-content h1{font-size:clamp(2.25rem,4vw,3.5rem);font-weight:800;margin-bottom:16px;line-height:1.1}
+  .services-hero-content p{font-size:clamp(1rem,1.8vw,1.25rem);opacity:.85;margin-inline:auto;max-width:650px}
+  .services-hero-cta{margin-top:32px;padding:16px 32px;font-size:1rem;font-weight:600;text-decoration:none;display:inline-block;color:#fff;background:var(--mvx-neon-purple);border:none;border-radius:var(--mvx-radius-lg);box-shadow:var(--mvx-shadow-glow);cursor:pointer;transition:transform var(--mvx-duration-fast) var(--mvx-ease-out),box-shadow var(--mvx-duration-fast) var(--mvx-ease-out)}
+  .services-hero-cta:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 0 24px rgba(200,0,255,.9)}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ===== STICKY FILTER BAR ===== */
+  .services-filter-bar{background:var(--mvx-white);color:#000;padding:1rem;box-shadow:0 2px 18px rgba(0,0,0,.15);position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;align-items:center}
+  .services-filter-bar input[type="search"]{flex:1 1 240px;max-width:320px;padding:.65rem 1rem;border:1px solid rgba(0,0,0,.2);border-radius:var(--mvx-radius-md);font-size:1rem;line-height:1.2}
+  .services-filter-bar select{padding:.65rem 1.25rem;border-radius:var(--mvx-radius-md);border:1px solid rgba(0,0,0,.2);font-size:1rem;line-height:1.2}
+  .services-filter-bar button{padding:.65rem 1.25rem;font-size:1rem;border-radius:var(--mvx-radius-md);border:none;cursor:pointer;background:var(--mvx-neon-purple);color:#fff;transition:transform var(--mvx-duration-fast) var(--mvx-ease-out)}
+  .services-filter-bar button:hover{transform:translateY(-2px) scale(1.01);background:var(--mvx-soft-purple)}
+  .services-filter-bar .mvx-compare-btn{background:var(--mvx-charcoal);color:#fff;border:1px solid var(--mvx-neon-purple)}
+  .services-filter-bar .mvx-compare-btn:hover{background:var(--mvx-neon-purple)}
+
+  /* ===== SERVICES WRAPPER ===== */
+  .services-wrapper{position:relative;padding:clamp(3rem,5vw,5rem) 1rem 6rem;background:var(--mvx-body-bg);color:#222;font-family:"Poppins",sans-serif}
+  .services-wrapper--overlap{margin-top:clamp(-6rem,-10vw,-8rem)}
+  .services-card{max-width:1200px;margin-inline:auto;background:var(--mvx-white);padding:clamp(2rem,4vw,3rem) 1rem 3.5rem;border-radius:var(--mvx-radius-xl);box-shadow:var(--mvx-shadow-card);position:relative}
+  .services-card::after{content:"";position:absolute;left:50%;bottom:-24px;translate:-50% 0;width:120px;height:6px;border-radius:3px;background:var(--mvx-neon-purple);opacity:.5}
+  .services-card .section-title{text-align:center;font-size:clamp(1.75rem,2.5vw,2.5rem);font-weight:700;margin-bottom:8px;color:var(--mvx-neon-purple)}
+  .services-card .section-subtitle{text-align:center;opacity:.75;max-width:650px;margin:0 auto 2rem;font-size:1.05rem;color:#555}
+
+  /* ===== SERVICE BLOCK (accordion replacing flip cards) ===== */
+  
+  .mvx-service-block{margin-bottom:2.5rem;border:1px solid rgba(0,0,0,.1);border-radius:var(--mvx-radius-lg);overflow:hidden;background:var(--mvx-white);box-shadow:0 4px 24px rgba(0,0,0,.08);transition:box-shadow var(--mvx-duration-fast) var(--mvx-ease-out)}
+  .mvx-service-block[open]{box-shadow:var(--mvx-shadow-card-hover)}
+  .mvx-service-summary{display:flex;align-items:flex-start;gap:1rem;padding:1.5rem 2.5rem 1.5rem 1.5rem;cursor:pointer;list-style:none;position:relative}
+  .mvx-service-summary::-webkit-details-marker{display:none}
+  .mvx-service-summary-icon{font-size:1.75rem;line-height:1;color:var(--mvx-neon-purple);width:36px;text-align:center}
+  .mvx-service-summary-content{flex:1 1 auto;text-align:left}
+  .mvx-service-summary-content h3{margin:0 0 .25rem;font-size:1.5rem;font-weight:700}
+  .mvx-service-summary-content p{margin:0;font-size:1rem;color:#555;max-width:60ch}
+  .mvx-service-summary-meta{text-align:right;line-height:1.2;font-size:.95rem;white-space:nowrap;color:#333}
+  .mvx-service-summary-meta span{display:block}
+  .mvx-service-summary-meta .mvx-starting{color:var(--mvx-neon-purple);font-weight:600}
+  .mvx-service-summary-caret{position:absolute;top:50%;right:1rem;translate:0 -50%;font-size:1.25rem;transition:transform var(--mvx-duration-fast) var(--mvx-ease-out)}
+  .mvx-service-block[open] .mvx-service-summary-caret{transform:rotate(180deg)}
+
+  /* ===== SUB SERVICE GRID ===== */
+  .mvx-subservices{padding:0 1.5rem 2rem}
+  .mvx-subservices-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* always 3 on desktop */
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Tablet - 2 per row */
+@media (max-width: 1024px) {
+  .mvx-subservices-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile - 1 per row */
+@media (max-width: 700px) {
+  .mvx-subservices-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Tablet (2 per row) */
+@media (max-width: 1024px) {
+  .mvx-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile (1 per row) */
+@media (max-width: 700px) {
+  .mvx-services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+  .mvx-subcard{overflow:visible; position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:1.5rem;background:var(--mvx-body-bg);border:1px solid rgba(0,0,0,.1);border-radius:var(--mvx-radius-md);box-shadow:0 2px 16px rgba(0,0,0,.08);transition:transform var(--mvx-duration-fast) var(--mvx-ease-out),box-shadow var(--mvx-duration-fast) var(--mvx-ease-out)}
+  .mvx-subcard:hover{transform:translateY(-2px) scale(1.01);box-shadow:0 6px 28px rgba(0,0,0,.15)}
+  .mvx-subcard h4{margin:0 0 .5rem;font-size:1.25rem;font-weight:700;color:var(--mvx-charcoal)}
+  .mvx-subcard p{margin:0 0 1rem;font-size:.98rem;line-height:1.35;color:#555;max-width:35ch}
+  .mvx-subcard-price{margin-bottom:1rem;font-size:1rem;font-weight:600;color:var(--mvx-neon-purple)}
+  .mvx-subcard-actions{margin-top:auto;display:flex;gap:.75rem;flex-wrap:wrap}
+  .mvx-subcard-actions button,.mvx-subcard-actions a{padding:.6rem 1rem;font-size:.95rem;font-weight:600;border-radius:var(--mvx-radius-md);text-decoration:none;line-height:1.2;cursor:pointer;transition:transform var(--mvx-duration-fast) var(--mvx-ease-out),filter var(--mvx-duration-fast) var(--mvx-ease-out)}
+  .mvx-subcard-actions .mvx-sub-learn{background:#f5f5f5;color:#000;border:1px solid rgba(0,0,0,.2)}
+  .mvx-subcard-actions .mvx-sub-learn:hover{transform:translateY(-1px) scale(1.01);filter:brightness(1.05)}
+  
+
+
+  /* ===== SUB SERVICE DETAIL DRAWER ===== */
+.mvx-subdetail {
+  margin-top: 1.25rem;
+  padding: 1.75rem 2rem;             /* more padding inside */
+  background: var(--mvx-white);
+
+  /* Full purple border */
+  border: 2px solid var(--mvx-neon-purple);
+  border-radius: var(--mvx-radius-lg);
+
+  /* Prevent child elements from overflowing */
+  overflow: hidden;
+
+  /* Subtle glow */
+  box-shadow: 0 0 12px rgba(200,0,255,.2);
+
+  display: none;
+  position: relative !important;
+  z-index: 5;
+  width: 100%;
+  max-width: 100%;                   /* don’t shrink */
+  box-sizing: border-box;
+  clear: both;
+  transition: opacity var(--mvx-duration-fast) var(--mvx-ease-out),
+              transform var(--mvx-duration-fast) var(--mvx-ease-out);
+}
+
+.mvx-subdetail.active {
+  display: block;
+  animation: mvxSubDetailFade var(--mvx-duration-med) var(--mvx-ease-out) both;
+  opacity: 1;
+}
+
+@keyframes mvxSubDetailFade {
+  from { opacity: 0; transform: translateY(-4px) }
+  to   { opacity: 1; transform: translateY(0) }
+}
+  @keyframes mvxSubDetailFade{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+  .mvx-subdetail-close{position:absolute;top:.75rem;right:.75rem;background:none;border:none;color:#000;font-size:1.25rem;cursor:pointer}
+  .mvx-subdetail-heading{display:flex;align-items:center;gap:.75rem;margin:0 0 1rem;font-size:1.35rem;font-weight:700;color:var(--mvx-neon-purple)}
+  .mvx-subdetail-content{display:grid;gap:1.25rem;grid-template-columns:1fr 1fr;align-items:start}
+  @media (max-width:700px){.mvx-subdetail-content{grid-template-columns:1fr}}
+  .mvx-subdetail-content h5{margin:0 0 .5rem;font-size:1.05rem;font-weight:600;color:var(--mvx-charcoal)}
+  .mvx-subdetail-content ul{margin:0 0 1rem;padding-left:1.25rem}
+  .mvx-subdetail-content ul li{margin-bottom:.35rem;line-height:1.35}
+  .mvx-subdetail-price-tiers{display:grid;gap:.5rem;margin-bottom:1rem}
+  .mvx-subdetail-price-tier{padding:.75rem 1rem;border:1px solid rgba(0,0,0,.1);border-radius:var(--mvx-radius-sm);display:flex;justify-content:space-between;align-items:center;font-size:.98rem}
+  .mvx-subdetail-price-tier strong{color:var(--mvx-neon-purple)}
+  .mvx-subdetail-cta{text-align:right;margin-top:.5rem}
+  .mvx-subdetail-cta button{padding:.65rem 1.25rem;font-size:1rem;border-radius:var(--mvx-radius-md);border:none;cursor:pointer;background:var(--mvx-neon-purple);color:#fff;transition:transform var(--mvx-duration-fast) var(--mvx-ease-out)}
+  .mvx-subdetail-cta button:hover{transform:translateY(-2px) scale(1.01);background:var(--mvx-soft-purple)}
+
+  /* ===== COMPARE MODAL ===== */
+  .mvx-compare-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.6);z-index:100}
+  .mvx-compare-modal[open]{display:flex}
+  .mvx-compare-dialog{background:var(--mvx-white);color:#000;max-width:min(1200px,95%);width:100%;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;border-radius:var(--mvx-radius-xl);box-shadow:0 10px 40px rgba(0,0,0,.4);position:relative}
+  .mvx-compare-dialog header{padding:1.25rem 2rem 1rem;border-bottom:1px solid rgba(0,0,0,.1);display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .mvx-compare-dialog header h2{margin:0;font-size:1.5rem;color:var(--mvx-neon-purple)}
+  .mvx-compare-dialog header button{background:none;border:none;font-size:1.25rem;cursor:pointer}
+  .mvx-compare-dialog .mvx-compare-table-wrap{overflow:auto;padding:1rem 2rem}
+  .mvx-compare-table{width:100%;border-collapse:collapse;font-size:.95rem;line-height:1.35}
+  .mvx-compare-table th,.mvx-compare-table td{padding:.75rem 1rem;border:1px solid rgba(0,0,0,.1);text-align:left;vertical-align:top}
+  .mvx-compare-table th{background:rgba(200,0,255,.08);font-weight:600}
+  .mvx-compare-table tbody tr:nth-child(odd) td{background:rgba(0,0,0,.02)}
+  .mvx-compare-table .mvx-price-cell{white-space:nowrap;color:var(--mvx-neon-purple);font-weight:600}
+
+  /* ===== CTA band reused ===== */
+  .services-cta-band{width:100%;max-width:1200px;margin:4rem auto 0 auto;padding:2rem 1rem;text-align:center;background:rgba(200,0,255,0.08);border:1px solid rgba(200,0,255,0.25);border-radius:var(--mvx-radius-lg);position:relative;backdrop-filter:blur(4px)}
+  .services-cta-band h2{margin-bottom:1rem;color:var(--mvx-charcoal);font-size:clamp(1.25rem,2vw,1.75rem)}
+  .services-cta-band p{max-width:60ch;margin-inline:auto;margin-bottom:1.25rem;color:#555}
+  .services-cta-band a{display:inline-block;padding:.75rem 1.5rem;font-size:1rem;font-weight:600;text-decoration:none;color:#fff;background:linear-gradient(90deg,var(--mvx-neon-purple),var(--mvx-soft-purple));border-radius:var(--mvx-radius-md);transition:transform var(--mvx-duration-fast) var(--mvx-ease-out),filter var(--mvx-duration-fast) var(--mvx-ease-out)}
+  .services-cta-band a:hover{transform:translateY(-2px) scale(1.03);filter:brightness(1.1)}
+
+  @media(max-width:600px){
+    .mvx-service-summary{padding:1.25rem 2.75rem 1.25rem 1.25rem}
+    .mvx-service-summary-content h3{font-size:1.25rem}
+    .mvx-service-summary-meta{display:none}
+    .mvx-subcard{overflow:visible; padding:1.25rem}
+    .mvx-subcard h4{font-size:1.15rem}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .services-hero-content{animation:none;opacity:1;transform:none}
+    .services-hero::before{animation:none}
+    .mvx-subdetail{animation:none}
+  }
+  </style>
+<style>
+/* Accessibility & small UX polish added by assistant */
+.mvx-service-summary:focus-visible { outline: 3px solid rgba(200,0,255,0.18); outline-offset: 4px; }
+.mvx-subdetail { will-change: opacity, transform; }
+.fade-in { animation: mvxFadeIn 600ms var(--mvx-ease-out) both; }
+
+@keyframes mvxFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+<!-- Navbar (reuse global include) -->
+<nav class="navbar">
+<div class="container flex">
+<div class="brand-logo flex">
+<img alt="MaVionix Logo" class="logo-img" src="images/logo.png"/>
+<a class="site-brand" href="index.html">Ma<span>Vionix</span></a>
+</div>
+<button class="flex" id="navbar-show-btn" type="button"><i class="fas fa-bars"></i></button>
+<div id="navbar-collapse">
+<button class="flex" id="navbar-close-btn" type="button"><i class="fas fa-times"></i></button>
+<ul class="navbar-nav">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+<li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+<li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+<li class="nav-item"><a class="nav-link contact-highlight" href="contact.html">Contact Us</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<!-- HERO -->
+<section aria-labelledby="services-hero-heading" class="services-hero" id="services-hero">
+<video aria-hidden="true" autoplay="" class="bg-video" loop="" muted="" playsinline="">
+<source src="assets/video/tech-grid-loop.mp4" type="video/mp4"/>
+</video>
+<div class="services-hero-overlay"></div>
+<div class="services-hero-content">
+<h1 id="services-hero-heading">Our Services</h1>
+<p>Full‑stack digital + AI solutions to build, automate, scale, and grow your business.</p>
+<a class="services-hero-cta" href="#services">Explore Services</a>
+</div>
+</section>
+<!-- FILTER BAR -->
+<div aria-label="Filter services" class="services-filter-bar" role="region">
+<input aria-label="Search services" id="servicesSearch" placeholder="Search services..." type="search"/>
+<select aria-label="Filter by category" id="servicesCategory">
+<option value="">All Categories</option>
+<option value="Website Development">Website Development</option>
+<option value="Chatbot Development">Chatbot Development</option>
+<option value="Graphics &amp; Design">Graphics &amp; Design</option>
+<option value="AI &amp; Automation">AI &amp; Automation</option>
+<option value="Writing &amp; Translation">Writing &amp; Translation</option>
+<option value="Other">Other</option>
+</select>
+<button id="servicesReset" type="button">Reset</button>
+<button aria-controls="mvxCompareModal" aria-haspopup="dialog" class="mvx-compare-btn" id="mvxCompareOpen" type="button">Compare Plans</button>
+</div>
+<!-- SERVICES WRAPPER -->
+<section aria-labelledby="services-heading" class="services-wrapper services-wrapper--overlap" id="services">
+<div class="services-card">
+<h2 class="section-title" id="services-heading">Solutions Built Around Your Goals</h2>
+
+<!-- Blocks injected by JS -->
+<div id="mvxServiceBlocks"></div>
+</div>
+</section>
+<!-- Compare Plans Modal -->
+<div aria-describedby="mvxCompareDesc" aria-hidden="true" aria-labelledby="mvxCompareTitle" aria-modal="true" class="mvx-compare-modal" id="mvxCompareModal" role="dialog">
+<div class="mvx-compare-dialog">
+<header>
+<h2 id="mvxCompareTitle">Compare Service Plans</h2>
+<button aria-label="Close compare" data-mvx-compare-close="" type="button">×</button>
+</header>
+<div class="mvx-compare-table-wrap">
+<p class="sr-only" id="mvxCompareDesc">Table comparing MaVionix service categories and key sub‑service features.</p>
+<table class="mvx-compare-table" id="mvxCompareTable"></table>
+</div>
+</div>
+</div>
+<footer class="mav-footer" role="contentinfo" aria-labelledby="mav-footer-title">
+  <h2 id="mav-footer-title" class="sr-only">MaVionix website footer</h2>
+
+  <!-- Animated Tech Grid Background -->
+  <div class="mav-footer__grid-bg" aria-hidden="true"></div>
+
+  <!-- CTA STRIP -->
+  <div class="mav-footer__cta">
+    <h3>Ready to Build Something Powerful?</h3>
+    <a class="mav-footer__cta-btn" href="contact.html">Get in Touch</a>
+  </div>
+
+  <div class="mav-footer__inner">
+
+    <!-- BRAND -->
+    <section class="mav-footer__brand" aria-label="Brand">
+      <a href="index.html" class="mav-footer__brand-link" aria-label="MaVionix home">
+        <img src="images/logo.png" alt="MaVionix Logo" class="mav-footer__logo" loading="lazy" decoding="async">
+      </a>
+      <p class="mav-footer__tagline">AI‑driven web, automation, and digital transformation solutions.</p>
+    </section>
+
+    <!-- QUICK LINKS -->
+    <details class="mav-footer__group" open>
+      <summary class="mav-footer__group-title">Quick Links</summary>
+      <nav class="mav-footer__nav" aria-label="Quick Links">
+        <ul class="mav-footer__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+         
+          <li><a href="services.html">Services</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </details>
+
+    <!-- SERVICES -->
+<details class="mav-footer__group" open>
+  <summary class="mav-footer__group-title">Our Services</summary>
+  <nav class="mav-footer__nav" aria-label="Our Services">
+    <ul class="mav-footer__list">
+      <li><a href="services.html#website-development">Website Development</a></li>
+      <li><a href="services.html#chatbot-development">AI Chatbots</a></li>
+      <li><a href="services.html#graphics-design">Branding &amp; Design</a></li>
+      <li><a href="services.html#ai-automation">AI Automation</a></li>
+      <li><a href="services.html#writing-translation">Content Solutions</a></li>
+      <li><a href="services.html#other-services">Other Services</a></li>
+    </ul>
+  </nav>
+</details>
+
+
+    <!-- CONTACT -->
+    <details class="mav-footer__group" open>
+      <summary class="mav-footer__group-title">Contact Us</summary>
+      <address class="mav-footer__contact" aria-label="Contact information">
+        <p>Email: <a href="mailto:contactmavionix@gmail.com">contactmavionix@gmail.com</a></p>
+        <p>Phone: <a href="tel:+910000000000">+91 78180 37404</a></p>
+        <p>Headquarters: Modinagar, Ghaziabad, India</p>
+      </address>
+       <div class="mav-footer__inner">
+    <div class="mav-footer__social" role="navigation" aria-label="Social media">
+      <a href="https://www.facebook.com/profile.php?id=61579205461137" class="mav-footer__social-link" aria-label="Mavionix on Facebook" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 11.93 2 6.35 2 1.86 6.48 1.86 12.07c0 4.99 3.64 9.13 8.4 9.93v-7.02H7.9v-2.9h2.36V9.41c0-2.34 1.4-3.63 3.55-3.63 1.03 0 2.1.18 2.1.18v2.31h-1.18c-1.16 0-1.52.72-1.52 1.46v1.75h2.59l-.41 2.9h-2.18V22c4.76-.8 8.4-4.94 8.4-9.93Z"/></svg>
+        <span>Facebook</span>
+      </a>
+      <a href="https://www.instagram.com/mavionix.ai/" class="mav-footer__social-link" aria-label="Mavionix on Instagram" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.4A5.6 5.6 0 1 0 17.6 13 5.6 5.6 0 0 0 12 7.4Zm0 9.2A3.6 3.6 0 1 1 15.6 13 3.6 3.6 0 0 1 12 16.6Zm6.1-9.9a1.3 1.3 0 1 0-1.3-1.3 1.3 1.3 0 0 0 1.3 1.3Z"/></svg>
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.linkedin.com/company/mavionix-ai/" class="mav-footer__social-link" aria-label="Mavionix on LinkedIn" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 4.99 2.5 2.5 0 0 0 0-4.99ZM3.5 9h3v12h-3zM10 9h2.9v1.64h.04C13.52 9.66 15 9 16.9 9c3.2 0 3.8 2.1 3.8 4.84V21H18v-6.3c0-1.5-.03-3.44-2.1-3.44-2.1 0-2.4 1.64-2.4 3.33V21h-3z"/></svg>
+        <span>LinkedIn</span>
+      </a>
+      <a href="https://x.com/mavionix" class="mav-footer__social-link" aria-label="Mavionix on X / Twitter" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.2 3H20l-6.6 7.6L21 21h-5.2l-4.1-5-4.7 5H4.1l7.1-7.9L3 3h5.3l3.7 4.5L17.2 3Z"/></svg>
+        <span>X / Twitter</span>
+      </a>
+    </div>
+    
+  </div>
+    </details>
+
+  </div><!-- /.mav-footer__inner -->
+
+  <div class="mav-footer__bottom">
+  <p>© <time id="mav-footer-year" aria-label="Current year">2025</time> MaVionix. All Rights Reserved.</p>
+  <nav class="mav-footer__legal" aria-label="Legal">
+    <a href="images/Terms.docx" download>Terms &amp; Conditions</a>
+    <span aria-hidden="true">•</span>
+    <a href="images/Policy.docx" download>Privacy Policy</a>
+    <span aria-hidden="true">•</span>
+    <a href="images/Disclaimer.docx" download>Disclaimer</a>
+  </nav>
+</div>
+  <script>
+    // Update year dynamically
+    document.getElementById('mav-footer-year').textContent = new Date().getFullYear();
+
+    // Handle desktop open state for details
+    document.querySelectorAll('.mav-footer__group').forEach(group => {
+      group.addEventListener('click', () => {
+        if (window.innerWidth >= 768) {
+          group.open = !group.open;
+        }
+      });
+    });
+  </script>
+
+</footer>
+
+<!-- =============================================================
+  STYLES
+============================================================= -->
+<style>
+:root {
+  /* Brand Palette */
+  --mav-neon: #C800FF;
+  --mav-soft: #A64DFF;
+  --mav-gray: #CCCCCC;
+  --mav-charcoal: #0F0F10;
+  --mav-charcoal-2: #111217;
+  --mav-white: #FFFFFF;
+  --mav-text-light: #EAEAEA;
+  --mav-text-mid: #C9C9C9;
+  --mav-text-dim: #9A9AA0;
+
+  /* Layout tokens */
+  --mav-footer-max-width: 1200px;
+  --mav-footer-pad-x: clamp(1rem, 2vw, 2rem);
+  --mav-footer-pad-y: clamp(2.5rem, 6vw, 5rem);
+  --mav-footer-grid-gap: clamp(1.25rem, 3.5vw, 3rem);
+  --mav-footer-radius: 14px;
+  --mav-focus-ring: 0 0 0 3px rgba(200,0,255,0.55);
+}
+
+/* Visually hidden utility */
+.sr-only {position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Dark theme baseline */
+.mav-footer { 
+  background: linear-gradient(145deg, var(--mav-charcoal), var(--mav-charcoal-2));
+  color: var(--mav-text-mid);
+  padding: var(--mav-footer-pad-y) var(--mav-footer-pad-x) calc(var(--mav-footer-pad-y)/2);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Poppins", sans-serif;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate; /* create stacking context for bg */
+  font-size: 16px; /* ensures base legibility on mobile */
+}
+
+/* Top accent line */
+.mav-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--mav-neon), var(--mav-soft));
+  z-index: 2; /* above bg grid */
+}
+
+/* Animated Tech Grid Background */
+.mav-footer__grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(90deg, rgba(200,0,255,.12) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(200,0,255,.12) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: mavFooterGridMove 16s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes mavFooterGridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .mav-footer__grid-bg { animation: none; background-size: 32px 32px; opacity: 0.35; }
+  .mav-footer__cta-btn, .mav-footer__list a, .mav-footer__social-link { transition: none; }
+}
+
+/* INNER GRID WRAPPER */
+.mav-footer__inner {
+  display: grid;
+  max-width: var(--mav-footer-max-width);
+  margin-inline: auto;
+  gap: var(--mav-footer-grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  position: relative;
+  z-index: 1; /* above grid bg */
+}
+
+/* BRAND */
+.mav-footer__brand { text-align: left; max-width: 460px; }
+.mav-footer__logo { width: clamp(140px, 22vw, 190px); height: auto; margin-bottom: .85rem; }
+.mav-footer__tagline { font-size: 0.98rem; line-height: 1.6; color: var(--mav-text-dim); max-width: 42ch; }
+
+/* GROUPS (details/summary) */
+.mav-footer__group { background: transparent; border: none; padding: 0; margin: 0; }
+.mav-footer__group[open] > .mav-footer__group-title::after { transform: rotate(45deg); }
+
+.mav-footer__group-title {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  padding: .35rem 1.5rem .6rem 0; /* extra right space for the + icon */
+  margin-bottom: .4rem;
+  font-size: 1.15rem;
+  color: var(--mav-neon);
+  font-weight: 700;
+  outline: none;
+}
+
+/* remove default summary marker */
+.mav-footer__group-title::-webkit-details-marker { display: none; }
+
+/* Toggle indicator (mobile/tablet) */
+.mav-footer__group-title::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: .15rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--mav-soft);
+  transition: transform .25s ease;
+}
+
+@media (min-width: 992px) {
+  .mav-footer__group-title::after { display: none; }
+}
+
+/* LIST RESET */
+.mav-footer__list { list-style: none; margin: 0; padding: 0; }
+.mav-footer__list li { margin-bottom: .55rem; }
+.mav-footer__list a {
+  text-decoration: none;
+  color: var(--mav-text-light);
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: color .25s, transform .25s;
+}
+.mav-footer__list a:hover, .mav-footer__list a:focus-visible {
+  color: var(--mav-soft);
+  transform: translateX(4px);
+  outline: none;
+  box-shadow: var(--mav-focus-ring);
+  border-radius: 6px;
+  padding-inline: 2px;
+}
+
+/* CONTACT */
+.mav-footer__contact { font-style: normal; font-size: 1rem; line-height: 1.6; color: var(--mav-text-light); margin-bottom: .8rem; }
+.mav-footer__contact a { color: var(--mav-text-light); text-decoration: none; transition: color .25s; }
+.mav-footer__contact a:hover, .mav-footer__contact a:focus-visible { color: var(--mav-neon); outline: none; box-shadow: var(--mav-focus-ring); border-radius: 6px; padding-inline: 2px; }
+
+/* SOCIAL */
+.mav-footer__social { display: grid; gap: .6rem; margin-top: .75rem; max-width: 280px; }
+.mav-footer__social-link { display: inline-flex; align-items: center; gap: .65em; padding: .45em .6em; font-size: 1rem; line-height: 1.2; color: var(--mav-text-light); text-decoration: none; transition: color .25s, transform .25s, text-shadow .25s; border-radius: 10px; }
+.mav-footer__social-link .icon { width: 1.15em; height: 1.15em; fill: currentColor; flex: 0 0 auto; }
+.mav-footer__social-link:hover, .mav-footer__social-link:focus-visible { color: var(--mav-neon); transform: translateX(4px); text-shadow: 0 0 10px rgba(200,0,255,.8); outline: none; box-shadow: var(--mav-focus-ring); }
+
+/* NEWSLETTER (optional block styles preserved if you add it) */
+.mav-footer__newsletter { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; max-width: 320px; }
+.mav-footer__newsletter input[type="email"] { flex: 1 1 auto; min-width: 160px; padding: .65rem .8rem; border-radius: var(--mav-footer-radius); border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.05); color: var(--mav-white); font-size: .98rem; }
+.mav-footer__newsletter input[type="email"]::placeholder { color: var(--mav-text-dim); }
+.mav-footer__newsletter input[type="email"]:focus { outline: none; box-shadow: var(--mav-focus-ring); border-color: var(--mav-neon); }
+.mav-footer__btn { flex: 0 0 auto; padding: .65rem 1rem; font-size: .98rem; border-radius: var(--mav-footer-radius); border: none; cursor: pointer; background: linear-gradient(90deg, var(--mav-neon), var(--mav-soft)); color: var(--mav-white); transition: transform .25s, filter .25s; }
+.mav-footer__btn:hover, .mav-footer__btn:focus-visible { transform: translateY(-2px) scale(1.02); filter: brightness(1.1); outline: none; box-shadow: var(--mav-focus-ring); }
+
+/* CTA STRIP */
+.mav-footer__cta { width: 100%; max-width: var(--mav-footer-max-width); margin: 0 auto 2.25rem; padding: 1.75rem 1rem; text-align: center; background: rgba(200,0,255,.08); border: 1px solid rgba(200,0,255,.25); border-radius: var(--mav-footer-radius); position: relative; backdrop-filter: blur(4px); z-index: 1; }
+.mav-footer__cta h3 { margin: 0 0 .85rem; font-size: clamp(1.15rem, 2.3vw, 1.65rem); color: var(--mav-white); font-weight: 800; letter-spacing: .2px; }
+.mav-footer__cta-btn { display: inline-block; padding: .75rem 1.35rem; font-size: 1rem; font-weight: 700; text-decoration: none; color: var(--mav-white); background: linear-gradient(90deg, var(--mav-neon), var(--mav-soft)); border-radius: var(--mav-footer-radius); transition: transform .25s, filter .25s; }
+.mav-footer__cta-btn:hover, .mav-footer__cta-btn:focus-visible { transform: translateY(-2px) scale(1.03); filter: brightness(1.1); outline: none; box-shadow: var(--mav-focus-ring); }
+
+/* BOTTOM BAR */
+.mav-footer__bottom { margin-top: 2.6rem; padding-top: 1.1rem; border-top: 1px solid rgba(255,255,255,.12); text-align: center; position: relative; z-index: 1; }
+.mav-footer__bottom p { margin: 0 0 .5rem; font-size: .95rem; color: var(--mav-text-mid); }
+.mav-footer__legal { display: inline-flex; flex-wrap: wrap; gap: .75rem; align-items: center; justify-content: center; font-size: .95rem; color: var(--mav-text-dim); }
+.mav-footer__legal a { color: var(--mav-text-dim); text-decoration: none; transition: color .25s; }
+.mav-footer__legal a:hover, .mav-footer__legal a:focus-visible { color: var(--mav-neon); outline: none; box-shadow: var(--mav-focus-ring); border-radius: 6px; padding-inline: 2px; }
+
+/* SMALL SCREEN OPTIMIZATIONS */
+@media (max-width: 767.98px) {
+  .mav-footer__inner { grid-template-columns: 1fr; text-align: left; }
+  .mav-footer__brand { max-width: none; }
+  .mav-footer__tagline { max-width: 44ch; }
+  .mav-footer__social { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); max-width: none; }
+}
+
+/* EXTRA SMALL SCREEN (<=480px) */
+@media (max-width: 480.98px) {
+  :root { --mav-footer-pad-y: 2.3rem; }
+  .mav-footer__logo { width: 150px; }
+}
+
+/* LIGHT THEME SUPPORT (if you add data-theme="light" to <html>) */
+html[data-theme="light"] .mav-footer { background: linear-gradient(145deg, #F7F7F7, #ECECEC); color: #333; }
+html[data-theme="light"] .mav-footer__tagline,
+html[data-theme="light"] .mav-footer__list a,
+html[data-theme="light"] .mav-footer__contact,
+html[data-theme="light"] .mav-footer__social-link,
+html[data-theme="light"] .mav-footer__bottom p,
+html[data-theme="light"] .mav-footer__legal a { color: #333; }
+html[data-theme="light"] .mav-footer__legal a:hover { color: var(--mav-neon); }
+
+/* High Contrast (Windows/HC themes) */
+@media (forced-colors: active) {
+  .mav-footer, .mav-footer * { forced-color-adjust: auto; }
+  .mav-footer__cta { background: transparent; border: 1px solid CanvasText; }
+  .mav-footer__cta-btn { background: ButtonFace; color: ButtonText; }
+}
+
+/* Simple fade-in utility (used by script) */
+.mav-fade { opacity: 0; transform: translateY(8px); transition: opacity .6s ease, transform .6s ease; }
+.mav-fade.is-in { opacity: 1; transform: none; }
+</style>
+
+<!-- =============================================================
+  SCRIPT (Dynamic Year + Desktop details-open + Fade-ins)
+============================================================= -->
+<script>
+(function () {
+  const onReady = (fn) => (document.readyState !== 'loading') ? fn() : document.addEventListener('DOMContentLoaded', fn);
+
+  onReady(function () {
+    // 1) Dynamic Year
+    const yEl = document.getElementById('mav-footer-year');
+    if (yEl) yEl.textContent = new Date().getFullYear();
+
+    // 2) Ensure details expanded on desktop (>= 992px)
+    const mq = window.matchMedia('(min-width: 992px)');
+    const detailsEls = document.querySelectorAll('.mav-footer__group');
+    const syncDetails = () => {
+      detailsEls.forEach(d => mq.matches ? d.setAttribute('open', '') : d.removeAttribute('open'));
+    };
+    syncDetails();
+    mq.addEventListener ? mq.addEventListener('change', syncDetails) : mq.addListener(syncDetails);
+
+    // 3) Fade-in sections when visible
+    const observed = document.querySelectorAll('.mav-footer__brand, .mav-footer__group, .mav-footer__bottom, .mav-footer__cta');
+    observed.forEach(el => el.classList.add('mav-fade'));
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-in'); });
+      }, { threshold: 0.12 });
+      observed.forEach(el => io.observe(el));
+    } else {
+      // Fallback: reveal immediately
+      observed.forEach(el => el.classList.add('is-in'));
+    }
+  });
+})();
+</script>
+<script src="js/script.js"></script>
+<!-- =========================================================== -->
+<!-- DATA + SCRIPT                                                -->
+<!-- =========================================================== -->
+<script>
+  /* ------------------------------------------------------------------
+     MaVionix Enhanced Services Page Script
+     - DATA: Rich category + sub‑service catalog (overview, deliverables, pricing tiers, timeline, tech, what we need, add‑ons)
+     - Renders accessible accordion blocks per category (<details>)
+     - Sub‑service Learn More drawers (toggle w/ ARIA)
+
+     - Filter + search across categories & subs
+     - Compare Plans modal auto‑generates matrix
+     - Footer quick jump support
+  ------------------------------------------------------------------ */
+
+  /* ---------------------------------------------------------------
+     CORE DATA MODEL
+     Each category:
+       label: string (display)
+       icon:  FontAwesome class (no leading dot)
+       descShort: tagline for summary row
+       descLong:  paragraph shows just under summary when expanded
+       pdf:       brochure path (download)
+       subs: [ { label, short, long, deliverables[], timeline, pricing:{basic,standard,premium}, tech[], includes[], addOns[], faq:[{q,a}] } ]
+     NOTE: Pricing numbers shown as strings so you can include ranges or starting price.
+  --------------------------------------------------------------- */
+ /* =============================================================
+   MaVionix Services Page – Expanded Data (6 Sub‑Services / Cat)
+   ----------------------------------------------------------------
+   HOW TO USE:
+   1. Locate the existing MVX_SERVICE_DATA and MVX_PRICE_MAP blocks in
+      services.html (inside the <script> near "CORE DATA MODEL").
+   2. Delete the old blocks and paste THIS ENTIRE SNIPPET in their place.
+   3. No other JS changes required – the rendering logic already loops
+      through whatever is in MVX_SERVICE_DATA; now each category has 6.
+   4. Rebuild / deploy.
+   ----------------------------------------------------------------
+   Notes:
+   • Pricing strings intentionally lightweight; edit freely.
+
+   • Keep keys EXACTLY matching the sub.label values.
+   • En dashes (–) are unicode; OK in UTF‑8 docs. Replace with '-' if needed.
+   ============================================================= */
+
+/* ---------------------------------------------------------------
+   CORE DATA MODEL – 6 SUBS PER CATEGORY
+   --------------------------------------------------------------- */
+const MVX_SERVICE_DATA = {
+  "Website Development": {
+    label: "Website Development",
+    icon: "fa-globe",
+    descShort: "AI‑enhanced, responsive sites & apps.",
+    descLong: "From fast marketing pages to e‑commerce and custom apps – built for performance, SEO, and conversion.",
+    pdf: "assets/pdfs/website-development.pdf",
+    subs: [
+      {
+        label: "WordPress Site",
+        short: "Launch fast & scale with flexible CMS.",
+        long: "Install & customize a pro WordPress site with theme, key plugins, and basic SEO.",
+        deliverables:["Theme setup & branding","Responsive build","Security & caching","Lead forms","Basic SEO","Training"],
+        timeline:"7–14 days.",
+        pricing:{basic:"₹7,999",standard:"₹11,999",premium:"₹15,999+"},
+        tech:["WordPress","Elementor","WooCommerce (opt)","Yoast"],
+        includes:["1 rev (Basic)","3 rev (Premium)"],
+        addOns:["Multi‑lang","Membership","Speed+"],
+        faq:[{q:"Can I update content?",a:"Yes – editor walkthrough video."}]
+      },
+      {
+        label: "E-commerce",
+        short: "End‑to‑end online store build.",
+        long: "Sell products/services with secure checkout, inventory, coupons, analytics.",
+        deliverables:["Storefront UI","Catalog setup","Payment gateway","Shipping/tax","Order emails","Analytics"],
+        timeline:"2–4 weeks.",
+        pricing:{basic:"₹14,999",standard:"₹24,999",premium:"₹39,999+"},
+        tech:["WooCommerce","Shopify","Razorpay","Stripe"],
+        includes:["10 products (Basic)","50 (Std)","Bulk import (Prem)"],
+        addOns:["Marketplace sync","Subscriptions","Abandoned cart"],
+        faq:[{q:"Best platform?",a:"We advise after scoping catalog & budget."}]
+      },
+      {
+        label: "Landing Page",
+        short: "High‑converting campaign page.",
+        long: "Targeted landing / funnel optimized for lead capture & tracking.",
+        deliverables:["Hero + offer","Lead form","Trust blocks","Analytics","Responsive"],
+        timeline:"3–7 days.",
+        pricing:{basic:"₹4,999",standard:"₹7,999",premium:"₹10,999+"},
+        tech:["HTML/CSS/JS","WordPress","Webflow"],
+        includes:["Copy guidance","Speed opt"],
+        addOns:["WhatsApp CTA","Countdown","CRM push"],
+        faq:[{q:"Do you write copy?",a:"Add Content add‑on."}]
+      },
+      {
+        label: "Custom Web App",
+        short: "Fully tailored portal or SaaS.",
+        long: "Secure, scalable web app w/ auth, dashboards, APIs, DB.",
+        deliverables:["Discovery","UI/UX","Frontend","Backend/API","Auth/DB","Deployment"],
+        timeline:"4–12+ weeks.",
+        pricing:{basic:"₹29,999 start",standard:"₹75k–₹2L",premium:"Enterprise"},
+        tech:["React/Vue","Node/Python","Postgres/Mongo","AWS/GCP"],
+        includes:["Git repo","Env pipeline"],
+        addOns:["Mobile wrapper","Analytics","AI features"],
+        faq:[{q:"Phased build?",a:"Yes – MVP then scale."}]
+      },
+      {
+        label: "Website Care & Maintenance",
+        short: "Updates, backups, uptime watch.",
+        long: "Ongoing core/plugin updates, security scans, backups, light content edits.",
+        deliverables:["Monthly updates","Security patching","Backup & restore","Minor content edits","Uptime alerts"],
+        timeline:"Monthly retainer.",
+        pricing:{basic:"₹2,499/mo",standard:"₹4,999/mo",premium:"₹9,999/mo+"},
+        tech:["WP‑CLI","Cloud backups","Malware scan"],
+        includes:["Report email"],
+        addOns:["24/7 SLA","Staging updates","Performance bundle"],
+        faq:[{q:"Emergency fixes?",a:"Covered in Premium SLA."}]
+      },
+      {
+        label: "Speed & Security Optimization",
+        short: "Core Web Vitals boost.",
+        long: "Audit + tune performance (LCP/CLS), CDN/cache, image + script optimization, security hardening.",
+        deliverables:["Perf audit","Image optimize","Caching/CDN","Minify & defer","Security hardening"],
+        timeline:"3–10 days.",
+        pricing:{basic:"₹3,999",standard:"₹7,999",premium:"₹14,999+"},
+        tech:["Lighthouse","Cloudflare","Perf tools"],
+        includes:["Before/after report"],
+        addOns:["Ongoing monitor","Malware firewall"],
+        faq:[{q:"PageSpeed 90+?",a:"We aim best possible given stack."}]
+      }
+    ]
+  },
+
+  "Chatbot Development": {
+    label: "Chatbot Development",
+    icon: "fa-robot",
+    descShort: "24/7 AI chat across channels.",
+    descLong: "Automate lead capture, support, and transactions via chat on web, WhatsApp, voice & more.",
+    pdf: "assets/pdfs/chatbot-development.pdf",
+    subs:[
+      {
+        label:"WhatsApp Bot",
+        short:"Leads, FAQs, order status.",
+        long:"Interactive flows connected to CRM/e‑com backend.",
+        deliverables:["Official API","Keyword/menu flows","Lead capture","Templates","Media sends"],
+        timeline:"7–21 days.",
+        pricing:{basic:"₹7,999",standard:"₹14,999",premium:"₹24,999+"},
+        tech:["Meta API","360Dialog","Twilio"],
+        includes:["5 FAQ flows"],
+        addOns:["Payments","Multi‑lang","AI fallback"],
+        faq:[{q:"Need Official API?",a:"Recommended for scale."}]
+      },
+      {
+        label:"AI Chatbot",
+        short:"LLM‑powered smart assistant.",
+        long:"RAG bot trained on your docs/FAQs for natural replies.",
+        deliverables:["Data ingest","Embedding search","Guardrails","Chat UI","Analytics"],
+        timeline:"2–4 weeks.",
+        pricing:{basic:"₹14,999",standard:"₹24,999",premium:"₹49,999+"},
+        tech:["OpenAI/Claude","Vector DB","LangChain"],
+        includes:["100 doc pages"],
+        addOns:["Voice input","Human handoff","CRM sync"],
+        faq:[{q:"Hallucinations?",a:"We ground on your data."}]
+      },
+      {
+        label:"Multiplatform Bot",
+        short:"One brain, many channels.",
+        long:"Unified intents deployed to web, WA, Telegram, Messenger…",
+        deliverables:["Intent model","Connectors","State sync","Analytics","Failover"],
+        timeline:"3–6 weeks.",
+        pricing:{basic:"₹19,999",standard:"₹34,999",premium:"₹59,999+"},
+        tech:["Dialogflow CX","Botpress","Node"],
+        includes:["3 channels"],
+        addOns:["Voice IVR","Custom CRM","Payments"],
+        faq:[{q:"Different channel flows?",a:"Yes – configurable."}]
+      },
+      {
+        label:"Lead Capture Widget Bot",
+        short:"Popup/site bot that qualifies leads.",
+        long:"Embeddable web widget collects name/email/intents then routes to CRM or email.",
+        deliverables:["Popup widget","Form fallback","CRM push","Email alerts","Basic analytics"],
+        timeline:"3–7 days.",
+        pricing:{basic:"₹4,999",standard:"₹7,999",premium:"₹12,999+"},
+        tech:["JS widget","Webhook","Zapier"],
+        includes:["Email export"],
+        addOns:["OTP verify","Scoring rules"],
+        faq:[{q:"Works on any site?",a:"Copy/paste script."}]
+      },
+      {
+        label:"Support Helpdesk Bot",
+        short:"Tier‑0 support deflection.",
+        long:"Answers FAQs, creates/updates tickets (Zendesk/Freshdesk).",
+        deliverables:["KB sync","Ticket create/update","Intent fallback","CSAT capture","Logs"],
+        timeline:"2–5 weeks.",
+        pricing:{basic:"₹9,999",standard:"₹19,999",premium:"₹39,999+"},
+        tech:["Zendesk API","Freshdesk","RAG"],
+        includes:["Basic FAQ import"],
+        addOns:["Agent handoff","Multilang","Voice"],
+        faq:[{q:"Reduce ticket load?",a:"Avg 20–40% Tier‑0 deflect."}]
+      },
+      {
+        label:"Voicebot / IVR AI",
+        short:"Conversational phone bot.",
+
+        deliverables:["Number provisioning","STT/TTS","Call flows","CRM lookup","Call logs"],
+        timeline:"3–8 weeks.",
+        pricing:{basic:"₹14,999",standard:"₹29,999",premium:"₹59,999+"},
+        tech:["Twilio Voice","Asterisk","ASR/TTS"],
+        includes:["Basic IVR tree"],
+        addOns:["Advanced NLU","Agent warm transfer"],
+        faq:[{q:"Languages?",a:"Multi‑lang speech available."}]
+      }
+    ]
+  },
+
+  "Graphics & Design": {
+    label:"Graphics & Design",
+    icon:"fa-palette",
+    descShort:"Branding that pops.",
+    descLong:"Identity, campaign creative, decks & UI assets that build trust.",
+    pdf:"assets/pdfs/graphics-design.pdf",
+    subs:[
+      {
+        label:"Logo Design",
+        short:"Memorable, scalable identity.",
+        long:"Concepts, revisions, vector exports, favicon/social kit.",
+        deliverables:["3–5 concepts","Color/mono","Vector/PNG/SVG","Mini guide"],
+        timeline:"5–10 days.",
+        pricing:{basic:"₹999",standard:"₹2,499",premium:"₹4,999+"},
+        tech:["Illustrator","Figma"],
+        includes:["Social avatars"],
+        addOns:["Animated logo","Full brand kit"],
+        faq:[{q:"Revisions?",a:"Unlimited in Premium window."}]
+      },
+      {
+        label:"Social Media Posts",
+        short:"Branded posts & reels gfx.",
+        long:"Editable templates + campaign visuals sized for major platforms.",
+        deliverables:["Static/Carousel","Editable files","Exports","Calendar map"],
+        timeline:"3–7 days batch.",
+        pricing:{basic:"₹499 (5)",standard:"₹1,499 (20)",premium:"₹2,999+"},
+        tech:["Canva","Figma","PS"],
+        includes:["Editable kit"],
+        addOns:["Motion reels","Ad variants"],
+        faq:[{q:"Posting svc?",a:"Add social mgmt retainer."}]
+      },
+      {
+        label:"UI/UX Design",
+        short:"App & web flows.",
+        long:"Wireframes, hi‑fi system, dev handoff.",
+        deliverables:["User flows","Wireframes","Hi‑fi screens","Style guide","Components"],
+        timeline:"2–6 weeks.",
+        pricing:{basic:"₹6,999",standard:"₹19,999",premium:"₹39,999+"},
+        tech:["Figma","XD"],
+        includes:["Clickable prototype"],
+        addOns:["Usability test","Design system docs"],
+        faq:[{q:"Responsive?",a:"Desktop + mobile included."}]
+      },
+      {
+        label:"Brand Identity Kit",
+        short:"Fonts, colors, usage rules.",
+        long:"Foundational brand sheet: color palette, typography, logo usage, imagery style.",
+        deliverables:["Brand board","Color specs","Typography","Logo lockups","Usage do/don't"],
+        timeline:"1–2 weeks.",
+        pricing:{basic:"₹3,499",standard:"₹7,999",premium:"₹14,999+"},
+        tech:["Figma","Illustrator"],
+        includes:["PDF brand card"],
+        addOns:["Extended guide","Template pack"],
+        faq:[{q:"Need logo first?",a:"We can bundle logo + kit."}]
+      },
+      {
+        label:"Pitch Deck Design",
+        short:"Investor & sales decks.",
+        long:"Story‑structured slide design w/ infographics & data visuals.",
+        deliverables:["Slide outline","Custom template","Data viz","Icons/graphics","Export PPT/PDF"],
+        timeline:"5–14 days.",
+        pricing:{basic:"₹1,999",standard:"₹4,999",premium:"₹9,999+"},
+        tech:["PowerPoint","Figma","Keynote"],
+        includes:["Template reuse"],
+        addOns:["Pitch coaching","Narration video"],
+        faq:[{q:"Editable slides?",a:"Yes – source provided."}]
+      },
+      {
+        label:"Marketing Collateral Pack",
+        short:"Brochures, flyers, banners.",
+        long:"Print & digital collateral ready for campaigns & events.",
+        deliverables:["Tri‑fold/one‑pager","Event banner","Email header","Print‑ready files"],
+        timeline:"5–10 days.",
+        pricing:{basic:"₹1,499",standard:"₹3,999",premium:"₹8,999+"},
+        tech:["InDesign","Illustrator"],
+        includes:["Print PDF"],
+        addOns:["Variable data","Bulk resize"],
+        faq:[{q:"Printer liaison?",a:"Available add‑on."}]
+      }
+    ]
+  },
+
+  "AI & Automation": {
+    label:"AI & Automation",
+    icon:"fa-microchip",
+    descShort:"Intelligent process acceleration.",
+    descLong:"Automate work, surface data, and deploy applied AI.",
+    pdf:"assets/pdfs/ai-automation.pdf",
+    subs:[
+      {
+        label:"Custom AI Tools",
+        short:"Fine‑tuned AI for your data.",
+        long:"Doc Q&A, lead scoring, recommenders trained on your content.",
+        deliverables:["Data prep","Model/API","UI","Analytics","Guardrails"],
+        timeline:"3–8 weeks.",
+        pricing:{basic:"₹19,999",standard:"₹49,999",premium:"Custom"},
+        tech:["OpenAI","Claude","LangChain"],
+        includes:["API wired"],
+        addOns:["On‑prem","Retraining"],
+        faq:[{q:"Data privacy?",a:"Private model options."}]
+      },
+      {
+        label:"Process Automation",
+        short:"RPA + no‑code workflow bots.",
+        long:"Automate lead routing, sheet sync, alerts, approvals.",
+        deliverables:["Workflow map","Triggers","Integrations","Alerts","Logs"],
+        timeline:"5–14 days.",
+        pricing:{basic:"₹9,999",standard:"₹19,999",premium:"₹29,999+"},
+        tech:["Zapier","Make","n8n","Python"],
+        includes:["Up to 5 zaps"],
+        addOns:["ERP hooks","Custom scripts"],
+        faq:[{q:"Recurring runs?",a:"Schedule or event."}]
+      },
+      {
+        label:"Dashboards",
+        short:"Live metrics & reports.",
+        long:"Central analytics from CRM, e‑com, ads.",
+        deliverables:["Data connectors","ETL","Charts","Sched PDF"],
+        timeline:"2–5 weeks.",
+        pricing:{basic:"₹9,999",standard:"₹24,999",premium:"₹49,999+"},
+        tech:["Metabase","Data Studio","Power BI"],
+        includes:["3 core boards"],
+        addOns:["Drilldowns","Alerts"],
+        faq:[{q:"Realtime?",a:"Possible w/ right sources."}]
+      },
+      {
+        label:"CRM & Lead Scoring Automation",
+        short:"Score & route hot leads.",
+        long:"Model or rules rank leads; auto assign, notify reps, trigger nurture.",
+        deliverables:["Scoring rules/model","CRM fields","Routing flows","Alerts","Report"],
+        timeline:"2–4 weeks.",
+        pricing:{basic:"₹14,999",standard:"₹29,999",premium:"₹59,999+"},
+        tech:["HubSpot","Zoho","Zapier","Python"],
+        includes:["Starter model"],
+        addOns:["ML scoring","ABM enrich"],
+        faq:[{q:"Works w/ Excel leads?",a:"Yes – import pipeline."}]
+      },
+      {
+        label:"Predictive Analytics / ML",
+        short:"Forecasts & scoring models.",
+        long:"Time‑series, churn, demand, classification – delivered as API or dashboard.",
+        deliverables:["Data audit","Model build","Validation","Deploy API","Docs"],
+        timeline:"4–10+ weeks.",
+        pricing:{basic:"₹24,999",standard:"₹74,999",premium:"Custom"},
+        tech:["Python","scikit","TensorFlow","AutoML"],
+        includes:["Model report"],
+        addOns:["MLOps pipeline","Retraining"],
+        faq:[{q:"Data needed?",a:"Min 6–12 mo history recommended."}]
+      },
+      {
+        label:"Data Prep & ETL Pipelines",
+        short:"Clean, merge, schedule data.",
+        long:"Build repeatable data ingestion/cleaning jobs feeding BI & AI.",
+        deliverables:["Source connects","Transforms","Data quality checks","Load jobs","Monitor"],
+        timeline:"2–6 weeks.",
+        pricing:{basic:"₹9,999",standard:"₹29,999",premium:"₹59,999+"},
+        tech:["Airbyte","Fivetran","dbt","Python"],
+        includes:["Starter pipeline"],
+        addOns:["Data lake","CDC streaming"],
+        faq:[{q:"Cloud req?",a:"Any major cloud or on‑prem."}]
+      }
+    ]
+  },
+
+  "Writing & Translation": {
+    label:"Writing & Translation",
+    icon:"fa-pen-nib",
+    descShort:"Words that convert.",
+    descLong:"Blogs, copy, product text & EN↔HI translation tuned for tone/SEO.",
+    pdf:"assets/pdfs/writing-translation.pdf",
+    subs:[
+      {
+        label:"Blog Writing",
+        short:"SEO blogs that rank.",
+        long:"Topic research, keywords, outline, optimized copy.",
+        deliverables:["Keyword research","Outline","Draft","Meta","Revision"],
+        timeline:"2–5 days/article.",
+        pricing:{basic:"₹499 /500w",standard:"₹999 /1k",premium:"₹1,999+"},
+        tech:["Surfer","WordPress"],
+        includes:["1 stock image"],
+        addOns:["Social caption","Infographic"],
+        faq:[{q:"Plagiarism?",a:"Original checked."}]
+      },
+      {
+        label:"Product Description",
+        short:"E‑com ready copy.",
+        long:"Benefit bullets + SEO fields for marketplaces.",
+        deliverables:["Title","Bullets","Short/long","Meta","Specs"],
+        timeline:"1–3 days batch.",
+        pricing:{basic:"₹299 ea",standard:"Bulk",premium:"Enterprise"},
+        tech:["CSV","Shopify","Amazon"],
+        includes:["Keyword tags"],
+        addOns:["A+ content","Image copy"],
+        faq:[{q:"Bulk discount?",a:"Tiered by SKU."}]
+      },
+      {
+        label:"Translation (EN-HI)",
+        short:"Pro, context aware.",
+        long:"Bi‑lingual human reviewed translation for marketing & tech docs.",
+        deliverables:["Context review","Translation","Proofread","Glossary"],
+        timeline:"Varies by words.",
+        pricing:{basic:"₹0.80/w",standard:"₹1.5/w",premium:"Custom"},
+        tech:["CAT","Sheets"],
+        includes:["Tone alignment"],
+        addOns:["Voiceover","Subtitles"],
+        faq:[{q:"Certified?",a:"Yes on request."}]
+      },
+      {
+        label:"Website Copywriting",
+        short:"Home, About, Services pages.",
+        long:"Conversion‑focused copy aligned to brand voice & SEO.",
+        deliverables:["Brand voice brief","Page copy","SEO metas","CTA suggestions","Revision"],
+        timeline:"3–10 days.",
+        pricing:{basic:"₹1,499/page",standard:"₹4,999 site pack",premium:"Custom"},
+        tech:["Docs","WordPress"],
+        includes:["Keyword map"],
+        addOns:["A/B copy","Localization"],
+        faq:[{q:"Do you upload?",a:"Yes add‑on."}]
+      },
+      {
+        label:"Social & Ad Copy Pack",
+        short:"Captions, hooks, CTAs.",
+        long:"Platform‑specific short copy for posts, reels, ads.",
+        deliverables:["Hook lines","Short/long captions","Ad primary text","CTA variants"],
+        timeline:"2–5 days batch.",
+        pricing:{basic:"₹999 (10)",standard:"₹2,499 (30)",premium:"₹4,999+"},
+        tech:["Sheets","Meta Ads"],
+        includes:["Hashtag set"],
+        addOns:["Language variants","Creative brief"],
+        faq:[{q:"Revisions?",a:"Within 7 days."}]
+      },
+      {
+        label:"Technical Documentation",
+        short:"Guides, SOPs, API docs.",
+        long:"Structured docs that help teams implement & onboard.",
+        deliverables:["Info gather","Draft","Screenshots","Review cycle","Final export"],
+        timeline:"5–20 days scope.",
+        pricing:{basic:"₹2,499",standard:"₹9,999",premium:"Custom"},
+        tech:["Markdown","Docs","Git"],
+        includes:["PDF export"],
+        addOns:["Video walkthrough","Version control"],
+        faq:[{q:"Updates?",a:"Maintenance add‑on."}]
+      }
+    ]
+  },
+
+  "Other": {
+    label:"Other",
+    icon:"fa-toolbox",
+    descShort:"Special requests & consulting.",
+    descLong:"SEO, cloud, advisory, training & audits to fill gaps.",
+    pdf:"assets/pdfs/other-services.pdf",
+    subs:[
+      {
+        label:"SEO Services",
+        short:"Technical + on‑page boost.",
+        long:"Audits, fixes, content mapping, schema & speed.",
+        deliverables:["Site audit","Keyword map","On‑page fixes","XML sitemap","Speed tweaks"],
+        timeline:"2–6 wks / ongoing.",
+        pricing:{basic:"₹3,999",standard:"₹7,999",premium:"Retainer"},
+        tech:["GA4","GSC","SFrog"],
+        includes:["Monthly report"],
+        addOns:["Backlinks","Content pack"],
+        faq:[{q:"When rank?",a:"Depends niche & domain."}]
+      },
+      {
+        label:"Cloud Setup",
+        short:"Deploy & scale infra.",
+        long:"Hosting, domains, SSL, CDN, backups.",
+        deliverables:["Server setup","DNS/SSL","Deploy pipeline","Backup","Monitor"],
+        timeline:"3–10 days.",
+        pricing:{basic:"₹5,999",standard:"₹11,999",premium:"₹25k+"},
+        tech:["AWS","GCP","Vercel","cPanel"],
+        includes:["Docs+creds"],
+        addOns:["Autoscale","K8s"],
+        faq:[{q:"Ongoing mgmt?",a:"Yes maintenance."}]
+      },
+      {
+        label:"Consulting",
+        short:"Strategy & tech advisory.",
+        long:"Roadmaps, stack picks, architecture, growth audits.",
+        deliverables:["1:1 session","Action plan","Tool shortlist","Budget guide"],
+        timeline:"Per session.",
+        pricing:{basic:"₹1,499/hr",standard:"₹9,999/day",premium:"Custom retainer"},
+        tech:["Varies"],
+        includes:["Recording opt"],
+        addOns:["Implementation sprint"],
+        faq:[{q:"NDA?",a:"Yes."}]
+      },
+      {
+        label:"Maintenance & Support Retainer",
+        short:"Proactive fixes & helpdesk.",
+        long:"Block of hours for web/app/AI assets; priority response.",
+        deliverables:["Ticket desk","Bug fixes","Content tweaks","Updates","Monthly report"],
+        timeline:"Monthly/quarterly.",
+        pricing:{basic:"₹1,999/mo",standard:"₹4,999/mo",premium:"₹14,999/mo+"},
+        tech:["Helpdesk","SLA"],
+        includes:["Priority email"],
+        addOns:["24h SLA","Weekend cover"],
+        faq:[{q:"Unused hours?",a:"Roll 30 days (Std+)."}]
+      },
+      {
+        label:"Training & Workshops",
+        short:"Upskill your team.",
+        long:"Live or recorded sessions on AI tools, CMS, analytics, automations.",
+        deliverables:["Curriculum","Live session","Recordings","Q&A","Materials"],
+        timeline:"1–3 sessions.",
+        pricing:{basic:"₹2,999",standard:"₹7,999",premium:"₹19,999+ onsite"},
+        tech:["Meet","Zoom"],
+        includes:["Slide deck"],
+        addOns:["Hands‑on lab","Certification quiz"],
+        faq:[{q:"Min attendees?",a:"No min virtual."}]
+      },
+      {
+        label:"Audits & Strategy Reviews",
+        short:"Tech, UX, SEO, data audits.",
+        long:"Rapid review w/ findings + prioritized action plan.",
+        deliverables:["Discovery call","Scan & tests","Findings doc","Priority list","Review call"],
+        timeline:"5–15 days.",
+        pricing:{basic:"₹2,499",standard:"₹7,499",premium:"₹19,999+"},
+        tech:["Lighthouse","Security scan","SEO tools"],
+        includes:["Summary PDF"],
+        addOns:["Implementation","Quarterly re‑audit"],
+        faq:[{q:"Do you fix issues?",a:"Add implementation."}]
+      }
+    ]
+  }
+};
+
+/* ---------------------------------------------------------------
+
+   (Shown when available; falls back to pricing.basic string.)
+   --------------------------------------------------------------- */
+const MVX_PRICE_MAP = {
+  "WordPress Site":7999,
+  "E-commerce":14999,
+  "Landing Page":4999,
+  "Custom Web App":29999,
+  "Website Care & Maintenance":2499,
+  "Speed & Security Optimization":3999,
+  "WhatsApp Bot":7999,
+  "AI Chatbot":14999,
+  "Multiplatform Bot":19999,
+  "Lead Capture Widget Bot":4999,
+  "Support Helpdesk Bot":9999,
+  "Voicebot / IVR AI":14999,
+  "Logo Design":999,
+  "Social Media Posts":499,
+  "UI/UX Design":6999,
+  "Brand Identity Kit":3499,
+  "Pitch Deck Design":1999,
+  "Marketing Collateral Pack":1499,
+  "Custom AI Tools":19999,
+  "Process Automation":9999,
+  "Dashboards":9999,
+  "CRM & Lead Scoring Automation":14999,
+  "Predictive Analytics / ML":24999,
+  "Data Prep & ETL Pipelines":9999,
+  "Blog Writing":499,
+  "Product Description":299,
+  "Translation (EN-HI)":799,
+  "Website Copywriting":1499,
+  "Social & Ad Copy Pack":999,
+  "Technical Documentation":2499,
+  "SEO Services":3999,
+  "Cloud Setup":5999,
+  "Consulting":1499,
+  "Maintenance & Support Retainer":1999,
+  "Training & Workshops":2999,
+  "Audits & Strategy Reviews":2499
+};
+
+/* =============================================================
+   END EXPANDED DATA BLOCK – everything else in your script can stay.
+   ============================================================= */
+
+  /* ---------------------------------------------------------------
+     UTILITIES
+  --------------------------------------------------------------- */
+  const mvxSlug = s => s.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+  const rup = v => typeof v === 'number' ? `₹${v.toLocaleString('en-IN')}` : v; // handle strings like "₹x" gracefully
+
+  /* Build query string to contact.html */
+  function mvxBuildContactURL({main, sub='', budget='', message=''}){
+    const params = new URLSearchParams();
+    if(main) params.set('main_service', main);
+    if(sub) params.set('sub_service', sub);
+    if(budget) params.set('budget', budget);
+    if(message) params.set('message', message);
+    return 'contact.html?'+params.toString();
+  }
+
+  /* ---------------------------------------------------------------
+     RENDER CATEGORY BLOCKS
+  --------------------------------------------------------------- */
+  function mvxRenderBlocks(filterCat = '', searchTerm = ''){
+    const wrap = document.getElementById('mvxServiceBlocks');
+    if(!wrap) return;
+    wrap.innerHTML = '';
+    const term = searchTerm.trim().toLowerCase();
+    Object.entries(MVX_SERVICE_DATA).forEach(([cat,data])=>{
+      if(filterCat && cat!==filterCat) return;
+      // Search match: category + all sub strings
+      if(term){
+        const hay = [cat,data.descShort,data.descLong,(data.subs||[]).map(s=>`${s.label} ${s.short} ${s.long}`).join(' ')].join(' ').toLowerCase();
+        if(!hay.includes(term)) return;
+      }
+      const catId = 'svc-'+mvxSlug(cat);
+      const det = document.createElement('details');
+      det.className = 'mvx-service-block';
+      det.id = catId;
+      det.dataset.service = cat;
+      det.innerHTML = `
+        <summary class="mvx-service-summary">
+          <span class="mvx-service-summary-icon"><i class="fa ${data.icon}" aria-hidden="true"></i></span>
+          <span class="mvx-service-summary-content"><h3>${cat}</h3><p>${data.descShort}</p></span>
+          <span class="mvx-service-summary-meta"><span class="mvx-starting">Starts at ${mvxGetStartingForCat(cat)}</span><span>(${(data.subs||[]).length} sub‑services)</span></span>
+          <span class="mvx-service-summary-caret" aria-hidden="true"><i class="fa fa-chevron-down"></i></span>
+        </summary>
+        <div class="mvx-subservices" role="region" aria-label="${cat} sub services">
+          <p>${data.descLong}</p>
+          <p><a href="${data.pdf}" download class="btn-download"><i class="fa fa-download" aria-hidden="true"></i> Download Brochure</a></p>
+          <div class="mvx-subservices-grid" id="grid-${catId}"></div>
+        </div>`;
+      wrap.appendChild(det);
+      // Render subservices into grid
+      mvxRenderSubGrid(cat, data.subs, det.querySelector('.mvx-subservices-grid'));
+    });
+    mvxBindFooterJumps();
+  }
+
+  function mvxGetStartingForCat(cat){
+    const subs = MVX_SERVICE_DATA[cat]?.subs||[];
+    if(!subs.length) return '₹0';
+    // attempt: parse first numeric pricing (basic) or fallback to MVX_PRICE_MAP
+    let min = Infinity;
+    subs.forEach(s=>{
+      if(MVX_PRICE_MAP[s.label]){min = Math.min(min, MVX_PRICE_MAP[s.label]);return;}
+      const basic = s.pricing?.basic||'';
+      const m = basic.match(/\d[\d,]*/);
+      if(m){
+        const num = parseInt(m[0].replace(/,/g,''),10); if(!isNaN(num)) min = Math.min(min,num);
+      }
+    });
+    if(min===Infinity) return 'Custom';
+    return `₹${min.toLocaleString('en-IN')}`;
+  }
+
+  /* ---------------------------------------------------------------
+     RENDER SUB SERVICE CARDS WITH LEARN MORE DRAWERS
+  --------------------------------------------------------------- */
+  function mvxRenderSubGrid(cat, subs, gridEl){
+    if(!gridEl) return;
+    gridEl.innerHTML='';
+    (subs||[]).forEach(sub=>{
+      const subId = 'sub-'+mvxSlug(cat)+'-'+mvxSlug(sub.label);
+      const div = document.createElement('div');
+      div.className = 'mvx-subcard';
+      div.id = subId;
+      const priceInt = MVX_PRICE_MAP[sub.label];
+      const priceDisp = priceInt ? rup(priceInt) : (sub.pricing?.basic||'Custom');
+      div.innerHTML = `
+        <h4>${sub.label}</h4>
+        <p>${sub.short}</p>
+        <div class="mvx-subcard-price">Starting at ${priceDisp}</div>
+        <div class="mvx-subcard-actions">
+          <button type="button" class="mvx-sub-learn" data-sub-learn="${subId}" aria-expanded="false" aria-controls="detail-${subId}"><i class="fa fa-circle-info" aria-hidden="true"></i> Details</button>
+
+        </div>
+        <div class="mvx-subdetail" id="detail-${subId}" hidden>
+          <h4 class="mvx-subdetail-heading"><i class="fa fa-circle-info" aria-hidden="true"></i> ${sub.label} – Full Details</h4>
+          <div class="mvx-subdetail-content">
+            <div>
+              <h5>Overview</h5>
+              <p>${sub.long}</p>
+              <h5>Deliverables</h5>
+              <ul>${(sub.deliverables||[]).map(d=>`<li>${d}</li>`).join('')}</ul>
+              <h5>Timeline</h5>
+              <p>${sub.timeline||'Varies by scope.'}</p>
+            </div>
+            <div>
+              <h5>Pricing Tiers</h5>
+              <div class="mvx-subdetail-price-tiers">
+                ${Object.entries(sub.pricing||{}).map(([k,v])=>`<div class="mvx-subdetail-price-tier"><span>${k[0].toUpperCase()+k.slice(1)}</span><strong>${v}</strong></div>`).join('')}
+              </div>
+              ${(sub.tech&&sub.tech.length)?`<h5>Tech Stack</h5><ul>${sub.tech.map(t=>`<li>${t}</li>`).join('')}</ul>`:''}
+              ${(sub.includes&&sub.includes.length)?`<h5>Includes</h5><ul>${sub.includes.map(t=>`<li>${t}</li>`).join('')}</ul>`:''}
+              ${(sub.addOns&&sub.addOns.length)?`<h5>Add‑Ons</h5><ul>${sub.addOns.map(t=>`<li>${t}</li>`).join('')}</ul>`:''}
+            </div>
+          </div>
+          ${sub.faq && sub.faq.length?`<div style="margin-top:1rem"><h5>Common Questions</h5>${sub.faq.map(f=>`<details><summary>${f.q}</summary><p>${f.a}</p></details>`).join('')}</div>`:''}
+
+        </div>`;
+      gridEl.appendChild(div);
+    });
+  }
+/* ===== Visibility Helpers ================================================= */
+const MVX_SCROLL_OFFSET = 140; // px: tweak to match total height of navbar + filter bar
+
+function mvxScrollIntoView(el, offset = MVX_SCROLL_OFFSET) {
+  if (!el) return;
+  const rect = el.getBoundingClientRect();
+  const absoluteY = rect.top + window.pageYOffset - offset;
+  window.scrollTo({ top: absoluteY, behavior: 'smooth' });
+}
+
+/* Flash outline to draw user attention */
+function mvxFlashDetail(el) {
+  if (!el) return;
+  el.classList.remove('mvx-flash'); // reset if previously added
+  // Force reflow so animation restarts
+  void el.offsetWidth;
+  el.classList.add('mvx-flash');
+}
+
+/* Close any other open subdetails within the same category grid. */
+function mvxCloseSiblingSubdetails(currentDetail) {
+  const grid = currentDetail?.closest('.mvx-subservices-grid');
+  if (!grid) return;
+  grid.querySelectorAll('.mvx-subdetail.active').forEach(d => {
+    if (d !== currentDetail) {
+      d.classList.remove('active');
+      d.setAttribute('hidden', '');
+      const btnId = d.id.replace(/^detail-/, '');
+      const btn = grid.querySelector(`[data-sub-learn="${btnId}"]`);
+      btn?.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+/* Inject minimal highlight styles if not already present */
+(function addMvxDetailHighlightCSS(){
+  if (document.getElementById('mvx-detail-highlight-css')) return;
+  const css = `
+    .mvx-subdetail.mvx-flash{
+      outline:2px solid var(--mvx-neon-purple);
+      box-shadow:0 0 0 4px rgba(200,0,255,.35);
+      animation:mvxFlashPulse 1.4s ease-out 1;
+    }
+    @keyframes mvxFlashPulse{
+      0%{outline-offset:0;opacity:0;}
+      20%{opacity:1;}
+      100%{outline-offset:4px;opacity:1;}
+    }
+  `;
+  const style = document.createElement('style');
+  style.id = 'mvx-detail-highlight-css';
+  style.textContent = css;
+  document.head.appendChild(style);
+})();
+
+  /* ---------------------------------------------------------------
+     SUBCARD DETAIL TOGGLES
+  --------------------------------------------------------------- */
+  /* ---------------------------------------------------------------
+   SUBCARD DETAIL TOGGLES – Enhanced visibility
+   --------------------------------------------------------------- */
+function mvxBindSubDetails() {
+  document.querySelectorAll('[data-sub-learn]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-sub-learn');           // e.g., sub-website-development-wordpress-site
+      const detail = document.getElementById('detail-' + id);
+      if (!detail) return;
+
+      const isOpening = !detail.classList.contains('active');
+
+      if (isOpening) {
+        // Ensure parent category <details> is open.
+        const categoryDetails = detail.closest('.mvx-service-block');
+        if (categoryDetails && !categoryDetails.open) {
+          categoryDetails.open = true;
+        }
+
+        // Close any sibling subdetails in the same category grid (optional).
+        mvxCloseSiblingSubdetails(detail);
+
+        // Open this one.
+        detail.classList.add('active');
+        detail.removeAttribute('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+
+        // Scroll & focus so user sees it clearly.
+        // Use scrollIntoView first (respect scroll-margin-top) then force offset scroll for safety.
+        detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => mvxScrollIntoView(detail), 50); // adjust offset after layout
+        setTimeout(() => detail.focus({ preventScroll: true }), 200);
+
+        // Visual flash highlight
+        mvxFlashDetail(detail);
+
+      } else {
+        // Closing
+        detail.classList.remove('active');
+        detail.setAttribute('hidden', '');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+}
+
+  /* ---------------------------------------------------------------
+     FILTER BAR LOGIC
+  --------------------------------------------------------------- */
+  const svcSearch = document.getElementById('servicesSearch');
+  const svcCatSel = document.getElementById('servicesCategory');
+  const svcReset  = document.getElementById('servicesReset');
+  function applyFilters(){
+    mvxRenderBlocks(svcCatSel.value, svcSearch.value);
+    mvxAfterRenderBinders();
+  }
+  svcSearch?.addEventListener('input',applyFilters);
+  svcCatSel?.addEventListener('change',applyFilters);
+  svcReset?.addEventListener('click',()=>{svcSearch.value='';svcCatSel.value='';applyFilters();});
+
+  /* ---------------------------------------------------------------
+     COMPARE MODAL BUILD
+  --------------------------------------------------------------- */
+  const mvxCompareModal = document.getElementById('mvxCompareModal');
+  const mvxCompareTable = document.getElementById('mvxCompareTable');
+  const mvxCompareOpenBtn = document.getElementById('mvxCompareOpen');
+  function mvxOpenCompare(){
+    mvxBuildCompareTable();
+    mvxCompareModal.setAttribute('open','');
+    mvxCompareModal.removeAttribute('aria-hidden');
+  }
+  function mvxCloseCompare(){
+    mvxCompareModal.removeAttribute('open');
+    mvxCompareModal.setAttribute('aria-hidden','true');
+  }
+  mvxCompareOpenBtn?.addEventListener('click',mvxOpenCompare);
+  mvxCompareModal?.addEventListener('click',e=>{if(e.target===mvxCompareModal) mvxCloseCompare();});
+  mvxCompareModal?.querySelector('[data-mvx-compare-close]')?.addEventListener('click',mvxCloseCompare);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape') mvxCloseCompare();});
+
+  function mvxBuildCompareTable(){
+    if(!mvxCompareTable) return;
+    const cats = Object.keys(MVX_SERVICE_DATA);
+    // header row: Category + sub count + starting price
+    let html = '<thead><tr><th>Service Category</th><th>Sub‑Services</th><th>Starting Price</th><th>Download PDF</th></tr></thead><tbody>';
+    cats.forEach(cat=>{
+      const data = MVX_SERVICE_DATA[cat];
+      const subs = data.subs||[];
+      const subList = subs.map(s=>s.label).join(', ');
+      const start = mvxGetStartingForCat(cat);
+      html += `<tr><td><strong>${cat}</strong></td><td>${subList}</td><td class="mvx-price-cell">${start}</td><td><a href="${data.pdf}" download>PDF</a></td></tr>`;
+    });
+    html += '</tbody>';
+    mvxCompareTable.innerHTML = html;
+  }
+
+  /* ---------------------------------------------------------------
+     FOOTER QUICK JUMPS -> FILTER & SCROLL
+  --------------------------------------------------------------- */
+  function mvxBindFooterJumps(){
+    document.querySelectorAll('[data-footer-jump]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        e.preventDefault();
+        const cat = a.getAttribute('data-footer-jump');
+        svcCatSel.value = cat;
+        applyFilters();
+        document.getElementById('services')?.scrollIntoView({behavior:'smooth'});
+        // auto-open the category block
+        setTimeout(()=>{
+          const det = document.getElementById('svc-'+mvxSlug(cat));
+          if(det && !det.open) det.open = true;
+        },300);
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------------
+     POST-RENDER BIND (call after each re-render)
+  --------------------------------------------------------------- */
+  function mvxAfterRenderBinders(){
+    mvxBindSubDetails();
+
+  }
+
+  /* ---------------------------------------------------------------
+     INIT
+  --------------------------------------------------------------- */
+  document.addEventListener('DOMContentLoaded',()=>{
+    mvxRenderBlocks();
+    mvxAfterRenderBinders();
+    // dynamic year
+    const yEl = document.getElementById('mav-footer-year');
+    if(yEl) yEl.textContent = new Date().getFullYear();
+
+    // If URL includes ?main_service=... (arriving back from contact) honour filter
+    const params = new URLSearchParams(window.location.search);
+    const pMain = params.get('main_service');
+    const pSub  = params.get('sub_service');
+    if(pMain && MVX_SERVICE_DATA[pMain]){
+      svcCatSel.value = pMain;
+      mvxRenderBlocks(pMain);
+      mvxAfterRenderBinders();
+      document.getElementById('services')?.scrollIntoView({behavior:'smooth'});
+      const det = document.getElementById('svc-'+mvxSlug(pMain));
+      if(det){det.open = true;}
+      if(pSub){
+        // expand detail if present
+        setTimeout(()=>{
+          const btn = document.querySelector(`[data-sub-learn="sub-${mvxSlug(pMain)}-${mvxSlug(pSub)}"]`);
+          btn?.click();
+        },350);
+      }
+    }
+
+    // hash deep link #svc-cat / #sub-cat-sub
+    if(location.hash){
+      const hash = location.hash.slice(1);
+      if(hash.startsWith('svc-')){
+        const det = document.getElementById(hash);
+        if(det){
+          det.open = true;
+          det.scrollIntoView({behavior:'smooth'});
+        }
+      } else if(hash.startsWith('sub-')){
+        const detail = document.getElementById(hash);
+        if(detail){
+          // open parent details first
+          const pDet = detail.closest('.mvx-service-block');
+          if(pDet) pDet.open = true;
+          detail.scrollIntoView({behavior:'smooth'});
+          const btn = document.querySelector(`[data-sub-learn="${hash}"]`);
+          btn?.click();
+        }
+      }
+    }
+  });
+  </script>
+<!-- Global site script (navbar, etc.) -->
+<script src="js/script.js"></script>
+</body>
+</html>

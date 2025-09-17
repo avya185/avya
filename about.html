@@ -1,0 +1,876 @@
+<!-- ================= Mavionix ABOUT TOP + FUN FACTS (FAQ-STYLE FORMATTING) =================
+     Drop this into about.html (replace your current header + about + facts blocks).
+     Assumes global tokens + navbar + normalize already loaded (same as faq page).
+     Re-uses the FAQ hero + card visual language for brand consistency.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MaVionix – About Us</title>
+  <meta name="description" content="Learn about MaVionix – 15+ years of excellence in AI, automation, and digital growth.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-kWU8SKOaJzWbM5sBiOD5TVE+poYmc7x/tVv7aCS7eCjGm1sZl+cOnu1nBTVGKyAOH+dsbN4ZK7JtE/3uYfwzUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="font/fonts.css">
+
+  <!-- Normalize & Site CSS -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/utility.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+
+  <style>
+    /* =====================================================================
+       ABOUT TOP uses the SAME design tokens as FAQ (already defined in root)
+       If this page is standalone, include the :root vars snippet from faq.
+       ===================================================================== */
+:root {
+        /* Brand Colors */
+        --mvx-neon-purple: #C800FF;
+        --mvx-soft-purple: #A64DFF;
+        --mvx-metallic-gray: #CCCCCC;
+        --mvx-charcoal: #1A1A1A;
+        --mvx-charcoal-2: #0f0f0f;
+        --mvx-body-bg: #f8f8f8;
+        --mvx-white: #ffffff;
+        --mvx-success: #33c481;
+        --mvx-danger: #ff4d4f;
+        --mvx-radius-lg: 16px;
+        --mvx-radius-md: 12px;
+        --mvx-radius-sm: 8px;
+        --mvx-duration-fast: 150ms;
+        --mvx-duration-med: 300ms;
+        --mvx-duration-slow: 600ms;
+        --mvx-ease-out: cubic-bezier(.16,1,.3,1);
+        --mvx-shadow-sm: 0 2px 8px rgba(0,0,0,.15);
+        --mvx-shadow-md: 0 6px 20px rgba(0,0,0,.2);
+        --mvx-shadow-glow: 0 0 18px rgba(200,0,255,.7);
+        --mvx-header-h: clamp(2.25rem, 4vw, 3.5rem);
+        --mvx-title-h: clamp(1.75rem, 2.5vw, 2.5rem);
+        --mvx-accordion-h: 1.125rem;
+    }
+    /* ----------------- ABOUT HERO (dark tech grid, video bg) ----------------- */
+    .about-hero{position:relative;background:var(--mvx-charcoal);color:var(--mvx-white);text-align:center;display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh; /* Full screen height */
+padding: 0 20px; /* Keep small horizontal padding */
+;overflow:hidden;isolation:isolate;}
+    .about-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 120%,rgba(200,0,255,.35),transparent 70%),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(0deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:100% 100%,40px 40px,40px 40px;mix-blend-mode:screen;animation:gridMove 20s linear infinite;z-index:0;}
+    .about-hero video.bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:.25;filter:brightness(.8) contrast(1.2) saturate(1.1);}
+    .about-hero-content{position:relative;z-index:1;max-width:900px;margin-inline:auto;}
+    .about-hero h1{font-size:var(--mvx-header-h);font-weight:800;margin-bottom:16px;line-height:1.1;}
+    .about-hero p{font-size:1.25rem;opacity:.85;margin-inline:auto;max-width:650px;}
+    .about-hero .cta-btn{margin-top:32px;padding:16px 32px;font-size:1rem;font-weight:600;text-decoration:none;display:inline-block;color:#fff;background:var(--mvx-neon-purple);border:none;border-radius:var(--mvx-radius-lg);box-shadow:var(--mvx-shadow-glow);cursor:pointer;transition:transform var(--mvx-duration-fast) var(--mvx-ease-out),box-shadow var(--mvx-duration-fast) var(--mvx-ease-out);}    
+    .about-hero .cta-btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 0 24px rgba(200,0,255,.9);}  
+
+    /* share faq animation */
+    @keyframes gridMove{0%{background-position:0 0,0 0,0 0}100%{background-position:0 0,80px 40px,40px 80px}}
+
+    /* ----------------- ABOUT CARD (overlapping white card) ----------------- */
+    .about-wrapper{background:var(--mvx-white);color:#222;max-width:1000px;margin:-100px auto 80px;padding:clamp(32px,5vw,64px) clamp(16px,5vw,48px) 64px;border-radius:var(--mvx-radius-lg);box-shadow:var(--mvx-shadow-md);position:relative;}
+    .about-wrapper::after{content:"";position:absolute;left:50%;bottom:-24px;translate:-50% 0;width:120px;height:6px;border-radius:3px;background:var(--mvx-neon-purple);opacity:.5;}
+
+    .about-wrapper .section-title{text-align:center;font-size:var(--mvx-title-h);font-weight:700;margin-bottom:16px;}
+    .about-wrapper .section-sub{text-align:center;opacity:.7;max-width:650px;margin:0 auto 40px;font-size:1.05rem;}
+
+    /* layout: slider + copy (15+ yrs) */
+    .mvx-about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+    @media (max-width:768px){.mvx-about-grid{grid-template-columns:1fr;}}
+
+    /* slider */
+    .mvx-about-slider{position:relative;overflow:hidden;border-radius:var(--mvx-radius-lg);box-shadow:var(--mvx-shadow-sm);}
+    .mvx-about-slider .slide{display:none;width:100%;height:auto;border-radius:var(--mvx-radius-lg);}
+    .mvx-about-slider .slide.active{display:block;}
+    .mvx-about-slider .dots{display:flex;justify-content:center;margin-top:10px;}
+    .mvx-about-slider .dot{width:12px;height:12px;background:var(--mvx-neon-purple);margin:5px;border-radius:50%;cursor:pointer;opacity:.5;transition:opacity var(--mvx-duration-fast) var(--mvx-ease-out);} 
+    .mvx-about-slider .dot.active{opacity:1;}
+
+    /* copy block */
+    .mvx-about-copy h2{font-size:2rem;color:var(--mvx-charcoal);margin-bottom:15px;}
+    .mvx-about-copy .text{font-size:1rem;color:#333;line-height:1.6;margin-bottom:15px;}
+
+    
+    /* scroll reveal */
+    .facts-item{opacity:0;transform:translateY(20px);}
+    .facts-item.is-visible{opacity:1;transform:translateY(0);transition:opacity var(--mvx-duration-med) var(--mvx-ease-out),transform var(--mvx-duration-med) var(--mvx-ease-out);}  
+
+    
+    @media (max-width:600px){
+      .about-hero{padding:100px 16px 140px;}
+      .about-wrapper{margin:-80px 16px 64px;padding:32px 20px 48px;}
+      .facts-wrapper{margin:-24px 16px 96px;padding:32px 20px 48px;}
+      .mvx-about-copy h2{font-size:1.75rem;}
+      .facts-info strong{font-size:1.75rem;}
+    }
+  </style>
+</head>
+<body>
+  <!-- ================= NAVBAR (reuse global) ================= -->
+    <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container flex">
+      <!-- Logo + Brand title -->
+      <div class="brand-logo flex">
+        <img src="images/logo.png" alt="MaVionix Logo" class="logo-img">
+        <a href="index.html" class="site-brand">
+          Ma<span>Vionix</span>
+        </a>
+      </div>
+
+      <button type="button" id="navbar-show-btn" class="flex">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div id="navbar-collapse">
+        <button type="button" id="navbar-close-btn" class="flex">
+          <i class="fas fa-times"></i>
+        </button>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link contact-highlight">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= ABOUT HERO ================= -->
+  <header id="about-top" class="about-hero" role="banner" aria-label="MaVionix About Header">
+    <video class="bg-video" autoplay muted loop playsinline poster="" aria-hidden="true">
+      <source src="assets/video/tech-grid-loop.mp4" type="video/mp4" />
+    </video>
+    <div class="about-hero-content">
+      <h1>About Us</h1>
+      <p>At MaVionix, we believe in delivering excellence with integrity and innovation. Our focus is on building lasting trust through uncompromised quality in everything we do.</p>
+      
+    </div>
+  </header>
+
+  <!-- ================= ABOUT CARD (15+ Years Story + Slider) ================= -->
+  <section id="about-card" class="about-wrapper" aria-labelledby="about-heading">
+    <h2 id="about-heading" class="section-title">Our Story</h2>
+    <p class="section-sub">Things to know about MaVionix – from startup spark to trusted AI & digital partner.</p>
+
+    <div class="mvx-about-grid">
+      <!-- LEFT: Slider -->
+      <div class="mvx-about-slider">
+        <div class="slides">
+          <img src="images/about1.png" class="slide active" alt="About Slide 1">
+          <img src="images/about2.png" class="slide" alt="About Slide 2">
+          <img src="images/about3.png" class="slide" alt="About Slide 3">
+          <img src="images/about4.png" class="slide" alt="About Slide 4">
+          <img src="images/about5.png" class="slide" alt="About Slide 5">
+          <img src="images/about6.png" class="slide" alt="About Slide 6">
+          <img src="images/about7.png" class="slide" alt="About Slide 7">
+          <img src="images/about8.png" class="slide" alt="About Slide 8">
+          <img src="images/about9.webp" class="slide" alt="About Slide 9">
+          <img src="images/about10.png" class="slide" alt="About Slide 10">
+        </div>
+        <div class="dots"></div>
+      </div>
+
+      <!-- RIGHT: Copy -->
+      <div class="mvx-about-copy">
+        <h2>Shaping the Future with MaVionix</h2>
+        <p class="text">MaVionix is a digital and AI-driven solutions agency dedicated to helping businesses grow through technology, creativity, and innovation. Focused on delivering modern and scalable solutions, the company empowers organizations to enhance their online presence, streamline operations, and adapt to the future of digital transformation.</p>
+        <p class="text">With clients across 10+ industries and countries, we continue to evolve through creativity, technology, and purpose‑driven collaboration.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FUN FACTS (FAQ-STYLE CARD) ================= -->
+  
+  <!-- ================= JS: Slider + Counters + Scroll Reveal ================= -->
+  <script>
+  /* ----------------- Slider ----------------- */
+  (function(){
+    const slides = document.querySelectorAll('#about-card .slide');
+    const dotsContainer = document.querySelector('#about-card .dots');
+    let currentSlide = 0;
+
+    function createDots(){
+      slides.forEach((_,i)=>{
+        const dot=document.createElement('span');
+        dot.className='dot'+(i===0?' active':'');
+        dot.addEventListener('click',()=>goToSlide(i));
+        dotsContainer.appendChild(dot);
+      });
+    }
+    function updateDots(i){
+      dotsContainer.querySelectorAll('.dot').forEach(d=>d.classList.remove('active'));
+      dotsContainer.querySelectorAll('.dot')[i].classList.add('active');
+    }
+    function goToSlide(i){
+      slides.forEach(s=>s.classList.remove('active'));
+      slides[i].classList.add('active');
+      currentSlide=i;updateDots(i);
+    }
+    function nextSlide(){currentSlide=(currentSlide+1)%slides.length;goToSlide(currentSlide);}  
+    createDots();
+    setInterval(nextSlide,4000);
+  })();
+
+  /* ----------------- Fun Facts Counter + Reveal ----------------- */
+  (function(){
+    const section=document.querySelector('#facts');
+    if(!section) return;
+    const items=section.querySelectorAll('.facts-item');
+    const counters=section.querySelectorAll('.counter');
+    const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function formatNumber(n){try{return n.toLocaleString();}catch(e){return String(n);} }
+
+    function animateCounter(el){
+      const target=Number(el.getAttribute('data-target'))||0;
+      if(prefersReduced){el.textContent=formatNumber(target);return;}
+      const duration=1600;const start=performance.now();
+      function tick(now){const p=Math.min((now-start)/duration,1);const eased=1-(1-p)*(1-p);const val=Math.floor(target*eased);el.textContent=formatNumber(val);if(p<1)requestAnimationFrame(tick);else el.textContent=formatNumber(target);} 
+      requestAnimationFrame(tick);
+    }
+
+    const revealObs=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');}});
+    },{threshold:0.25});
+    items.forEach(i=>revealObs.observe(i));
+
+    const counterObs=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{if(entry.isIntersecting){counters.forEach(animateCounter);counterObs.disconnect();}});
+    },{threshold:0.3});
+    counterObs.observe(section);
+  })();
+
+  /* ----------------- Navbar Scroll Color swap (reuse from faq) ----------------- */
+  window.addEventListener('scroll',function(){
+    const navbar=document.querySelector('.navbar');
+    if(window.scrollY>50){navbar.classList.add('scrolled');}else{navbar.classList.remove('scrolled');}
+  });
+  </script>
+</body>
+</html>
+
+<!-- Future Goals Section -->
+<section id="future-goals" class="journey-section">
+  <div class="container">
+    <h2 class="section-title">Our Future Goals</h2>
+    <p class="section-subtitle">Shaping the vision of MaVionix for the years ahead</p>
+
+    <div class="timeline">
+      <!-- Future Goal -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="year">2026</span>
+          <h3>Global Expansion</h3>
+          <p>Grow our presence internationally by partnering with enterprises and serving clients across continents.</p>
+        </div>
+      </div>
+
+      <!-- Future Goal -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="year">2027</span>
+          <h3>AI SaaS Products</h3>
+          <p>Launch proprietary AI-powered SaaS platforms to make automation affordable and accessible for SMEs.</p>
+        </div>
+      </div>
+
+      <!-- Future Goal -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="year">2028</span>
+          <h3>Innovation & Research Hub</h3>
+          <p>Establish a dedicated innovation lab focused on developing next-generation AI and digital transformation solutions.</p>
+        </div>
+      </div>
+
+      <!-- Future Goal -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="year">2029</span>
+          <h3>Industry-Specific AI Solutions</h3>
+          <p>Introduce specialized AI frameworks for healthcare, education, real estate, and e-commerce to solve niche challenges.</p>
+        </div>
+      </div>
+
+      <!-- Future Goal -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="year">2030</span>
+          <h3>Global Leader in AI & Automation</h3>
+          <p>Position MaVionix as a trusted global leader delivering cutting-edge AI, automation, and digital innovation across industries.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".timeline-item");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  items.forEach(item => observer.observe(item));
+});
+</script>
+<!-- Our Leaders Section -->
+<section id="our-leaders" class="leaders-section">
+  <div class="container">
+    <h2 class="section-title">Meet Our Leaders</h2>
+    <p class="section-subtitle">Visionaries driving MaVionix forward</p>
+
+    <div class="leaders-grid">
+      <!-- Leader Card -->
+<div class="leader-card">
+  <div class="leader-inner">
+    <div class="leader-front">
+      <img src="images/vish.jpg" alt="Vishant Bhardwaj" class="leader-img">
+      <h3 class="leader-name">Vishant Bhardwaj</h3>
+      <p class="leader-role">Founder & CEO</p>
+    </div>
+    <div class="leader-back">
+      <h4>About Vishant</h4>
+      <p>Strategic thinker, driving innovation at MaVionix and shaping the digital future.</p>
+      <div class="social-links">
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/vishant-bhardwaj/" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/YOUR-USERNAME" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <!-- Leader Card -->
+      <div class="leader-card">
+        <div class="leader-inner">
+          <div class="leader-front">
+            <img src="images/leader.jpg" alt="Maanya Tyagi" class="leader-img">
+            <h3 class="leader-name">Maanya Tyagi</h3>
+            <p class="leader-role">Co-Founder & COO</p>
+          </div>
+          <div class="leader-back">
+            <h4>About Maanya</h4>
+            <p>Expert in operations & client strategy, ensuring seamless delivery and success.</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more leaders as needed -->
+    </div>
+  </div>
+</section>
+
+<script>// Scroll Reveal Animation for Leaders
+document.addEventListener("DOMContentLoaded", () => {
+  const leaders = document.querySelectorAll(".leader-card");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  leaders.forEach(card => {
+    observer.observe(card);
+  });
+});
+
+</script>
+<!-- Our Certifications & Achievements Section -->
+<section id="certifications" class="cert-section">
+  <div class="container">
+    <h2 class="section-title">Our Certifications & Achievements</h2>
+    <p class="section-subtitle">Recognized for innovation, trust, and excellence</p>
+
+    <!-- Certifications Grid -->
+    <div class="cert-grid">
+      <div class="cert-item">
+        <div class="cert-badge">
+          <img src="images/OIP.jpeg" alt="Google Partner" />
+        </div>
+        <h4>Open AI Certified</h4>
+      </div>
+      <div class="cert-item">
+        <div class="cert-badge">
+          <img src="images/DPIIT.jpEg" alt="ISO Certified" />
+        </div>
+        <h4>DPIIT Applied</h4>
+      </div>
+      <div class="cert-item">
+        <div class="cert-badge">
+          <img src="images/msme3.jpeg" alt="MSME Registration" />
+        </div>
+        <h4>MSME Registered</h4>
+      </div>
+      <div class="cert-item">
+        <div class="cert-badge">
+          <img src="images/NCS_India.jpg" alt="Best AI Agency" />
+        </div>
+        <h4>National Career Services Registered</h4>
+      </div>
+    </div>
+
+    <!-- Achievement Stats -->
+    <div class="achievement-stats">
+      <div class="stat-item">
+        <h3 class="counter" data-target="98">0</h3>
+        <p>Client Satisafaction</p>
+      </div>
+      <div class="stat-item">
+        <h3 class="counter" data-target="95">0</h3>
+        <p>Client Retention</p>
+      </div>
+      <div class="stat-item">
+        <h3 class="counter" data-target="5">0</h3>
+        <p>Certifications Earned</p>
+      </div>
+      <div class="stat-item">
+        <h3 class="counter" data-target="2">0</h3>
+        <p>Industry Awards</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".counter");
+  const animatedElements = document.querySelectorAll(".cert-item, .stat-item");
+  let started = false;
+
+  const animateCounters = () => {
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute("data-target");
+        const current = +counter.innerText;
+        const increment = Math.ceil(target / 100);
+
+        if (current < target) {
+          counter.innerText = current + increment;
+          setTimeout(updateCount, 25);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        if (entry.target.classList.contains("stat-item") && !started) {
+          animateCounters();
+          started = true;
+        }
+      }
+    });
+  }, { threshold: 0.3 });
+
+  animatedElements.forEach(el => observer.observe(el));
+});
+
+</script>
+<footer class="mav-footer" role="contentinfo" aria-labelledby="mav-footer-title">
+  <h2 id="mav-footer-title" class="sr-only">MaVionix website footer</h2>
+
+  <!-- Animated Tech Grid Background -->
+  <div class="mav-footer__grid-bg" aria-hidden="true"></div>
+
+  <!-- CTA STRIP -->
+  <div class="mav-footer__cta">
+    <h3>Ready to Build Something Powerful?</h3>
+    <a class="mav-footer__cta-btn" href="contact.html">Get in Touch</a>
+  </div>
+
+  <div class="mav-footer__inner">
+
+    <!-- BRAND -->
+    <section class="mav-footer__brand" aria-label="Brand">
+      <a href="index.html" class="mav-footer__brand-link" aria-label="MaVionix home">
+        <img src="images/logo.png" alt="MaVionix Logo" class="mav-footer__logo" loading="lazy" decoding="async">
+      </a>
+      <p class="mav-footer__tagline">AI‑driven web, automation, and digital transformation solutions.</p>
+    </section>
+
+    <!-- QUICK LINKS -->
+    <details class="mav-footer__group" open>
+      <summary class="mav-footer__group-title">Quick Links</summary>
+      <nav class="mav-footer__nav" aria-label="Quick Links">
+        <ul class="mav-footer__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+         
+          <li><a href="services.html">Services</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </details>
+
+    <!-- SERVICES -->
+<details class="mav-footer__group" open>
+  <summary class="mav-footer__group-title">Our Services</summary>
+  <nav class="mav-footer__nav" aria-label="Our Services">
+    <ul class="mav-footer__list">
+      <li><a href="services.html#website-development">Website Development</a></li>
+      <li><a href="services.html#chatbot-development">AI Chatbots</a></li>
+      <li><a href="services.html#graphics-design">Branding &amp; Design</a></li>
+      <li><a href="services.html#ai-automation">AI Automation</a></li>
+      <li><a href="services.html#writing-translation">Content Solutions</a></li>
+      <li><a href="services.html#other-services">Other Services</a></li>
+    </ul>
+  </nav>
+</details>
+
+
+    <!-- CONTACT -->
+    <details class="mav-footer__group" open>
+      <summary class="mav-footer__group-title">Contact Us</summary>
+      <address class="mav-footer__contact" aria-label="Contact information">
+        <p>Email: <a href="mailto:contactmavionix@gmail.com">contactmavionix@gmail.com</a></p>
+        <p>Phone: <a href="tel:+910000000000">+91 78180 37404</a></p>
+        <p>Headquarters: Modinagar, Ghaziabad, India</p>
+      </address>
+       <div class="mav-footer__inner">
+    <div class="mav-footer__social" role="navigation" aria-label="Social media">
+      <a href="https://www.facebook.com/profile.php?id=61579205461137" class="mav-footer__social-link" aria-label="Mavionix on Facebook" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 11.93 2 6.35 2 1.86 6.48 1.86 12.07c0 4.99 3.64 9.13 8.4 9.93v-7.02H7.9v-2.9h2.36V9.41c0-2.34 1.4-3.63 3.55-3.63 1.03 0 2.1.18 2.1.18v2.31h-1.18c-1.16 0-1.52.72-1.52 1.46v1.75h2.59l-.41 2.9h-2.18V22c4.76-.8 8.4-4.94 8.4-9.93Z"/></svg>
+        <span>Facebook</span>
+      </a>
+      <a href="https://www.instagram.com/mavionix.ai/" class="mav-footer__social-link" aria-label="Mavionix on Instagram" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm5 5.4A5.6 5.6 0 1 0 17.6 13 5.6 5.6 0 0 0 12 7.4Zm0 9.2A3.6 3.6 0 1 1 15.6 13 3.6 3.6 0 0 1 12 16.6Zm6.1-9.9a1.3 1.3 0 1 0-1.3-1.3 1.3 1.3 0 0 0 1.3 1.3Z"/></svg>
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.linkedin.com/company/mavionix-ai/" class="mav-footer__social-link" aria-label="Mavionix on LinkedIn" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 4.99 2.5 2.5 0 0 0 0-4.99ZM3.5 9h3v12h-3zM10 9h2.9v1.64h.04C13.52 9.66 15 9 16.9 9c3.2 0 3.8 2.1 3.8 4.84V21H18v-6.3c0-1.5-.03-3.44-2.1-3.44-2.1 0-2.4 1.64-2.4 3.33V21h-3z"/></svg>
+        <span>LinkedIn</span>
+      </a>
+      <a href="https://x.com/mavionix" class="mav-footer__social-link" aria-label="Mavionix on X / Twitter" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.2 3H20l-6.6 7.6L21 21h-5.2l-4.1-5-4.7 5H4.1l7.1-7.9L3 3h5.3l3.7 4.5L17.2 3Z"/></svg>
+        <span>X / Twitter</span>
+      </a>
+    </div>
+    
+  </div>
+    </details>
+
+  </div><!-- /.mav-footer__inner -->
+
+  <div class="mav-footer__bottom">
+  <p>© <time id="mav-footer-year" aria-label="Current year">2025</time> MaVionix. All Rights Reserved.</p>
+  <nav class="mav-footer__legal" aria-label="Legal">
+    <a href="images/Terms.docx" download>Terms &amp; Conditions</a>
+    <span aria-hidden="true">•</span>
+    <a href="images/Policy.docx" download>Privacy Policy</a>
+    <span aria-hidden="true">•</span>
+    <a href="images/Disclaimer.docx" download>Disclaimer</a>
+  </nav>
+</div>
+  <script>
+    // Update year dynamically
+    document.getElementById('mav-footer-year').textContent = new Date().getFullYear();
+
+    // Handle desktop open state for details
+    document.querySelectorAll('.mav-footer__group').forEach(group => {
+      group.addEventListener('click', () => {
+        if (window.innerWidth >= 768) {
+          group.open = !group.open;
+        }
+      });
+    });
+  </script>
+
+</footer>
+
+<!-- =============================================================
+  STYLES
+============================================================= -->
+<style>
+:root {
+  /* Brand Palette */
+  --mav-neon: #C800FF;
+  --mav-soft: #A64DFF;
+  --mav-gray: #CCCCCC;
+  --mav-charcoal: #0F0F10;
+  --mav-charcoal-2: #111217;
+  --mav-white: #FFFFFF;
+  --mav-text-light: #EAEAEA;
+  --mav-text-mid: #C9C9C9;
+  --mav-text-dim: #9A9AA0;
+
+  /* Layout tokens */
+  --mav-footer-max-width: 1200px;
+  --mav-footer-pad-x: clamp(1rem, 2vw, 2rem);
+  --mav-footer-pad-y: clamp(2.5rem, 6vw, 5rem);
+  --mav-footer-grid-gap: clamp(1.25rem, 3.5vw, 3rem);
+  --mav-footer-radius: 14px;
+  --mav-focus-ring: 0 0 0 3px rgba(200,0,255,0.55);
+}
+
+/* Visually hidden utility */
+.sr-only {position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Dark theme baseline */
+.mav-footer { 
+  background: linear-gradient(145deg, var(--mav-charcoal), var(--mav-charcoal-2));
+  color: var(--mav-text-mid);
+  padding: var(--mav-footer-pad-y) var(--mav-footer-pad-x) calc(var(--mav-footer-pad-y)/2);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Poppins", sans-serif;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate; /* create stacking context for bg */
+  font-size: 16px; /* ensures base legibility on mobile */
+}
+
+/* Top accent line */
+.mav-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--mav-neon), var(--mav-soft));
+  z-index: 2; /* above bg grid */
+}
+
+/* Animated Tech Grid Background */
+.mav-footer__grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(90deg, rgba(200,0,255,.12) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(200,0,255,.12) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: mavFooterGridMove 16s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes mavFooterGridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .mav-footer__grid-bg { animation: none; background-size: 32px 32px; opacity: 0.35; }
+  .mav-footer__cta-btn, .mav-footer__list a, .mav-footer__social-link { transition: none; }
+}
+
+/* INNER GRID WRAPPER */
+.mav-footer__inner {
+  display: grid;
+  max-width: var(--mav-footer-max-width);
+  margin-inline: auto;
+  gap: var(--mav-footer-grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  position: relative;
+  z-index: 1; /* above grid bg */
+}
+
+/* BRAND */
+.mav-footer__brand { text-align: left; max-width: 460px; }
+.mav-footer__logo { width: clamp(140px, 22vw, 190px); height: auto; margin-bottom: .85rem; }
+.mav-footer__tagline { font-size: 0.98rem; line-height: 1.6; color: var(--mav-text-dim); max-width: 42ch; }
+
+/* GROUPS (details/summary) */
+.mav-footer__group { background: transparent; border: none; padding: 0; margin: 0; }
+.mav-footer__group[open] > .mav-footer__group-title::after { transform: rotate(45deg); }
+
+.mav-footer__group-title {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  padding: .35rem 1.5rem .6rem 0; /* extra right space for the + icon */
+  margin-bottom: .4rem;
+  font-size: 1.15rem;
+  color: var(--mav-neon);
+  font-weight: 700;
+  outline: none;
+}
+
+/* remove default summary marker */
+.mav-footer__group-title::-webkit-details-marker { display: none; }
+
+/* Toggle indicator (mobile/tablet) */
+.mav-footer__group-title::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: .15rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--mav-soft);
+  transition: transform .25s ease;
+}
+
+@media (min-width: 992px) {
+  .mav-footer__group-title::after { display: none; }
+}
+
+/* LIST RESET */
+.mav-footer__list { list-style: none; margin: 0; padding: 0; }
+.mav-footer__list li { margin-bottom: .55rem; }
+.mav-footer__list a {
+  text-decoration: none;
+  color: var(--mav-text-light);
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: color .25s, transform .25s;
+}
+.mav-footer__list a:hover, .mav-footer__list a:focus-visible {
+  color: var(--mav-soft);
+  transform: translateX(4px);
+  outline: none;
+  box-shadow: var(--mav-focus-ring);
+  border-radius: 6px;
+  padding-inline: 2px;
+}
+
+/* CONTACT */
+.mav-footer__contact { font-style: normal; font-size: 1rem; line-height: 1.6; color: var(--mav-text-light); margin-bottom: .8rem; }
+.mav-footer__contact a { color: var(--mav-text-light); text-decoration: none; transition: color .25s; }
+.mav-footer__contact a:hover, .mav-footer__contact a:focus-visible { color: var(--mav-neon); outline: none; box-shadow: var(--mav-focus-ring); border-radius: 6px; padding-inline: 2px; }
+
+/* SOCIAL */
+.mav-footer__social { display: grid; gap: .6rem; margin-top: .75rem; max-width: 280px; }
+.mav-footer__social-link { display: inline-flex; align-items: center; gap: .65em; padding: .45em .6em; font-size: 1rem; line-height: 1.2; color: var(--mav-text-light); text-decoration: none; transition: color .25s, transform .25s, text-shadow .25s; border-radius: 10px; }
+.mav-footer__social-link .icon { width: 1.15em; height: 1.15em; fill: currentColor; flex: 0 0 auto; }
+.mav-footer__social-link:hover, .mav-footer__social-link:focus-visible { color: var(--mav-neon); transform: translateX(4px); text-shadow: 0 0 10px rgba(200,0,255,.8); outline: none; box-shadow: var(--mav-focus-ring); }
+
+/* NEWSLETTER (optional block styles preserved if you add it) */
+.mav-footer__newsletter { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; max-width: 320px; }
+.mav-footer__newsletter input[type="email"] { flex: 1 1 auto; min-width: 160px; padding: .65rem .8rem; border-radius: var(--mav-footer-radius); border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.05); color: var(--mav-white); font-size: .98rem; }
+.mav-footer__newsletter input[type="email"]::placeholder { color: var(--mav-text-dim); }
+.mav-footer__newsletter input[type="email"]:focus { outline: none; box-shadow: var(--mav-focus-ring); border-color: var(--mav-neon); }
+.mav-footer__btn { flex: 0 0 auto; padding: .65rem 1rem; font-size: .98rem; border-radius: var(--mav-footer-radius); border: none; cursor: pointer; background: linear-gradient(90deg, var(--mav-neon), var(--mav-soft)); color: var(--mav-white); transition: transform .25s, filter .25s; }
+.mav-footer__btn:hover, .mav-footer__btn:focus-visible { transform: translateY(-2px) scale(1.02); filter: brightness(1.1); outline: none; box-shadow: var(--mav-focus-ring); }
+
+/* CTA STRIP */
+.mav-footer__cta { width: 100%; max-width: var(--mav-footer-max-width); margin: 0 auto 2.25rem; padding: 1.75rem 1rem; text-align: center; background: rgba(200,0,255,.08); border: 1px solid rgba(200,0,255,.25); border-radius: var(--mav-footer-radius); position: relative; backdrop-filter: blur(4px); z-index: 1; }
+.mav-footer__cta h3 { margin: 0 0 .85rem; font-size: clamp(1.15rem, 2.3vw, 1.65rem); color: var(--mav-white); font-weight: 800; letter-spacing: .2px; }
+.mav-footer__cta-btn { display: inline-block; padding: .75rem 1.35rem; font-size: 1rem; font-weight: 700; text-decoration: none; color: var(--mav-white); background: linear-gradient(90deg, var(--mav-neon), var(--mav-soft)); border-radius: var(--mav-footer-radius); transition: transform .25s, filter .25s; }
+.mav-footer__cta-btn:hover, .mav-footer__cta-btn:focus-visible { transform: translateY(-2px) scale(1.03); filter: brightness(1.1); outline: none; box-shadow: var(--mav-focus-ring); }
+
+/* BOTTOM BAR */
+.mav-footer__bottom { margin-top: 2.6rem; padding-top: 1.1rem; border-top: 1px solid rgba(255,255,255,.12); text-align: center; position: relative; z-index: 1; }
+.mav-footer__bottom p { margin: 0 0 .5rem; font-size: .95rem; color: var(--mav-text-mid); }
+.mav-footer__legal { display: inline-flex; flex-wrap: wrap; gap: .75rem; align-items: center; justify-content: center; font-size: .95rem; color: var(--mav-text-dim); }
+.mav-footer__legal a { color: var(--mav-text-dim); text-decoration: none; transition: color .25s; }
+.mav-footer__legal a:hover, .mav-footer__legal a:focus-visible { color: var(--mav-neon); outline: none; box-shadow: var(--mav-focus-ring); border-radius: 6px; padding-inline: 2px; }
+
+/* SMALL SCREEN OPTIMIZATIONS */
+@media (max-width: 767.98px) {
+  .mav-footer__inner { grid-template-columns: 1fr; text-align: left; }
+  .mav-footer__brand { max-width: none; }
+  .mav-footer__tagline { max-width: 44ch; }
+  .mav-footer__social { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); max-width: none; }
+}
+
+/* EXTRA SMALL SCREEN (<=480px) */
+@media (max-width: 480.98px) {
+  :root { --mav-footer-pad-y: 2.3rem; }
+  .mav-footer__logo { width: 150px; }
+}
+
+/* LIGHT THEME SUPPORT (if you add data-theme="light" to <html>) */
+html[data-theme="light"] .mav-footer { background: linear-gradient(145deg, #F7F7F7, #ECECEC); color: #333; }
+html[data-theme="light"] .mav-footer__tagline,
+html[data-theme="light"] .mav-footer__list a,
+html[data-theme="light"] .mav-footer__contact,
+html[data-theme="light"] .mav-footer__social-link,
+html[data-theme="light"] .mav-footer__bottom p,
+html[data-theme="light"] .mav-footer__legal a { color: #333; }
+html[data-theme="light"] .mav-footer__legal a:hover { color: var(--mav-neon); }
+
+/* High Contrast (Windows/HC themes) */
+@media (forced-colors: active) {
+  .mav-footer, .mav-footer * { forced-color-adjust: auto; }
+  .mav-footer__cta { background: transparent; border: 1px solid CanvasText; }
+  .mav-footer__cta-btn { background: ButtonFace; color: ButtonText; }
+}
+
+/* Simple fade-in utility (used by script) */
+.mav-fade { opacity: 0; transform: translateY(8px); transition: opacity .6s ease, transform .6s ease; }
+.mav-fade.is-in { opacity: 1; transform: none; }
+</style>
+
+<!-- =============================================================
+  SCRIPT (Dynamic Year + Desktop details-open + Fade-ins)
+============================================================= -->
+<script>
+(function () {
+  const onReady = (fn) => (document.readyState !== 'loading') ? fn() : document.addEventListener('DOMContentLoaded', fn);
+
+  onReady(function () {
+    // 1) Dynamic Year
+    const yEl = document.getElementById('mav-footer-year');
+    if (yEl) yEl.textContent = new Date().getFullYear();
+
+    // 2) Ensure details expanded on desktop (>= 992px)
+    const mq = window.matchMedia('(min-width: 992px)');
+    const detailsEls = document.querySelectorAll('.mav-footer__group');
+    const syncDetails = () => {
+      detailsEls.forEach(d => mq.matches ? d.setAttribute('open', '') : d.removeAttribute('open'));
+    };
+    syncDetails();
+    mq.addEventListener ? mq.addEventListener('change', syncDetails) : mq.addListener(syncDetails);
+
+    // 3) Fade-in sections when visible
+    const observed = document.querySelectorAll('.mav-footer__brand, .mav-footer__group, .mav-footer__bottom, .mav-footer__cta');
+    observed.forEach(el => el.classList.add('mav-fade'));
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-in'); });
+      }, { threshold: 0.12 });
+      observed.forEach(el => io.observe(el));
+    } else {
+      // Fallback: reveal immediately
+      observed.forEach(el => el.classList.add('is-in'));
+    }
+  });
+})();
+</script>
+
+        <!-- js -->
+        <script src = "js/script.js"></script>
+        
+    </body>
+</html>
