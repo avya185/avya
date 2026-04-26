@@ -119,14 +119,14 @@
 
     /* ===== HEADER (Dark Hero) ===== */
     .faq-hero{
-        position:relative;
-        background:var(--mvx-charcoal);
-        color:var(--mvx-white);
-        text-align:center;
-        padding:120px 20px 160px; /* extra bottom for overlap card */
-        overflow:hidden;
-        isolation:isolate;
-    }
+    position:relative;
+    background:var(--mvx-charcoal);
+    color:var(--mvx-white);
+    text-align:center;
+    padding:60px 20px 80px; /* ← REDUCED */
+    overflow:hidden;
+    isolation:isolate;
+}
     .faq-hero::before{
         /* animated grid overlay */
         content:"";
@@ -230,8 +230,8 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width:600px){
-        .faq-hero{padding:100px 16px 140px;}
-        .faq-wrapper{margin:-80px 16px 64px;padding:32px 20px 72px;}
+    .faq-hero{padding:60px 16px 80px;} /* ← CHANGE FROM 100px 16px 140px */
+    .faq-wrapper{margin:-80px 16px 64px;padding:32px 20px 72px;}
         .faq-q-btn{font-size:1.05rem;}
     }
 
