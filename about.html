@@ -65,8 +65,8 @@
     .about-hero{position:relative;background:var(--mvx-charcoal);color:var(--mvx-white);text-align:center;display: flex;
 justify-content: center;
 align-items: center;
-min-height: 100vh; /* Full screen height */
-padding: 0 20px; /* Keep small horizontal padding */
+min-height: calc(100vh - 80px); /* Full screen height */
+padding: 40px 16px 40px; /* Keep small horizontal padding */
 ;overflow:hidden;isolation:isolate;}
     .about-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 120%,rgba(200,0,255,.35),transparent 70%),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(0deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:100% 100%,40px 40px,40px 40px;mix-blend-mode:screen;animation:gridMove 20s linear infinite;z-index:0;}
     .about-hero video.bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:.25;filter:brightness(.8) contrast(1.2) saturate(1.1);}
@@ -80,7 +80,7 @@ padding: 0 20px; /* Keep small horizontal padding */
     @keyframes gridMove{0%{background-position:0 0,0 0,0 0}100%{background-position:0 0,80px 40px,40px 80px}}
 
     /* ----------------- ABOUT CARD (overlapping white card) ----------------- */
-    .about-wrapper{background:var(--mvx-white);color:#222;max-width:1000px;margin:-60px auto 80px;padding:clamp(32px,5vw,64px) clamp(16px,5vw,48px) 64px;border-radius:var(--mvx-radius-lg);box-shadow:var(--mvx-shadow-md);position:relative;}
+    .about-wrapper{background:var(--mvx-white);color:#222;max-width:1000px;margin: -60px auto 40px;;padding:clamp(32px,5vw,64px) clamp(16px,5vw,48px) 64px;border-radius:var(--mvx-radius-lg);box-shadow:var(--mvx-shadow-md);position:relative;}
     .about-wrapper::after{content:"";position:absolute;left:50%;bottom:-24px;translate:-50% 0;width:120px;height:6px;border-radius:3px;background:var(--mvx-neon-purple);opacity:.5;}
 
     .about-wrapper .section-title{text-align:center;font-size:var(--mvx-title-h);font-weight:700;margin-bottom:16px;}
